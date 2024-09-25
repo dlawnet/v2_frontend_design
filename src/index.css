@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #491217;
+  --text-color: #fff;
+  --background-color: #130406;
+  --secondary-color: #f5d549;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+}
