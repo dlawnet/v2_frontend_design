@@ -3,12 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #491217;
+  /* --primary-color: #491217; */
+  --primary-color: #5f1314;
   --text-color: #fff;
   --background-color: #130406;
-  --secondary-color: #f5d549;
+  /* --secondary-color: #f5d549; */
+  --secondary-color: #fced22;
 }
 
 body {
   font-family: "Times New Roman", Times, serif;
+}
+
+.active {
+  background-color: #f5d549;
+  color: #491217;
 }

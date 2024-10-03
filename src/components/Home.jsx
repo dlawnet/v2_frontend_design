@@ -10,11 +10,11 @@ function Home() {
       <div>
         <div className="bg-[url('/hero.svg')] bg-no-repeat bg-cover py-16 md:px-14 lg:px-32 flex flex-col justify-center items-center mx-auto">
           <div className="md:flex flex-col justify-center py-8 items-center">
-            <h1 className="md:text-[42px] text-[38px] font-bold lg:w-[80%] leading-tight pb-6 md:px-36 px-14 py-14 md:py-0 text-[var(--secondary-color)] md:text-center">
+            <h1 className="md:text-[320%] text-[38px] font-bold lg:w-[80%] leading-tight pb-6 md:px-36 px-14 py-14 md:py-0 text-[var(--secondary-color)] md:text-center">
               Unlock your full potential as a Law Student.
             </h1>
 
-            <p className="text-[var(--secondary-color)] py-3 md:w-[50%] w-[85%] md:text-center px-14 text-[18px]">
+            <p className="text-[var(--secondary-color)] py-3 md:w-[50%] w-[85%] md:text-center px-14 text-[90%] md:text-[120%]">
               Join DLawNet today for your Legal Education and Networking.
             </p>
 
@@ -79,7 +79,7 @@ function Home() {
                 <img
                   src="/law.svg"
                   alt="student"
-                  className="font-bold text-[var(--primary-color)] md:w-[30%]"
+                  className="font-bold text-[var(--primary-color)] md:w-[45%]"
                 />
               </div>
 

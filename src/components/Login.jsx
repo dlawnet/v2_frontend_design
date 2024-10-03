@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
 function Login() {
@@ -6,10 +7,10 @@ function Login() {
       <Navbar />
       <div
         style={{ height: "100dvh" }}
-        className="flex items-center justify-center"
+        className="flex items-center justify-center mt-8"
       >
-        <div className="bg-[var(--primary-color)] mx-8 py-6 rounded-lg">
-          <div className="flex justify-center items-center text-center">
+        <div className="bg-[var(--primary-color)] pt-4 mx-8 md:py-6 rounded-lg">
+          <div className="flex justify-center  items-center text-center">
             <img src="/logo.svg" alt="logo" className="w-[67px] h-[67px]" />
           </div>
           <div className="md:flex ml-14 md:justify-around items-center">
@@ -32,7 +33,7 @@ function Login() {
                   required
                   className="border border-white w-[85%] bg-transparent text-white p-4 "
                 />
-                <div className="flex md:gap-44 gap-20 text-sm mt-4 mb-6">
+                <div className="flex md:gap-44 gap-12 md:text-sm text-[12px] my-4">
                   <div className="flex items-center">
                     <input type="checkbox" id="stayLoggedIn" className="mr-2" />
                     <label
@@ -49,12 +50,14 @@ function Login() {
                     Forgot Password?
                   </a>
                 </div>
-                <button
-                  type="submit"
-                  className="w-[85%] px-4 py-2 bg-[var(--text-color)] text-[var(--primary-color)] rounded-md hover:bg-primary-600" // Increased padding and added bottom margin
-                >
-                  Login
-                </button>
+                <div className="flex justify-center text-center">
+                  <Link
+                    to={"/welcome"}
+                    className="md:w-[95%] mt-4 w-full mr-10 md:mr-14 py-3 bg-[var(--text-color)] text-[var(--primary-color)] rounded-md hover:bg-primary-600"
+                  >
+                    Login
+                  </Link>
+                </div>
                 <div className="my-2 text-sm mr-14 text-[var(--text-color)]">
                   Don&apos;t have an account?{" "}
                   <a href="#" className="text-primary-500">

@@ -22,8 +22,8 @@ function Footer() {
       <div className="md:space-y-3 space-y-2 flex border-t-[1px] md:border-none border-black flex-col">
         <h1 className="font-semibold py-2">Page</h1>
         <Link to="/">Home</Link>
-        <Link to="/">About</Link>
-        <Link to="/">Contact</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
       </div>
 
       <div className="md:space-y-3 space-y-2 flex border-t-[1px] md:border-none border-black flex-col">
