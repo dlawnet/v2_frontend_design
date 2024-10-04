@@ -52,7 +52,7 @@ function Welcome() {
     //   </div>
     // );
 
-    <div className="md:px-16 px-8">
+    <div className="md:px-16">
       {/* Welcome Section */}
       <div className="text-center">
         <div

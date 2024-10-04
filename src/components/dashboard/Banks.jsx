@@ -79,12 +79,12 @@ function Banks() {
               </div>
             ) : (
               <div>
-                <h1 className="md:text-2xl text-lg font-semibold">
+                <h1 className="md:text-2xl text-[16px] sm:text-justify font-semibold">
                   Please Note:
                 </h1>
 
                 <p>Subscription is by a wallet system of Pay As You Use.</p>
-                <ul className="px-6">
+                <ul className="px-6 space-y-3">
                   <li>
                     1. {""} Setup Fee: University Law Students ₦6,000 a one time
                     activation fee to enable use of all features & facilities.

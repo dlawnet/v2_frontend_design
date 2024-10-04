@@ -17,11 +17,11 @@ function Panel() {
   }, []);
 
   return (
-    <div className="px-4 sm:px-6 md:px-16 py-4 overflow-hidden">
-      <div className="border rounded-lg p-6 ">
+    <div className="md:px-16 py-4 overflow-hidden">
+      <div className="border rounded-lg md:p-6 p-3 ">
         <div>
           <h1 className="text-2xl">Panel Of Experts</h1>
-          <p className="text-[var(--primary-color)]">
+          <p className="text-[var(--primary-color)] sm:text-sm sm:py-2">
             Select a Service Type from our panel of experts.
           </p>
         </div>
@@ -113,7 +113,7 @@ function Panel() {
               ) : (
                 <div>
                   <h1 className="font-semibold text-lg py-3">Please Note</h1>
-                  <div className="space-y-4 text-justify md:w-full w-[85%]">
+                  <div className="space-y-4 text-justify text-[12px] md:text-base md:w-full w-[85%]">
                     <p>
                       Kindly ensure the question you are about to ask is
                       relevant to law and avoid repetition of questions.

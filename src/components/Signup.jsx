@@ -108,7 +108,7 @@ function Signup() {
                           />
                           <label
                             htmlFor="stayLoggedIn"
-                            className="text-[var(--text-color)] text-[11px] md:text-sm"
+                            className="text-[var(--text-color)] text-[8px] md:text-sm"
                           >
                             I hereby accept the Terms and Conditions abding the
                             law
@@ -130,7 +130,7 @@ function Signup() {
                       Create Account
                     </button>
 
-                    <div className="text-sm pt-4 text-center mr-8 md:mr-0 md:text-start text-[var(--text-color)]">
+                    <div className="text-sm md:text-xl pt-4 text-center mr-8 md:mr-0 md:text-start text-[var(--text-color)]">
                       Already have an account? {""}
                       <a href="#" className="text-primary-500">
                         Login

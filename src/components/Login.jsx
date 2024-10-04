@@ -38,7 +38,7 @@ function Login() {
                     required
                     className="border border-white w-[85%] bg-transparent text-white p-4 "
                   />
-                  <div className="flex md:gap-44 gap-12 md:text-sm text-[12px] my-4">
+                  <div className="flex md:gap-32 items-center gap-10 md:text-lg text-[12px] my-4">
                     <div className="flex items-center">
                       <input
                         type="checkbox"
@@ -67,11 +67,11 @@ function Login() {
                       Login
                     </Link>
                   </div>
-                  <div className="my-2 text-sm mr-14 text-[var(--text-color)]">
+                  <div className="my-2 md:text-lg mr-14 text-[12px] text-[var(--text-color)]">
                     Don&apos;t have an account?{" "}
-                    <a href="#" className="text-primary-500">
+                    <Link to={"/register"} className="text-primary-500">
                       Sign Up
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
