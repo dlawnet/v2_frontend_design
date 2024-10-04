@@ -3,12 +3,10 @@
 @tailwind utilities;
 
 :root {
-  /* --primary-color: #491217; */
-  --primary-color: #5f1314;
+  --primary-color: #491217;
   --text-color: #fff;
-  --background-color: #130406;
-  /* --secondary-color: #f5d549; */
-  --secondary-color: #fced22;
+  --background-color: #0f0905;
+  --secondary-color: #fddf5a;
 }
 
 body {
@@ -16,6 +14,23 @@ body {
 }
 
 .active {
-  background-color: #f5d549;
+  background-color: #fddf5a;
   color: #491217;
+}
+
+.fc {
+  background-color: transparent !important;
+}
+
+.calendar-wrapper {
+  overflow: hidden;
+}
+
+.fc-toolbar-title {
+  font-size: 1.5rem !important;
+}
+
+.fc-event {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #000 !important;
 }

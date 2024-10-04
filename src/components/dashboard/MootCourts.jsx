@@ -3,12 +3,12 @@ import { useState } from "react";
 function MootCourts() {
   const [video, setVideo] = useState(false);
   return (
-    <div className="">
+    <div className="md:px-10">
       <div className="flex justify-center mx-auto w-fit">
         <input
           type="search"
           placeholder="search"
-          className="py-3 px-4 outline-none w-[30rem] rounded-full border border-[var(--primary-color)]"
+          className="py-3 px-4 outline-none md:w-[30rem] w-[20rem] rounded-full border border-[var(--primary-color)]"
         />
       </div>
 

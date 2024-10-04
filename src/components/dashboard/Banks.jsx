@@ -1,13 +1,23 @@
 import { PiCoinsFill } from "react-icons/pi";
 import { ImPlus } from "react-icons/im";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Banks() {
   const [activate, setActivate] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+  }, []);
+
   return (
-    <div>
+    <div className="md:px-16">
       {activate === false && (
-        <div className="md:px-20 px-8 md:py-8 ">
+        <div className="md:px-20 px-8 md:py-8 text-lg">
           <div className="bg-[var(--primary-color)] md:p-12 p-8 my-8 md:my-0 w-fit rounded-lg">
             <div className="flex items-center gap-3">
               <PiCoinsFill
@@ -27,7 +37,7 @@ function Banks() {
             </p>
           </div>
 
-          <div className="space-y-3 my-8">
+          {/* <div className="space-y-3 my-8">
             <h1 className="md:text-2xl text-lg font-semibold">Please Note:</h1>
 
             <p>Subscription is by a wallet system of Pay As You Use.</p>
@@ -50,6 +60,51 @@ function Banks() {
               Please be advised, after every payment to the bank, upload your
               remittance receipt to activate the service.
             </p>
+          </div> */}
+
+          <div className="space-y-3 my-8">
+            {isLoading ? (
+              <div className="animate-pulse space-y-4">
+                <div className="h-4 bg-gray-300 rounded-md w-[40%] md:w-[30%]"></div>
+
+                <div className="h-3 bg-gray-300 rounded-md w-[80%]"></div>
+
+                <div className="space-y-2">
+                  <div className="h-3 bg-gray-300 rounded-md w-[90%]"></div>
+                  <div className="h-3 bg-gray-300 rounded-md w-[85%]"></div>
+                  <div className="h-3 bg-gray-300 rounded-md w-[95%]"></div>
+                </div>
+
+                <div className="h-3 bg-gray-300 rounded-md w-[70%]"></div>
+              </div>
+            ) : (
+              <div>
+                <h1 className="md:text-2xl text-lg font-semibold">
+                  Please Note:
+                </h1>
+
+                <p>Subscription is by a wallet system of Pay As You Use.</p>
+                <ul className="px-6">
+                  <li>
+                    1. {""} Setup Fee: University Law Students ₦6,000 a one time
+                    activation fee to enable use of all features & facilities.
+                  </li>
+                  <li>
+                    2. {""} You will receive an email with a verification link
+                    to complete the registration process.
+                  </li>
+                  <li>
+                    3. {""} Please note that you may not be able to access your
+                    account if you have not verified your email address.
+                  </li>
+                </ul>
+
+                <p className="py-3">
+                  Please be advised, after every payment to the bank, upload
+                  your remittance receipt to activate the service.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       )}

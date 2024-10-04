@@ -31,7 +31,7 @@ function LazyImage({ src, alt, classStyle, ...props }) {
       src={isInView ? src : ""}
       alt={alt}
       {...props}
-      className={`${classStyle} transition-opacity duration-700 ease-in-out opacity-0`}
+      className={`${classStyle} transition-opacity duration-1000 ease-in-out opacity-0`}
       onLoad={(e) => (e.target.style.opacity = 1)}
     />
   );

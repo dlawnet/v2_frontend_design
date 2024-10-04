@@ -15,9 +15,9 @@ function Sidebar() {
     setToggleNav(!toggleNav);
   };
   return (
-    <div className="z-50 fixed">
+    <div className="z-50 fixed top-0 left-0 right-0">
       {/* Top Navigation Bar */}
-      <div className="w-[100rem] hidden bg-[var(--primary-color)] md:flex justify-between items-center px-14 py-3">
+      <div className="w-full hidden bg-[var(--primary-color)] md:flex justify-between items-center px-14 py-3">
         <Link to="/">
           <img src="/logo.svg" alt="logo" className="w-[67px] h-[67px]" />
         </Link>
@@ -91,7 +91,7 @@ function Sidebar() {
       </div>
 
       {/* Sidebar */}
-      <div className="hidden space-y-3 pl-4 py-10 text-center md:flex flex-col bg-[var(--primary-color)] h-full fixed">
+      <div className="hidden text-lg space-y-3 pl-4 py-10 text-center md:flex flex-col bg-[var(--primary-color)] h-full fixed">
         {/* <div className="bg-[var(--secondary-color)] px-8 py-4 flex gap-2 rounded-l-3xl"> */}
 
         <NavLink

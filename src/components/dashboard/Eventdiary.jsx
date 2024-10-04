@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiRepost } from "react-icons/bi";
 import { FaBoxArchive } from "react-icons/fa6";
 import { GrGallery } from "react-icons/gr";
@@ -16,12 +16,24 @@ import { BiSolidDownArrow } from "react-icons/bi";
 import { ImPlus } from "react-icons/im";
 import EventDiaryProfile from "./EventDiaryProfile";
 import LazyImage from "../constant/LazyImage";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Eventdiary() {
   const [activeSection, setActiveSection] = useState("PersonalEventDiary");
   const [addEvent, setAddEvent] = useState(false);
   const [canclePost, setCanclePost] = useState(false);
-  // const [showProfile, setShowProfile] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+  }, []);
 
   const handleSectionClick = (section) => {
     setActiveSection(section);
@@ -34,12 +46,16 @@ function Eventdiary() {
     handleSectionClick("PersonalEventDiary");
   };
 
+  useEffect(() => {
+    AOS.init();
+  });
+
   return (
     <div className=" ">
       {activeSection === "EventDiaryProfile" ? (
         ""
       ) : (
-        <div className="flex text-center py-8 justify-center md:justify-start md:text-start lg:px-52 lg:gap-28 md:px-28 md:gap-24 px-18 gap-14">
+        <div className="flex text-center pt-8 justify-center md:justify-start md:text-start lg:px-52 lg:gap-28 md:px-28 md:gap-24 px-18 gap-14">
           <button
             onClick={() => handleSectionClick("PersonalEventDiary")}
             className={`${
@@ -66,7 +82,7 @@ function Eventdiary() {
       <div className="md:grid md:grid-cols-[70%_30%] md:gap-3">
         {activeSection === "PersonalEventDiary" && (
           <div className="md:px-14">
-            <div className="border border-gray-300 md:p-6 p-4">
+            <div className="border border-gray-300 md:px-8 py-6 p-4">
               <div className="flex justify-between flex-col">
                 <div className="flex mb-6 items-center">
                   <div
@@ -122,18 +138,33 @@ function Eventdiary() {
                   </div>
 
                   <div className="space-y-4">
-                    <p className="lg:w-[85%] w-[100%]">
-                      Everyone loves networking and legal education, what if
-                      there was a platform that you could get both Yes! you
-                      heard me right.
-                    </p>
+                    {isLoading ? (
+                      <div className="animate-pulse space-y-4">
+                        <div className="h-4 bg-gray-300 rounded-md w-[70%] md:w-[70%]"></div>
+                        <div className="h-3 bg-gray-300 rounded-md w-[90%] md:w-[60%]"></div>
+                        <div className="h-3 bg-gray-300 rounded-md w-[80%] md:w-[50%]"></div>
+                      </div>
+                    ) : (
+                      <p className="lg:w-[85%] w-[100%]">
+                        Everyone loves networking and legal education, what if
+                        there was a platform that you could get both Yes! you
+                        heard me right.
+                      </p>
+                    )}
 
-                    <p className="lg:w-[85%] w-[100%]">
-                      Just Login and Activate your account to get started and do
-                      more than you can imagine. Connect wit lawyers that have
-                      experience on the field.
-                    </p>
-
+                    {isLoading ? (
+                      <div className="animate-pulse space-y-4">
+                        <div className="h-4 bg-gray-300 rounded-md w-[70%] md:w-[70%]"></div>
+                        <div className="h-3 bg-gray-300 rounded-md w-[90%] md:w-[60%]"></div>
+                        <div className="h-3 bg-gray-300 rounded-md w-[80%] md:w-[50%]"></div>
+                      </div>
+                    ) : (
+                      <p className="lg:w-[85%] w-[100%]">
+                        Just Login and Activate your account to get started and
+                        do more than you can imagine. Connect wit lawyers that
+                        have experience on the field.
+                      </p>
+                    )}
                     <p className="text-blue-600">DLawnet.com</p>
 
                     <div className="space-y-4">
@@ -144,7 +175,7 @@ function Eventdiary() {
                           className="w-[40%] h-[40%]"
                         /> */}
                         <LazyImage
-                          classStyle={"w-[45%] h-[45%]"}
+                          classStyle={"w-[40%] h-[40%]"}
                           src="/Image.png"
                           alt="Lazy loaded image"
                         />
@@ -154,14 +185,14 @@ function Eventdiary() {
                           className="w-[40%] h-[40%]"
                         /> */}
                         <LazyImage
-                          classStyle={"w-[45%] h-[45%]"}
+                          classStyle={"w-[40%] h-[40%]"}
                           src="/Image1.png"
                           alt="Lazy loaded image"
                         />
                       </div>
                       <div className="flex gap-6">
                         <LazyImage
-                          classStyle={"w-[45%] h-[45%]"}
+                          classStyle={"w-[40%] h-[40%]"}
                           src="/Image2.png"
                           alt="Lazy loaded image"
                         />
@@ -172,31 +203,31 @@ function Eventdiary() {
                         /> */}
 
                         <LazyImage
-                          classStyle={"w-[45%] h-[45%]"}
+                          classStyle={"w-[40%] h-[40%]"}
                           src="/Image3.png"
                           alt="Lazy loaded image"
                         />
                       </div>
                     </div>
-                    <div className="flex gap-[20px] lg:gap-[75px] md:gap-8 mb-8">
+                    <div className="flex gap-[20px] lg:gap-[85px] md:gap-8 mb-8">
                       <RiChat1Line
-                        size={30}
+                        size={35}
                         className="text-blue-600 bg-blue-100 p-2 rounded-full"
                       />
                       <BiRepost
-                        size={30}
+                        size={35}
                         className="text-green-600 bg-green-100 p-2 rounded-full"
                       />
                       <MdOutlineFavoriteBorder
-                        size={30}
+                        size={35}
                         className="text-red-600 bg-red-100 p-2 rounded-full"
                       />
                       <IoBookmarkOutline
-                        size={30}
+                        size={35}
                         className="text-blue-600 bg-blue-100 p-2 rounded-full"
                       />
                       <MdOutlineFileDownload
-                        size={30}
+                        size={35}
                         className="text-blue-600 bg-blue-100 p-2 rounded-full"
                       />
                     </div>
@@ -210,7 +241,7 @@ function Eventdiary() {
                     onClick={() => setCanclePost(!canclePost)}
                     className="flex justify-end"
                   >
-                    <div className="rounded-full bg-[var(--primary-color)] p-3  shadow-black shadow-lg w-fit">
+                    <div className="animate-bounce rounded-full bg-[var(--primary-color)] p-3  shadow-black shadow-md w-fit">
                       <ImPlus color="white" size={30} />
                     </div>
                   </div>
@@ -221,7 +252,7 @@ function Eventdiary() {
         )}
 
         {activeSection === "LawSociety" && (
-          <div className="border">
+          <div className="border md:px-10">
             <div>
               <div className="flex py-8 justify-center mx-auto">
                 <img src="/lawschool.png" alt="logo" className="w-[160px]" />
@@ -233,14 +264,22 @@ function Eventdiary() {
                 </h1>
                 <p className="text-[10px] text-gray-300">30k Members</p>
 
-                <p className="text-white text-sm">
-                  Welcome to our prestigious Law School, where we are committed
-                  to cultivating the next generation of legal professionals.
-                  With a rich tradition of academic excellence and a focus on
-                  innovative, hands-on learning, our programs are designed to
-                  prepare students for the complexities of modern law...Read
-                  More
-                </p>
+                {isLoading ? (
+                  <div className="animate-pulse space-y-4 ">
+                    <div className="h-4 bg-gray-300 rounded-md w-[70%] md:w-[70%]"></div>
+                    <div className="h-3 bg-gray-300 rounded-md w-[90%] md:w-[60%]"></div>
+                    <div className="h-3 bg-gray-300 rounded-md w-[80%] md:w-[50%]"></div>
+                  </div>
+                ) : (
+                  <p className="text-white">
+                    Welcome to our prestigious Law School, where we are
+                    committed to cultivating the next generation of legal
+                    professionals. With a rich tradition of academic excellence
+                    and a focus on innovative, hands-on learning, our programs
+                    are designed to prepare students for the complexities of
+                    modern law...Read More
+                  </p>
+                )}
               </div>
             </div>
 
@@ -268,34 +307,57 @@ function Eventdiary() {
                     </div>
 
                     <div className="pb-3 md:pl-16 text-justify md:space-y-3 w-full">
-                      <p>
-                        Hello! My name is Ayodeji Awodele, the president of
-                        Abuja Law society for the term 23/24. Welcome to our
-                        prestigious Law School, where we are committed to
-                        cultivating the next generation of legal professionals.
-                        With a rich tradition of academic excellence and a focus
-                        on innovative, hands-on learning, our programs are
-                        designed to prepare students for the complexities of
-                        modern law. From constitutional law to international
-                        human rights, we offer a diverse curriculum taught by
-                        renowned faculty. Our vibrant community, strong alumni
-                        network, and emphasis on ethics and social justice
-                        ensure that our graduates are well-equipped to lead with
-                        integrity and make a meaningful impact in the legal
-                        field.
-                      </p>
+                      {isLoading ? (
+                        <div className="animate-pulse space-y-4 ">
+                          <div className="h-4 bg-gray-300 rounded-md w-[70%] md:w-[70%]"></div>
+                          <div className="h-3 bg-gray-300 rounded-md w-[90%] md:w-[60%]"></div>
+                          <div className="h-3 bg-gray-300 rounded-md w-[80%] md:w-[50%]"></div>
+                        </div>
+                      ) : (
+                        <p>
+                          Hello! My name is Ayodeji Awodele, the president of
+                          Abuja Law society for the term 23/24. Welcome to our
+                          prestigious Law School, where we are committed to
+                          cultivating the next generation of legal
+                          professionals. With a rich tradition of academic
+                          excellence and a focus on innovative, hands-on
+                          learning, our programs are designed to prepare
+                          students for the complexities of modern law. From
+                          constitutional law to international human rights, we
+                          offer a diverse curriculum taught by renowned faculty.
+                          Our vibrant community, strong alumni network, and
+                          emphasis on ethics and social justice ensure that our
+                          graduates are well-equipped to lead with integrity and
+                          make a meaningful impact in the legal field.
+                        </p>
+                      )}
 
-                      <p className="w-full">
-                        Everyone loves networking and legal education, what if
-                        there was a platform that you could get both Yes! you
-                        heard me right.
-                      </p>
-
-                      <p className="w-full">
-                        Just Login and Activate your account to get started and
-                        do more than you can imagine. Connect wit lawyers that
-                        have experience on the field.
-                      </p>
+                      {isLoading ? (
+                        <div className="animate-pulse space-y-4 my-3">
+                          <div className="h-4 bg-gray-300 rounded-md w-[70%] md:w-[70%]"></div>
+                          <div className="h-3 bg-gray-300 rounded-md w-[90%] md:w-[60%]"></div>
+                          <div className="h-3 bg-gray-300 rounded-md w-[80%] md:w-[50%]"></div>
+                        </div>
+                      ) : (
+                        <p className="w-full">
+                          Everyone loves networking and legal education, what if
+                          there was a platform that you could get both Yes! you
+                          heard me right.
+                        </p>
+                      )}
+                      {isLoading ? (
+                        <div className="animate-pulse space-y-4 ">
+                          <div className="h-4 bg-gray-300 rounded-md w-[70%] md:w-[70%]"></div>
+                          <div className="h-3 bg-gray-300 rounded-md w-[90%] md:w-[60%]"></div>
+                          <div className="h-3 bg-gray-300 rounded-md w-[80%] md:w-[50%]"></div>
+                        </div>
+                      ) : (
+                        <p className="w-full">
+                          Just Login and Activate your account to get started
+                          and do more than you can imagine. Connect wit lawyers
+                          that have experience on the field.
+                        </p>
+                      )}
                     </div>
 
                     <div className="space-y-4 md:pl-14">
@@ -359,17 +421,34 @@ function Eventdiary() {
                     </div>
 
                     <div className="py-3 md:pl-16">
-                      <p>
-                        We are to announce the Upcoming Inter-chamber football
-                        match between Uniabuja and OAU.
-                      </p>
-
-                      <div className="py-3">
-                        <p>Details of the match would be communicated soon.</p>
-                        <p className="text-[var(--primary-color)]">
-                          #LAW#abujaslaw
+                      {isLoading ? (
+                        <div className="animate-pulse space-y-4 ">
+                          <div className="h-4 bg-gray-300 rounded-md w-[70%] md:w-[70%]"></div>
+                          <div className="h-3 bg-gray-300 rounded-md w-[90%] md:w-[60%]"></div>
+                          <div className="h-3 bg-gray-300 rounded-md w-[80%] md:w-[50%]"></div>
+                        </div>
+                      ) : (
+                        <p>
+                          We are to announce the Upcoming Inter-chamber football
+                          match between Uniabuja and OAU.
                         </p>
-                      </div>
+                      )}
+                      {isLoading ? (
+                        <div className="animate-pulse space-y-4 mt-3">
+                          <div className="h-4 bg-gray-300 rounded-md w-[70%] md:w-[70%]"></div>
+                          <div className="h-3 bg-gray-300 rounded-md w-[90%] md:w-[60%]"></div>
+                          <div className="h-3 bg-gray-300 rounded-md w-[80%] md:w-[50%]"></div>
+                        </div>
+                      ) : (
+                        <div className="py-3">
+                          <p>
+                            Details of the match would be communicated soon.
+                          </p>
+                          <p className="text-[var(--primary-color)]">
+                            #LAW#abujaslaw
+                          </p>
+                        </div>
+                      )}
                     </div>
 
                     <div className="space-y-4 md:pl-16">
@@ -425,7 +504,7 @@ function Eventdiary() {
                       onClick={() => setCanclePost(!canclePost)}
                       className="flex justify-end"
                     >
-                      <div className="rounded-full bg-[var(--primary-color)] p-3  shadow-black shadow-lg w-fit">
+                      <div className="animate-bounce rounded-full bg-[var(--primary-color)] p-3  shadow-black shadow-md w-fit">
                         <ImPlus color="white" size={30} />
                       </div>
                     </div>
@@ -440,73 +519,92 @@ function Eventdiary() {
           <EventDiaryProfile handleGoBack={handleGoBack} />
         )}
 
-        <div className="border md:py-8 pt-4 px-4 md:px-10">
-          <div className="flex px-4 justify-center pb-4">
-            <input
-              className="bg-slate-200 outline-none p-3 rounded-2xl"
-              type="search"
-              placeholder="search"
-            />
-          </div>
+        <div
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
+          <div className="border md:py-8 pt-4 px-4 md:px-10">
+            <div className="flex px-4 justify-center pb-4">
+              <input
+                className="bg-slate-200 outline-none p-3 rounded-2xl"
+                type="search"
+                placeholder="search"
+              />
+            </div>
 
-          <div className="py-6">
-            <p>Event Calender</p>
-          </div>
+            <div className="py-6">
+              <p>Event Calender</p>
 
-          <div className="space-y-4">
-            <h1 className="pt-4 font-semibold">Upcoming Events</h1>
-
-            <div className="shadow-md rounded-lg py-4 px-4 shadow-gray-500 flex flex-col bg-gray-50">
-              <div className="flex justify-between text-[12px]">
-                <p className="flex gap-1 items-center">
-                  <div className="bg-[var(--primary-color)] w-2 h-2 rounded-full"></div>{" "}
-                  10th October
-                </p>
-                <p className="text-[var(--primary-color)]">Personal</p>
-              </div>
-              <div className="pt-4 text-sm">
-                <p className="font-semibold">Chamber meeting</p>
-                <p>Meeting with Inviticus Members</p>
+              <div className="calendar-wrapper text-sm space-x-4">
+                <FullCalendar
+                  plugins={[dayGridPlugin]}
+                  initialView="dayGridMonth"
+                  headerToolbar
+                  events={[
+                    { title: "Event 1", date: "2024-10-15" },
+                    { title: "Event 2", date: "2024-10-20" },
+                  ]}
+                  eventTextColor="red"
+                />
               </div>
             </div>
 
-            <div className="shadow-md rounded-lg py-4 px-4 shadow-gray-500 flex flex-col bg-gray-50">
-              <div className="flex justify-between text-[12px]">
-                <p className="flex gap-1 items-center">
-                  <div className="bg-[var(--primary-color)] w-2 h-2 rounded-full"></div>{" "}
-                  14th October
-                </p>
-                <p className="text-[var(--primary-color)]">Personal</p>
+            <div className="space-y-4">
+              <h1 className="pt-4 font-semibold">Upcoming Events</h1>
+
+              <div className="shadow-md rounded-lg py-4 px-4 shadow-gray-500 flex flex-col bg-gray-50">
+                <div className="flex justify-between text-[12px]">
+                  <p className="flex gap-1 items-center">
+                    <div className="bg-[var(--primary-color)] w-2 h-2 rounded-full"></div>{" "}
+                    10th October
+                  </p>
+                  <p className="text-[var(--primary-color)]">Personal</p>
+                </div>
+                <div className="pt-4 text-sm">
+                  <p className="font-semibold">Chamber meeting</p>
+                  <p>Meeting with Inviticus Members</p>
+                </div>
               </div>
-              <div className="pt-4 text-sm">
-                <p className="font-semibold">Panel meeting</p>
-                <p>Meeting with Ladoke Members</p>
+
+              <div className="shadow-md rounded-lg py-4 px-4 shadow-gray-500 flex flex-col bg-gray-50">
+                <div className="flex justify-between text-[12px]">
+                  <p className="flex gap-1 items-center">
+                    <div className="bg-[var(--primary-color)] w-2 h-2 rounded-full"></div>{" "}
+                    14th October
+                  </p>
+                  <p className="text-[var(--primary-color)]">Personal</p>
+                </div>
+                <div className="pt-4 text-sm">
+                  <p className="font-semibold">Panel meeting</p>
+                  <p>Meeting with Ladoke Members</p>
+                </div>
+              </div>
+
+              <div className="shadow-md rounded-lg py-4 px-4 shadow-gray-500 flex flex-col bg-gray-50">
+                <div className="flex justify-between text-[12px]">
+                  <p className="flex gap-1 items-center">
+                    <div className="bg-[var(--secondary-color)] w-2 h-2 rounded-full"></div>{" "}
+                    19th October
+                  </p>
+                  <p className="text-[var(--primary-color)]">School</p>
+                </div>
+                <div className="pt-4 text-sm">
+                  <p className="font-semibold">Inter-chamber debate</p>
+                  <p>Debate between chambers</p>
+                </div>
               </div>
             </div>
 
-            <div className="shadow-md rounded-lg py-4 px-4 shadow-gray-500 flex flex-col bg-gray-50">
-              <div className="flex justify-between text-[12px]">
-                <p className="flex gap-1 items-center">
-                  <div className="bg-[var(--secondary-color)] w-2 h-2 rounded-full"></div>{" "}
-                  19th October
-                </p>
-                <p className="text-[var(--primary-color)]">School</p>
-              </div>
-              <div className="pt-4 text-sm">
-                <p className="font-semibold">Inter-chamber debate</p>
-                <p>Debate between chambers</p>
-              </div>
+            <div className="flex justify-center py-8">
+              <button
+                onClick={handleAddEvent}
+                className="bg-[var(--primary-color)] cursor-pointer flex items-center gap-4 px-6 py-2 text-lg rounded-lg text-white"
+              >
+                Add
+                <FaBoxArchive />
+              </button>
             </div>
-          </div>
-
-          <div className="flex justify-center py-8">
-            <button
-              onClick={handleAddEvent}
-              className="bg-[var(--primary-color)] cursor-pointer flex items-center gap-4 px-6 py-2 text-lg rounded-lg text-white"
-            >
-              Add
-              <FaBoxArchive />
-            </button>
           </div>
         </div>
       </div>

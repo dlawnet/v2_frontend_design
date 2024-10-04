@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiSolidDownArrow } from "react-icons/bi";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
@@ -7,9 +7,18 @@ import { IoClose } from "react-icons/io5";
 function Panel() {
   const [confirmPayment, setConfirmPayment] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+  }, []);
+
   return (
-    <div className="md:px-16 px-2 py-4">
-      <div className="border rounded-lg p-6">
+    <div className="px-4 sm:px-6 md:px-16 py-4">
+      <div className="border rounded-lg p-6 ">
         <div>
           <h1 className="text-2xl">Panel Of Experts</h1>
           <p className="text-[var(--primary-color)]">
@@ -72,9 +81,9 @@ function Panel() {
           </div>
 
           <div>
-            <div>
+            {/* <div>
               <h1 className="font-semibold text-lg py-3">Please Note</h1>
-              <div className="space-y-4 w-[85%] md:w-full">
+              <div className="space-y-4 text-justify md:w-full w-[85%]">
                 <p>
                   Kindly Ensure the question you are about to ask is relevant to
                   law and avoid repetition of questions
@@ -86,12 +95,46 @@ function Panel() {
                   charged accordingly.
                 </p>
               </div>
+            </div> */}
+            <div>
+              {/* Loading Condition for Skeleton Loader */}
+              {isLoading ? (
+                <div className="animate-pulse space-y-4">
+                  {/* Skeleton Loader for Title */}
+                  <div className="h-4 bg-gray-300 rounded-md w-[30%]"></div>
+
+                  {/* Skeleton Loader for Paragraphs */}
+                  <div className="space-y-3">
+                    <div className="h-3 bg-gray-300 rounded-md w-[90%]"></div>
+                    <div className="h-3 bg-gray-300 rounded-md w-[80%]"></div>
+                    <div className="h-3 bg-gray-300 rounded-md w-[85%]"></div>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <h1 className="font-semibold text-lg py-3">Please Note</h1>
+                  <div className="space-y-4 text-justify md:w-full w-[85%]">
+                    <p>
+                      Kindly ensure the question you are about to ask is
+                      relevant to law and avoid repetition of questions.
+                    </p>
+                    <p>
+                      Done tasks will be deleted in 10-20 days after review.
+                    </p>
+                    <p>
+                      If you post more than one question or multiple questions,
+                      it will be regarded as a full preparation request and
+                      charged accordingly.
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
 
-      <div className="md:px-8 py-6 overflow-scroll">
+      <div className="py-6 md:px-4 overflow-scroll">
         <table className="table-auto">
           <thead>
             <tr>

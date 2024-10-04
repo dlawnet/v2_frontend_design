@@ -12,7 +12,7 @@ function About() {
               About
             </h1>
 
-            <p className="text-white py-3 md:text-center px-10 text-[100%] md:text-[120%]">
+            <p className="text-white py-3 md:text-center px-10 text-[100%] md:text-[150%]">
               To mentor and provide help to law students in subjects or courses
               where university law students and those in the law school require
               additional tutorials, research assistance and general guidance in
@@ -27,7 +27,7 @@ function About() {
               of the Supreme Court, Court of Appeal, Federal High Courts, Sharia
               Court of Appeal and Senior Lawyers in the practice of law.{" "}
             </p>
-            <p className="text-white py-3 md:text-center px-10 text-[100%] md:text-[120%]">
+            <p className="text-white py-3 md:text-center px-10 text-[100%] md:text-[150%]">
               To provide a social platform [event dairy] for law students from
               different universities to interact and share activities that
               bothers around advancing their training as upcoming professionals

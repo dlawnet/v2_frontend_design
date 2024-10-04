@@ -4,13 +4,13 @@ import { TbBrandFacebook } from "react-icons/tb";
 import { CiYoutube } from "react-icons/ci";
 function Footer() {
   return (
-    <div className="bg-[var(--primary-color)] space-y-4 md:space-y-0 text-[var(--text-color)] md:flex justify-between lg:p-14 p-8 md:gap-6">
+    <div className="bg-[var(--primary-color)] md:text-xl space-y-4 md:space-y-0 text-[var(--text-color)] md:flex justify-between lg:p-14 p-8 md:gap-6">
       <div className="space-y-3">
         <div>
           <img src="/logo.svg" alt="logo" className="w-[67px] h-[67px]" />
         </div>
         <div className="space-y-3">
-          <p>For Legal Education & Networking</p>
+          <p> For Legal Education & Networking</p>
           <div className="flex gap-6 items-center">
             <FaInstagram size={20} />
             <TbBrandFacebook size={20} />
