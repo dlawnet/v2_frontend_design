@@ -15,7 +15,7 @@ function Login() {
           data-aos-duration="1200"
         >
           <div className="bg-[var(--primary-color)] pt-4 mx-8 md:py-6 rounded-lg">
-            <div className="flex justify-center  items-center text-center">
+            <div className="flex justify-center items-center text-center">
               <img src="/logo.svg" alt="logo" className="w-[67px] h-[67px]" />
             </div>
             <div className="md:flex ml-14 md:justify-around items-center">

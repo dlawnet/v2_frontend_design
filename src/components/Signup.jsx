@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { BiSolidDownArrow } from "react-icons/bi";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Signup() {
   const [registerNext, setRegisterNext] = useState(false);
+
+  useEffect(() => {
+    AOS.init();
+  });
   return (
     <div className="flex w-full h-screen flex-col">
       <Navbar />

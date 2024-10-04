@@ -119,7 +119,7 @@ function Eventdiary() {
               </div>
             </div>
 
-            <div className="my-6 border cursor-pointer p-6">
+            <div className="my-6 border p-6">
               <div className="flex gap-4">
                 <img
                   src="/logo.svg"
@@ -127,7 +127,6 @@ function Eventdiary() {
                   className="md:w-[40px] w-[30px] h-[30px] md:h-[40px]"
                 />
                 <div className="flex-col">
-                  
                   <div className="flex gap-1 items-center">
                     <h1 className="text-[var(--primary-color)] flex items-center gap-1 font-semibold">
                       DLawnet
@@ -137,114 +136,116 @@ function Eventdiary() {
                       @DLawnetsociety · 1h
                     </p>
                   </div>
+                </div>
+              </div>
+
+              <div className="p-6">
+                <div className="space-y-4">
+                  {isLoading ? (
+                    <div className="animate-pulse space-y-4">
+                      <div className="h-4 bg-gray-300 rounded-md w-[70%] md:w-[70%]"></div>
+                      <div className="h-3 bg-gray-300 rounded-md w-[90%] md:w-[60%]"></div>
+                      <div className="h-3 bg-gray-300 rounded-md w-[80%] md:w-[50%]"></div>
+                    </div>
+                  ) : (
+                    <p className="lg:w-[85%] w-[100%]">
+                      Everyone loves networking and legal education, what if
+                      there was a platform that you could get both Yes! you
+                      heard me right.
+                    </p>
+                  )}
+
+                  {isLoading ? (
+                    <div className="animate-pulse space-y-4">
+                      <div className="h-4 bg-gray-300 rounded-md w-[70%] md:w-[70%]"></div>
+                      <div className="h-3 bg-gray-300 rounded-md w-[90%] md:w-[60%]"></div>
+                      <div className="h-3 bg-gray-300 rounded-md w-[80%] md:w-[50%]"></div>
+                    </div>
+                  ) : (
+                    <p className="lg:w-[85%] w-[100%]">
+                      Just Login and Activate your account to get started and do
+                      more than you can imagine. Connect wit lawyers that have
+                      experience on the field.
+                    </p>
+                  )}
+                  <p className="text-blue-600">DLawnet.com</p>
 
                   <div className="space-y-4">
-                    {isLoading ? (
-                      <div className="animate-pulse space-y-4">
-                        <div className="h-4 bg-gray-300 rounded-md w-[70%] md:w-[70%]"></div>
-                        <div className="h-3 bg-gray-300 rounded-md w-[90%] md:w-[60%]"></div>
-                        <div className="h-3 bg-gray-300 rounded-md w-[80%] md:w-[50%]"></div>
-                      </div>
-                    ) : (
-                      <p className="lg:w-[85%] w-[100%]">
-                        Everyone loves networking and legal education, what if
-                        there was a platform that you could get both Yes! you
-                        heard me right.
-                      </p>
-                    )}
-
-                    {isLoading ? (
-                      <div className="animate-pulse space-y-4">
-                        <div className="h-4 bg-gray-300 rounded-md w-[70%] md:w-[70%]"></div>
-                        <div className="h-3 bg-gray-300 rounded-md w-[90%] md:w-[60%]"></div>
-                        <div className="h-3 bg-gray-300 rounded-md w-[80%] md:w-[50%]"></div>
-                      </div>
-                    ) : (
-                      <p className="lg:w-[85%] w-[100%]">
-                        Just Login and Activate your account to get started and
-                        do more than you can imagine. Connect wit lawyers that
-                        have experience on the field.
-                      </p>
-                    )}
-                    <p className="text-blue-600">DLawnet.com</p>
-
-                    <div className="space-y-4">
-                      <div className="flex gap-6">
-                        {/* <img
+                    <div className="flex gap-6">
+                      {/* <img
                           src="/Image.png"
                           alt="user"
                           className="w-[40%] h-[40%]"
                         /> */}
-                        <LazyImage
-                          classStyle={"w-[35%] h-[35%]"}
-                          src="/Image.png"
-                          alt="Lazy loaded image"
-                        />
-                        {/* <img
+                      <LazyImage
+                        classStyle={"w-[35%] h-[35%]"}
+                        src="/Image.png"
+                        alt="Lazy loaded image"
+                      />
+                      {/* <img
                           src="/Image1.png"
                           alt="user"
                           className="w-[35%] h-[35%]"
                         /> */}
-                        <LazyImage
-                          classStyle={"w-[35%] h-[35%]"}
-                          src="/Image1.png"
-                          alt="Lazy loaded image"
-                        />
-                      </div>
-                      <div className="flex gap-6">
-                        <LazyImage
-                          classStyle={"w-[35%] h-[35%]"}
-                          src="/Image2.png"
-                          alt="Lazy loaded image"
-                        />
-                        {/* <img
+                      <LazyImage
+                        classStyle={"w-[35%] h-[35%]"}
+                        src="/Image1.png"
+                        alt="Lazy loaded image"
+                      />
+                    </div>
+                    <div className="flex gap-6">
+                      <LazyImage
+                        classStyle={"w-[35%] h-[35%]"}
+                        src="/Image2.png"
+                        alt="Lazy loaded image"
+                      />
+                      {/* <img
                           src="/Image3.png"
                           alt="user"
                           className="w-[35%] h-[35%]"
                         /> */}
 
-                        <LazyImage
-                          classStyle={"w-[35%] h-[35%]"}
-                          src="/Image3.png"
-                          alt="Lazy loaded image"
-                        />
-                      </div>
-                    </div>
-                    <div className="flex gap-[20px] lg:gap-[75px] md:gap-8 mb-8">
-                      <RiChat1Line
-                        size={35}
-                        className="text-blue-600 bg-blue-100 p-2 rounded-full"
-                      />
-                      <BiRepost
-                        size={35}
-                        className="text-green-600 bg-green-100 p-2 rounded-full"
-                      />
-                      <MdOutlineFavoriteBorder
-                        size={35}
-                        className="text-red-600 bg-red-100 p-2 rounded-full"
-                      />
-                      <IoBookmarkOutline
-                        size={35}
-                        className="text-blue-600 bg-blue-100 p-2 rounded-full"
-                      />
-                      <MdOutlineFileDownload
-                        size={35}
-                        className="text-blue-600 bg-blue-100 p-2 rounded-full"
+                      <LazyImage
+                        classStyle={"w-[35%] h-[35%]"}
+                        src="/Image3.png"
+                        alt="Lazy loaded image"
                       />
                     </div>
                   </div>
-
-                  <div className="border p-3 text-center mt-16">
-                    <p>Show 135 Posts</p>
+                  <div className="flex gap-2 lg:gap-[50px] md:gap-[15px] mb-8">
+                    <RiChat1Line
+                      size={35}
+                      className="text-blue-600 bg-blue-100 p-2 rounded-full"
+                    />
+                    <BiRepost
+                      size={35}
+                      className="text-green-600 bg-green-100 p-2 rounded-full"
+                    />
+                    <MdOutlineFavoriteBorder
+                      size={35}
+                      className="text-red-600 bg-red-100 p-2 rounded-full"
+                    />
+                    <IoBookmarkOutline
+                      size={35}
+                      className="text-blue-600 bg-blue-100 p-2 rounded-full"
+                    />
+                    <MdOutlineFileDownload
+                      size={35}
+                      className="text-blue-600 bg-blue-100 p-2 rounded-full"
+                    />
                   </div>
+                </div>
 
-                  <div
-                    onClick={() => setCanclePost(!canclePost)}
-                    className="flex justify-end"
-                  >
-                    <div className="animate-bounce rounded-full bg-[var(--primary-color)] p-3  shadow-black shadow-md w-fit">
-                      <ImPlus color="white" size={30} />
-                    </div>
+                <div className="border p-3 text-center mt-16">
+                  <p>Show 135 Posts</p>
+                </div>
+
+                <div
+                  onClick={() => setCanclePost(!canclePost)}
+                  className="flex justify-end"
+                >
+                  <div className="animate-bounce rounded-full bg-[var(--primary-color)] p-3  shadow-black shadow-md w-fit">
+                    <ImPlus color="white" size={30} />
                   </div>
                 </div>
               </div>

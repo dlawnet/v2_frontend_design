@@ -48,15 +48,15 @@ function MootCourts() {
               onClick={() => setVideo((video) => !video)}
               src="/vidd.png"
               alt="videos"
-              className="w-1/5"
+              className="md:w-1/5 w-3/5"
             />
-            <img src="/vidd.png" alt="videos" className="w-1/5" />
-            <img src="/vidd.png" alt="videos" className="w-1/5" />
+            <img src="/vidd.png" alt="videos" className="md:w-1/5 w-3/5" />
+            <img src="/vidd.png" alt="videos" className="md:w-1/5 w-3/5" />
           </div>
           <div className="hidden md:flex lg:justify-between md:gap-10">
-            <img src="/vidd.png" alt="videos" className="w-1/5" />
-            <img src="/vidd.png" alt="videos" className="w-1/5" />
-            <img src="/vidd.png" alt="videos" className="w-1/5" />
+            <img src="/vidd.png" alt="videos" className="md:w-1/5 w-3/5" />
+            <img src="/vidd.png" alt="videos" className="md:w-1/5 w-3/5" />
+            <img src="/vidd.png" alt="videos" className="md:w-1/5 w-3/5" />
           </div>
         </div>
       )}
