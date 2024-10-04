@@ -15,7 +15,7 @@ function Banks() {
   }, []);
 
   return (
-    <div className="md:px-16">
+    <div className="lg:px-10 md:px-8">
       {activate === false && (
         <div className="md:px-20 px-8 md:py-8 text-lg">
           <div className="bg-[var(--primary-color)] md:p-12 p-8 my-8 md:my-0 w-fit rounded-lg">
@@ -72,7 +72,7 @@ function Banks() {
                 <div className="space-y-2">
                   <div className="h-3 bg-gray-300 rounded-md w-[90%]"></div>
                   <div className="h-3 bg-gray-300 rounded-md w-[85%]"></div>
-                  <div className="h-3 bg-gray-300 rounded-md w-[95%]"></div>
+                  <div className="h-3 bg-gray-300 rounded-md w-[95]%"></div>
                 </div>
 
                 <div className="h-3 bg-gray-300 rounded-md w-[70%]"></div>

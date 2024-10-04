@@ -79,7 +79,7 @@ function Eventdiary() {
         </div>
       )}
 
-      <div className="md:grid md:grid-cols-[70%_30%] md:gap-3">
+      <div className="md:grid md:grid-cols-[60%_40%] lg:grid-cols-[70%_30%]">
         {activeSection === "PersonalEventDiary" && (
           <div className="md:px-14">
             <div className="border border-gray-300 md:px-8 py-6 p-4">
@@ -175,41 +175,41 @@ function Eventdiary() {
                           className="w-[40%] h-[40%]"
                         /> */}
                         <LazyImage
-                          classStyle={"w-[40%] h-[40%]"}
+                          classStyle={"w-[35%] h-[35%]"}
                           src="/Image.png"
                           alt="Lazy loaded image"
                         />
                         {/* <img
                           src="/Image1.png"
                           alt="user"
-                          className="w-[40%] h-[40%]"
+                          className="w-[35%] h-[35%]"
                         /> */}
                         <LazyImage
-                          classStyle={"w-[40%] h-[40%]"}
+                          classStyle={"w-[35%] h-[35%]"}
                           src="/Image1.png"
                           alt="Lazy loaded image"
                         />
                       </div>
                       <div className="flex gap-6">
                         <LazyImage
-                          classStyle={"w-[40%] h-[40%]"}
+                          classStyle={"w-[35%] h-[35%]"}
                           src="/Image2.png"
                           alt="Lazy loaded image"
                         />
                         {/* <img
                           src="/Image3.png"
                           alt="user"
-                          className="w-[40%] h-[40%]"
+                          className="w-[35%] h-[35%]"
                         /> */}
 
                         <LazyImage
-                          classStyle={"w-[40%] h-[40%]"}
+                          classStyle={"w-[35%] h-[35%]"}
                           src="/Image3.png"
                           alt="Lazy loaded image"
                         />
                       </div>
                     </div>
-                    <div className="flex gap-[20px] lg:gap-[85px] md:gap-8 mb-8">
+                    <div className="flex gap-[20px] lg:gap-[75px] md:gap-8 mb-8">
                       <RiChat1Line
                         size={35}
                         className="text-blue-600 bg-blue-100 p-2 rounded-full"
@@ -536,7 +536,7 @@ function Eventdiary() {
             <div className="py-6">
               <p>Event Calender</p>
 
-              <div className="calendar-wrapper text-sm space-x-4">
+              <div className="calendar-wrapper text-sm space-y-6 p-4">
                 <FullCalendar
                   plugins={[dayGridPlugin]}
                   initialView="dayGridMonth"
@@ -545,8 +545,30 @@ function Eventdiary() {
                     { title: "Event 1", date: "2024-10-15" },
                     { title: "Event 2", date: "2024-10-20" },
                   ]}
-                  eventTextColor="red"
+                  eventTextColor="#D32F2F"
+                  eventDisplay="block"
+                  height="auto"
+                  width="auto"
                 />
+
+                {/* <div className="calendar-wrapper text-sm space-y-6 p-4">
+                  <FullCalendar
+                    plugins={[dayGridPlugin]}
+                    initialView="dayGridMonth"
+                    headerToolbar={{
+                      left: "prev,next today",
+                      center: "title",
+                      right: "dayGridMonth,dayGridWeek,dayGridDay",
+                    }}
+                    events={[
+                      { title: "Event 1", date: "2024-10-15" },
+                      { title: "Event 2", date: "2024-10-20" },
+                    ]}
+                    eventTextColor="#D32F2F"
+                    eventDisplay="block"
+                    height="auto"
+                  />
+                </div> */}
               </div>
             </div>
 
@@ -636,7 +658,7 @@ function Eventdiary() {
                     name="startDate"
                     placeholder="Start Date"
                     required
-                    className="border border-[var(--primary-color)] outline-none w-[40%] bg-transparent p-4 "
+                    className="border border-[var(--primary-color)] outline-none w-[35%] bg-transparent p-4 "
                   />
                   <BiSolidDownArrow
                     className="absolute top-5 left-24"

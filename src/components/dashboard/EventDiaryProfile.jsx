@@ -19,13 +19,16 @@ function EventDiaryProfile({ handleGoBack }) {
   }, []);
 
   return (
-    <div className="lg:px-14 px-4">
-      <p onClick={handleGoBack} className="text-4xl font-bold px-8 absolute">
+    <div className="lg:px-14md: px-8 relative">
+      <p
+        onClick={handleGoBack}
+        className="text-4xl font-bold px-8 top-[-3rem] md:top-0 absolute"
+      >
         &larr;
       </p>
-      <div className="bg-yellow-300 w-[100%] h-[20%] mt-[-1.5rem] mx-[-.5rem]"></div>
+      <div className="bg-yellow-300 w-[100%] h-[20%] mt-[-1.5rem] mx-[-1rem] lg:mx-[-.5rem]"></div>
       <div className="my-12 md:my-0">
-        <div className="flex px-14 justify-between items-center">
+        <div className="flex md:px-14 justify-between items-center">
           <img
             src="/profile.svg"
             alt="profile"
@@ -40,7 +43,7 @@ function EventDiaryProfile({ handleGoBack }) {
           </p>
         </div>
 
-        <div className="flex px-14 pt-4 gap-2">
+        <div className="flex md:px-14 pt-4 gap-2">
           <p className="text-[30px] text-[var(--primary-color)] font-semibold">
             Ayodeji Awodele
           </p>
@@ -106,7 +109,7 @@ function EventDiaryProfile({ handleGoBack }) {
             </div>
           ) : (
             // Actual Content
-            <div className="space-y-1 px-14">
+            <div className="space-y-1 md:px-14">
               <p>@AyoAwo225</p>
               <p className="text-lg">
                 President of Abuja Law society || Lawyer in the making || Gamer
@@ -138,7 +141,7 @@ function EventDiaryProfile({ handleGoBack }) {
           </div>
         </div>
 
-        <div className="md:flex px-14 gap-4 py-6 ">
+        <div className="md:flex md:px-14 gap-4 py-6 ">
           <div>
             <div className="flex gap-3 items-center">
               <img

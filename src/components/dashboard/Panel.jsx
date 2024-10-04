@@ -17,7 +17,7 @@ function Panel() {
   }, []);
 
   return (
-    <div className="px-4 sm:px-6 md:px-16 py-4">
+    <div className="px-4 sm:px-6 md:px-16 py-4 overflow-hidden">
       <div className="border rounded-lg p-6 ">
         <div>
           <h1 className="text-2xl">Panel Of Experts</h1>

@@ -24,19 +24,19 @@ function Home() {
               data-aos-easing="linear"
               data-aos-duration="1500"
             >
-              <h1 className="text-3xl animate-pulse sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight pb-6 md:px-36 px-14 py-14 md:py-0 text-[var(--secondary-color)] md:text-center">
+              <h1 className="text-3xl animate-pulse sm:text-4xl md:text-5xl lg:text-6xl px-14 lg:px-14 md:px-0 xl:text-7xl font-bold leading-tight pb-6 py-14 md:py-0 text-[var(--secondary-color)] md:text-center">
                 Unlock your full potential as a Law Student.
               </h1>
             </div>
 
             <div
-              className="flex justify-center items-center md:w-[50%] md:text-center px-14 md:px-14 text-[100%] md:text-[140%] lg:text-[150%] xl:text-[160%]"
+              className="flex justify-center items-center md:text-center px-14 lg:w-[60%] md:px-0 text-[100%] md:text-[140%] lg:text-[150%] xl:text-[160%]"
               data-aos="fade-left"
               data-aos-easing="linear"
               data-aos-duration="1500"
             >
-              {/* <p className="text-[var(--secondary-color)] py-6 w-full md:w-[50%] md:text-center px-14 md:px-14 text-[100%] md:text-[140%] lg:text-[150%] xl:text-[160%]"> */}
-              <p className="text-[var(--secondary-color)] py-8 ">
+              {/* <p className="text-[var(--secondary-color)] py-6 w-full md:w-[50%] md:text-center px-14 md:px-14 "> */}
+              <p className="text-[var(--secondary-color)] text-[120%] md:text-[140%] lg:text-[150%] xl:text-[160%] md:py-8 ">
                 {" "}
                 Join DLawNet today for your Legal Education and Networking.
               </p>
@@ -50,132 +50,6 @@ function Home() {
             </button>
           </div>
 
-          {/*  */}
-
-          {/* <div className="md:flex space-y-4 md:space-y-0 gap-8 my-8 justify-center">
-            <div className="bg-[var(--secondary-color)] overflow-hidden relative transition-all duration-700 hover:shadow-[0_0_15px_#ffff] hover:-translate-y-10 p-3 mx-12 md:mx-0 md:pt-4 rounded-md md:px-2 lg:px-4 lg:w-[70%] shadow-2xl space-y-3">
-              <div className="flex justify-end">
-                <ImArrowUpRight2
-                  size={40}
-                  className="font-bold text-[var(--primary-color)] cursor-pointer"
-                  onClick={() => navigate("/login")}
-                />
-              </div>
-              <div className="py-3">
-                <img
-                  src="/student.svg"
-                  alt="student"
-                  className="font-bold text-[var(--primary-color)] md:w-[30%] w-[15%]"
-                />
-              </div>
-
-              <div>
-                {isLoading ? (
-                  <div className="animate-pulse">
-                    <div className="h-4 bg-gray-300 rounded w-[60%] md:w-[70%] lg:w-[100%] xl:w-[100%] mb-2"></div>
-                    <div className="h-4 bg-gray-300 rounded w-[60%] md:w-[70%] lg:w-[100%] xl:w-[100%] mb-2"></div>
-                  </div>
-                ) : (
-                  <p className="text-[var(--primary-color)] pt-2 font-semibold text-[90%] md:text-[100%] lg:text-[110%] xl:text-[120%]">
-                    In all areas of Law, get help from our panel of experts for
-                    exam preps & tutorials.
-                  </p>
-                )}
-              </div>
-            </div>
-
-            <div className="md:block hidden overflow-hidden relative transition-all duration-700 hover:shadow-[0_0_15px_#ffff] hover:-translate-y-10 bg-[var(--secondary-color)] py-4 rounded-md md:px-2 lg:px-4 lg:w-[70%] shadow-2xl space-y-3">
-              <div className="flex justify-end">
-                <ImArrowUpRight2
-                  size={40}
-                  className="font-bold text-[var(--primary-color)]"
-                  onClick={() => navigate("/login")}
-                />
-              </div>
-              <div className="py-3">
-                <img
-                  src="/calender.png"
-                  alt="student"
-                  className="font-bold text-[var(--primary-color)] md:w-[30%]"
-                />
-              </div>
-
-              <div>
-                {isLoading ? (
-                  <div className="animate-pulse">
-                    <div className="h-4 bg-gray-300 rounded w-[60%] md:w-[70%] lg:w-[100%] xl:w-[100%] mb-2"></div>
-                    <div className="h-4 bg-gray-300 rounded w-[60%] md:w-[70%] lg:w-[100%] xl:w-[100%] mb-2"></div>
-                  </div>
-                ) : (
-                  <p className="text-[var(--primary-color)] pt-2 font-semibold text-[90%] md:text-[100%] lg:text-[110%] xl:text-[120%]">
-                    Get connected with other law school students & activities
-                    Nationwide.
-                  </p>
-                )}
-              </div>
-            </div>
-
-            <div className="md:block hidden overflow-hidden relative transition-all duration-700 hover:shadow-[0_0_15px_#ffff] hover:-translate-y-10 bg-[var(--secondary-color)] py-4 rounded-md md:w-[25rem] md:px-2 lg:px-4 lg:w-[70%] shadow-2xl space-y-3">
-              <div className="flex justify-end">
-                <ImArrowUpRight2
-                  size={40}
-                  className="font-bold text-[var(--primary-color)]"
-                  onClick={() => navigate("/login")}
-                />
-              </div>
-              <div className="py-3">
-                <img
-                  src="/law.svg"
-                  alt="student"
-                  className="font-bold text-[var(--primary-color)] md:w-[40%] cursor-pointer"
-                />
-              </div>
-              <div>
-                {isLoading ? (
-                  <div className="animate-pulse">
-                    <div className="h-4 bg-gray-300 rounded w-[60%] md:w-[70%] lg:w-[100%] xl:w-[100%] mb-2"></div>
-                    <div className="h-4 bg-gray-300 rounded w-[60%] md:w-[70%] lg:w-[100%] xl:w-[100%] mb-2"></div>
-                  </div>
-                ) : (
-                  <p className="text-[var(--primary-color)] pt-2 font-semibold text-[90%] md:text-[100%] lg:text-[110%] xl:text-[120%]">
-                    Watch & learn how to moot from the best.
-                  </p>
-                )}
-              </div>
-            </div>
-
-            <div className="md:block hidden overflow-hidden relative transition-all duration-700 hover:shadow-[0_0_15px_#ffff] hover:-translate-y-10 bg-[var(--secondary-color)] py-4 rounded-md md:px-2 lg:px-4 lg:w-[70%] shadow-2xl space-y-3">
-              <div className="flex justify-end">
-                <ImArrowUpRight2
-                  size={40}
-                  className="font-bold text-[var(--primary-color)]"
-                  onClick={() => navigate("/login")}
-                />
-              </div>
-              <div className="py-3">
-                <img
-                  src="/data.svg"
-                  alt="student"
-                  className="font-bold text-[var(--primary-color)] md:w-[30%] cursor-pointer"
-                />
-              </div>
-
-              <div>
-                {isLoading ? (
-                  <div className="animate-pulse">
-                    <div className="h-4 bg-gray-300 rounded w-[60%] md:w-[100%] lg:w-[100%] xl:w-[100%] mb-2"></div>
-                    <div className="h-4 bg-gray-300 rounded w-[60%] md:w-[100%] lg:w-[100%] xl:w-[100%] mb-2"></div>
-                  </div>
-                ) : (
-                  <p className="text-[var(--primary-color)] pt-2 font-semibold text-[90%] md:text-[100%] lg:text-[110%] xl:text-[120%]">
-                    In all areas of Law, get help from our panel of experts for
-                    exam preps & tutorials.{" "}
-                  </p>
-                )}
-              </div>
-            </div>
-          </div> */}
-
           <div
             data-aos="fade-down"
             data-aos-easing="linear"
@@ -183,7 +57,7 @@ function Home() {
           >
             <div className="md:flex space-y-4 md:space-y-0 gap-8 my-8 justify-center">
               {/* First Card */}
-              <div className="bg-[var(--secondary-color)] overflow-hidden relative transition-all duration-700 hover:shadow-[0_0_15px_#ffff] hover:-translate-y-10 p-3 mx-12 md:mx-0 md:pt-4 rounded-md md:px-2 lg:px-4 w-[100%] shadow-2xl space-y-3">
+              <div className="bg-[var(--secondary-color)] overflow-hidden relative transition-all duration-700 hover:shadow-[0_0_15px_#ffff] hover:-translate-y-10 p-3 mx-8 md:mx-0 md:pt-4 rounded-md md:px-2 lg:px-4 md:w-[100%] w-[80%] shadow-2xl space-y-3">
                 <div className="flex justify-end">
                   <ImArrowUpRight2
                     size={40}

@@ -8,13 +8,13 @@ function MootCourts() {
         <input
           type="search"
           placeholder="search"
-          className="py-3 px-4 outline-none md:w-[30rem] w-[20rem] rounded-full border border-[var(--primary-color)]"
+          className="py-3 px-4 outline-none md:w-[27rem] w-[20rem] rounded-full border border-[var(--primary-color)]"
         />
       </div>
 
       {video === false && (
         <div className="md:my-12 my-6 md:px-16">
-          <div className="flex md:gap-8 gap-2">
+          {/* <div className="flex md:gap-8 gap-2">
             <p className="rounded-full bg-[var(--secondary-color)] text-[var(--primary-color)] p-1 px-4">
               All
             </p>
@@ -25,6 +25,20 @@ function MootCourts() {
               Tutorials
             </p>
             <p className="rounded-full bg-[var(--primary-color)] text-white p-1 px-4">
+              Tournaments
+            </p>
+          </div> */}
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4 lg:gap-8 pb-8">
+            <p className="rounded-full bg-[var(--secondary-color)] text-[var(--primary-color)] p-1 px-4 text-xs md:text-sm lg:text-base">
+              All
+            </p>
+            <p className="rounded-full bg-[var(--primary-color)] text-white p-1 px-4 text-xs md:text-sm lg:text-base">
+              Moot Court
+            </p>
+            <p className="rounded-full bg-[var(--primary-color)] text-white p-1 px-4 text-xs md:text-sm lg:text-base">
+              Tutorials
+            </p>
+            <p className="rounded-full bg-[var(--primary-color)] text-white p-1 px-4 text-xs md:text-sm lg:text-base">
               Tournaments
             </p>
           </div>
