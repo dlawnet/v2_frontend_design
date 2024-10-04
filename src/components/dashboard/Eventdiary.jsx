@@ -79,7 +79,7 @@ function Eventdiary() {
         </div>
       )}
 
-      <div className="md:grid md:grid-cols-[60%_40%] lg:grid-cols-[70%_30%]">
+      <div className="md:grid md:grid-cols-[60%_40%] md:gap-2 lg:gap-0 lg:grid-cols-[70%_30%]">
         {activeSection === "PersonalEventDiary" && (
           <div className="md:px-14">
             <div className="border border-gray-300 md:px-8 py-6 p-4">
@@ -306,7 +306,7 @@ function Eventdiary() {
                       </div>
                     </div>
 
-                    <div className="pb-3 md:pl-16 text-justify md:space-y-3 w-full">
+                    <div className="pb-3 lg:pl-16 text-justify md:space-y-3 w-full">
                       {isLoading ? (
                         <div className="animate-pulse space-y-4 ">
                           <div className="h-4 bg-gray-300 rounded-md w-[70%] md:w-[70%]"></div>
@@ -360,7 +360,7 @@ function Eventdiary() {
                       )}
                     </div>
 
-                    <div className="space-y-4 md:pl-14">
+                    <div className="space-y-4 lg:pl-14">
                       {/* <p className="w-full">
                         Everyone loves networking and legal education, what if
                         there was a platform that you could get both Yes! you
@@ -420,7 +420,7 @@ function Eventdiary() {
                       </div>
                     </div>
 
-                    <div className="py-3 md:pl-16">
+                    <div className="py-3 lg:pl-16">
                       {isLoading ? (
                         <div className="animate-pulse space-y-4 ">
                           <div className="h-4 bg-gray-300 rounded-md w-[70%] md:w-[70%]"></div>
@@ -451,7 +451,7 @@ function Eventdiary() {
                       )}
                     </div>
 
-                    <div className="space-y-4 md:pl-16">
+                    <div className="space-y-4 lg:pl-16">
                       <div className="flex gap-6">
                         {/* <img
                           src="/champ.png"
@@ -475,7 +475,7 @@ function Eventdiary() {
                         />
                       </div>
                     </div>
-                    <div className="space-y-4 pt-8 md:pl-16">
+                    <div className="space-y-4 pt-8 lg:pl-16">
                       <div className="flex gap-[45px] lg:gap-24 md:gap-8 mb-8">
                         <RiChat1Line
                           size={35}
