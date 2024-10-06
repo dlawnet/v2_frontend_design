@@ -11,6 +11,7 @@ import Panel from "./components/dashboard/Panel";
 import MootCourts from "./components/dashboard/MootCourts";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import NotFound from "./components/constant/NotFound";
 
 function App() {
   const location = useLocation();
@@ -32,6 +33,8 @@ function App() {
           <Route path="panel" element={<Panel />} />
           <Route path="moots" element={<MootCourts />} />
         </Route>
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

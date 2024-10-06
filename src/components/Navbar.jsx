@@ -4,11 +4,11 @@ import MobileNav from "./MobileNav";
 function Navbar() {
   return (
     <>
-      <div className="hidden bg-[var(--primary-color)] md:flex justify-between items-center px-14 py-2">
+      <div className="hidden bg-[var(--primary-color)] md:flex  justify-between items-center px-14 py-2">
         <Link to={"/"}>
           <img src="/logo.svg" alt="logo" className="w-[67px] h-[67px]" />
         </Link>
-        <div className="flex justify-between gap-8 pl-24 md:text-xl sm:text-[16px] font-semibold text-[var(--text-color)]">
+        <div className="flex justify-between gap-8 pl-24 md:text-lg sm:text-[14px] font-semibold text-[var(--text-color)]">
           <a href="/">Home</a>
           <a href="/about">About</a>
           <a href="/contact">Contact</a>

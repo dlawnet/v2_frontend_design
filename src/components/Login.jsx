@@ -21,22 +21,28 @@ function Login() {
             <div className="md:flex ml-14 md:justify-around items-center">
               <div className="flex justify-around items-center py-9">
                 <div className="space-y-4">
-                  <h1 className="font-bold text-xl lg:2xl text-[var(--text-color)]">
-                    Login
-                  </h1>
+                  <div className="flex gap-3 items-center">
+                    <span className="relative flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-400"></span>
+                    </span>
+                    <h1 className="font-bold text-xl lg:2xl text-[var(--text-color)]">
+                      Login
+                    </h1>
+                  </div>
                   <input
                     type="text"
                     name="email"
                     placeholder="Email Address*"
                     required
-                    className="border border-white w-[85%] bg-transparent text-white p-4 "
+                    className="border placeholder:text-gray-300 border-white w-[85%] bg-transparent text-white p-4 "
                   />
                   <input
                     type="password"
                     name="password"
                     placeholder="Password*"
                     required
-                    className="border border-white w-[85%] bg-transparent text-white p-4 "
+                    className="border placeholder:text-gray-300 border-white w-[85%] bg-transparent text-white p-4 "
                   />
                   <div className="flex md:gap-32 items-center gap-10 md:text-lg text-[12px] my-4">
                     <div className="flex items-center">

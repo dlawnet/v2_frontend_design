@@ -134,7 +134,7 @@ function Panel() {
         </div>
       </div>
 
-      <div className="py-6 md:px-4 overflow-scroll">
+      <div className="py-6 md:px-4 overflow-hidden">
         <table className="table-auto">
           <thead>
             <tr>

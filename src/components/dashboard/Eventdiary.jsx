@@ -637,7 +637,7 @@ function Eventdiary() {
         <div
           className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 z-[1000] transform duration-700 ease-in-out`}
         >
-          <div className=" mx-auto lg:w-[30%] md:w-[50%] w-[70%] shadow-black shadow-md rounded-lg my-28 md:my-[4rem] p-4 bg-white justify-center flex-col">
+          <div className=" mx-auto lg:w-[35%] md:w-[50%] w-[70%] shadow-black shadow-md rounded-lg my-28 md:my-[4rem] p-4 bg-white justify-center flex-col">
             <div className="flex justify-between items-center pb-6">
               <img src="/logo.svg" alt="user" className="w-[50px] h-[50px]" />
 
@@ -660,10 +660,10 @@ function Eventdiary() {
                     name="startDate"
                     placeholder="Start Date"
                     required
-                    className="border border-[var(--primary-color)] outline-none w-[35%] bg-transparent p-4 "
+                    className="border border-[var(--primary-color)] placeholder:text-black outline-none w-[40%] bg-transparent p-4 "
                   />
                   <BiSolidDownArrow
-                    className="absolute top-5 left-24"
+                    className="absolute top-5 md:left-24 left-20"
                     size={12}
                   />
                   <input
@@ -671,10 +671,10 @@ function Eventdiary() {
                     name="startDate"
                     placeholder="State"
                     required
-                    className="border border-[var(--primary-color)] outline-none w-[42%] bg-transparent p-4 "
+                    className="border border-[var(--primary-color)] placeholder:text-black outline-none w-[42%] bg-transparent p-4 "
                   />
                   <BiSolidDownArrow
-                    className="absolute top-5 left-64"
+                    className="absolute top-5 md:left-64 left-56"
                     size={12}
                   />
                 </div>
@@ -685,14 +685,14 @@ function Eventdiary() {
                     name="subjectOfEvent"
                     placeholder="Subject of Event"
                     required
-                    className="border border-[var(--primary-color)] w-[85%] outline-none bg-transparent p-4 "
+                    className="border border-[var(--primary-color)] w-[85%] placeholder:text-black outline-none bg-transparent p-4 "
                   />
                   <input
                     type="text"
                     name="Institution"
                     placeholder="Public/Private or Colleges"
                     required
-                    className="border border-[var(--primary-color)] w-[85%] outline-none bg-transparent p-4 "
+                    className="border border-[var(--primary-color)] w-[85%] placeholder:text-black outline-none bg-transparent p-4 "
                   />
                 </div>
 
@@ -707,7 +707,7 @@ function Eventdiary() {
 
                 <textarea
                   placeholder="Description?"
-                  className="w-[85%] border outline-none border-[var(--primary-color)] p-4"
+                  className="w-[85%] border placeholder:text-black outline-none border-[var(--primary-color)] p-4"
                 />
 
                 <div className="">

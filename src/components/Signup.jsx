@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import { BiSolidDownArrow } from "react-icons/bi";
+import { GrFormPrevious } from "react-icons/gr";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -24,15 +25,26 @@ function Signup() {
               <div className="flex justify-center py-6 items-center text-center">
                 <img src="/logo.svg" alt="logo" className="w-[67px] h-[67px]" />
               </div>
-              <p className="text-2xl absolute md:left-[62%] left-[80%] top-[9rem] text-white">
-                2/2
-              </p>
+
+              <button
+                onClick={() => setRegisterNext((next) => !next)}
+                title="Add New"
+                className="animate-bounce mx-8 mb-2 w-6 h-6 bg-[var(--primary-color)] p-2 text-white rounded-full cursor-pointer outline-none border-[var(--secondary-color)] duration-100"
+              >
+                <GrFormPrevious size={30} />
+              </button>
               <div className="md:flex md:ml-14 ml-8 md:justify-around items-center">
                 <div className="flex justify-around items-center py-6">
                   <div className="space-y-2">
-                    <h1 className="font-bold text-xl lg:2xl text-[var(--text-color)]">
-                      Sign Up
-                    </h1>
+                    <div className="flex items-center gap-3">
+                      <span className="relative flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+                      </span>
+                      <h1 className="font-bold text-xl lg:2xl text-[var(--text-color)]">
+                        Sign Up
+                      </h1>
+                    </div>
 
                     <div className="text-sm space-x-3 relative">
                       <input
@@ -40,7 +52,7 @@ function Signup() {
                         name="name"
                         placeholder="Country"
                         required
-                        className="border border-white w-[40%] bg-transparent text-white p-4 "
+                        className="border placeholder:text-gray-100 border-white w-[40%] bg-transparent text-white p-4 "
                       />
                       <BiSolidDownArrow
                         className="absolute text-white top-5 md:left-32 left-20"
@@ -51,10 +63,10 @@ function Signup() {
                         name="email"
                         placeholder="State"
                         required
-                        className="border border-white w-[42%] bg-transparent text-white p-4 "
+                        className="border placeholder:text-gray-100 border-white w-[42%] bg-transparent text-white p-4 "
                       />
                       <BiSolidDownArrow
-                        className="absolute text-white top-5 md:left-80 left-56"
+                        className="absolute text-white top-5 md:left-80 left-64"
                         size={12}
                       />
                     </div>
@@ -65,17 +77,17 @@ function Signup() {
                         name="address"
                         placeholder="Address"
                         required
-                        className="border border-white w-[85%] outline-none bg-transparent text-white p-4 "
+                        className="border placeholder:text-gray-100 border-white w-[85%] outline-none bg-transparent text-white p-4 "
                       />
                       <input
                         type="text"
                         name="Institution"
                         placeholder="Institution Type"
                         required
-                        className="border border-white w-[85%] outline-none bg-transparent text-white p-4 "
+                        className="border placeholder:text-gray-100 border-white w-[85%] outline-none bg-transparent text-white p-4 "
                       />
                       <BiSolidDownArrow
-                        className="absolute text-white top-3 md:left-[21rem] left-[15rem]"
+                        className="absolute text-white top-3 md:left-[21rem] left-[16.5rem]"
                         size={12}
                       />
                     </div>
@@ -86,14 +98,14 @@ function Signup() {
                         name="Institution"
                         placeholder="Institution"
                         required
-                        className="border border-white w-[85%] outline-none bg-transparent text-white p-4 "
+                        className="border placeholder:text-gray-100 border-white w-[85%] outline-none bg-transparent text-white p-4 "
                       />
                       <input
                         type="text"
                         name="duration"
                         placeholder="Duration of Study (optional)"
                         required
-                        className="border border-white w-[85%] outline-none bg-transparent text-white p-4 "
+                        className="border placeholder:text-sm placeholder:text-gray-100 border-white w-[85%] outline-none bg-transparent text-white p-4 "
                       />
                     </div>
                     <input
@@ -101,12 +113,36 @@ function Signup() {
                       name="years"
                       placeholder="Years in School? (optional)"
                       required
-                      className="border border-white w-[85%] outline-none bg-transparent text-white p-4 "
+                      className="border placeholder:text-gray-100 border-white w-[85%] outline-none bg-transparent text-white p-4 "
                     />
 
                     <div className="text-sm space-y-8">
                       <div className="flex items-center mb-8">
-                        <div className="">
+                        <div className="hidden md:flex items-center">
+                          <input
+                            type="checkbox"
+                            id="stayLoggedIn"
+                            className="mr-2"
+                          />
+                          <label
+                            htmlFor="stayLoggedIn"
+                            className="text-[var(--text-color)] text-[8px] md:text-sm"
+                          >
+                            <p className="pl-2">
+                              I hereby accept the Terms and Conditions abding
+                              the law
+                            </p>
+                            <p className="px-2">
+                              students account and acknowledge that the details
+                              provided
+                            </p>
+                            <p className="px-2">
+                              above are valid and accurate.
+                            </p>
+                          </label>
+                        </div>
+
+                        <div className="md:hidden">
                           <input
                             type="checkbox"
                             id="stayLoggedIn"
@@ -117,13 +153,12 @@ function Signup() {
                             className="text-[var(--text-color)] text-[8px] md:text-sm"
                           >
                             I hereby accept the Terms and Conditions abding the
-                            law
                             <p className="px-5">
-                              students account and acknowledge that the details
-                              provided
+                              law students account and acknowledge that the
+                              details
                             </p>
                             <p className="px-5">
-                              above are valid and accurate.
+                              provided above are valid and accurate.
                             </p>
                           </label>
                         </div>
@@ -136,7 +171,7 @@ function Signup() {
                       Create Account
                     </button>
 
-                    <div className="text-sm md:text-xl pt-4 text-center mr-8 md:mr-0 md:text-start text-[var(--text-color)]">
+                    <div className="text-sm md:text-lg pt-4 text-center mr-8 md:mr-0 md:text-start text-[var(--text-color)]">
                       Already have an account? {""}
                       <a href="#" className="text-primary-500">
                         Login
@@ -157,15 +192,21 @@ function Signup() {
               <div className="flex justify-center py-6 items-center text-center">
                 <img src="/logo.svg" alt="logo" className="w-[67px] h-[67px]" />
               </div>
-              <p className="text-2xl absolute md:left-[62%] left-[75%] top-[9rem] text-white">
+              {/* <p className="text-2xl absolute md:left-[62%] left-[75%] top-[9rem] text-white">
                 1/2
-              </p>
+              </p> */}
               <div className="md:flex md:ml-14 mx-8 md:justify-around items-center">
                 <div className="flex justify-around items-center py-6">
                   <div className="space-y-2">
-                    <h1 className="font-bold text-xl lg:2xl text-[var(--text-color)]">
-                      Sign Up
-                    </h1>
+                    <div className="flex items-center gap-3">
+                      <span className="relative flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+                      </span>
+                      <h1 className="font-bold text-xl lg:2xl text-[var(--text-color)]">
+                        Sign Up
+                      </h1>
+                    </div>
 
                     <div className="text-sm space-y-3">
                       <input
@@ -173,14 +214,14 @@ function Signup() {
                         name="name"
                         placeholder="Full Name"
                         required
-                        className="border border-white md:w-[85%] w-[100%] outline-none bg-transparent text-white p-4 "
+                        className="border placeholder:text-gray-100 border-white md:w-[85%] w-[100%] outline-none bg-transparent text-white p-4 "
                       />
                       <input
                         type="text"
                         name="email"
                         placeholder="Email "
                         required
-                        className="border border-white md:w-[85%] w-[100%] outline-none bg-transparent text-white p-4 "
+                        className="border placeholder:text-gray-100 border-white md:w-[85%] w-[100%] outline-none bg-transparent text-white p-4 "
                       />
                     </div>
 
@@ -190,14 +231,14 @@ function Signup() {
                         name="Phone"
                         placeholder="Phone No"
                         required
-                        className="border border-white md:w-[85%] w-[100%] outline-none bg-transparent text-white p-4 "
+                        className="border placeholder:text-gray-100 border-white md:w-[85%] w-[100%] outline-none bg-transparent text-white p-4 "
                       />
                       <input
                         type="password"
                         name="password"
                         placeholder="Password"
                         required
-                        className="border border-white md:w-[85%] w-[100%] outline-none bg-transparent text-white p-4 "
+                        className="border placeholder:text-gray-100 border-white md:w-[85%] w-[100%] outline-none bg-transparent text-white p-4 "
                       />
                     </div>
 
@@ -206,7 +247,7 @@ function Signup() {
                       name="confim"
                       placeholder="Confirm Password"
                       required
-                      className="border border-white md:w-[85%] w-[100%] outline-none bg-transparent text-white p-4 "
+                      className="border placeholder:text-gray-100 border-white md:w-[85%] w-[100%] outline-none bg-transparent text-white p-4 "
                     />
 
                     <div className="text-sm space-y-8">
