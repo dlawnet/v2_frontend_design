@@ -20,7 +20,8 @@ function Home() {
       <Navbar />
 
       <div>
-        <div className="bg-[url('/hero.svg')] bg-no-repeat bg-cover py-8 md:px-14 lg:px-32 flex flex-col justify-center items-center mx-auto">
+        {/* <div className="bg-[url('/hero.svg')] bg-no-repeat bg-cover py-8 md:px-14 lg:px-32 flex flex-col justify-center items-center mx-auto"> */}
+        <div className="bg-[#0f0905] bg-no-repeat bg-cover py-8 md:px-14 lg:px-32 flex flex-col justify-center items-center mx-auto">
           <div className="md:flex flex-col justify-center py-2 items-center">
             <div
               data-aos="fade-up"

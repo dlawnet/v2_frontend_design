@@ -5,7 +5,8 @@ function Contact() {
   return (
     <div className="">
       <Navbar />
-      <div className="hidden bg-[url('/hero.svg')] bg-no-repeat bg-cover py-8 md:px-4 justify-around lg:px-32 md:flex items-center">
+      {/* <div className="hidden bg-[url('/hero.svg')] bg-no-repeat bg-cover py-8 md:px-4 justify-around lg:px-32 md:flex items-center"> */}
+      <div className="hidden bg-[#0f0905] bg-no-repeat bg-cover py-8 md:px-4 justify-around lg:px-32 md:flex items-center">
         <div className="mt-28 ">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252187.52231536977!2d7.154483772474067!3d9.024477265449224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e745f4cd62fd9%3A0x53bd17b4a20ea12b!2sAbuja%2C%20Federal%20Capital%20Territory!5e0!3m2!1sen!2sng!4v1728241788714!5m2!1sen!2sng"
