@@ -6,7 +6,8 @@ function About() {
       <Navbar />
 
       <div>
-        <div className="bg-[url('/hero.svg')] bg-no-repeat bg-cover py-16 md:px-14 lg:px-32 flex flex-col justify-center items-center mx-auto">
+        {/* <div className="bg-[url('/hero.svg')] bg-no-repeat bg-cover py-16 md:px-14 lg:px-32 flex flex-col justify-center items-center mx-auto"> */}
+        <div className="bg-[#0f0905] bg-no-repeat bg-cover py-16 md:px-14 lg:px-32 flex flex-col justify-center items-center mx-auto">
           <div className="md:flex flex-col justify-center py-8 items-center">
             <h1 className="md:text-[300%] text-[35px] sm:mt-4 font-bold lg:w-[80%] leading-tight pb-6 md:px-36 px-14 py-8 md:py-0 text-[var(--secondary-color)] text-center">
               About
