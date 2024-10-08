@@ -192,9 +192,7 @@ function Signup() {
               <div className="flex justify-center py-6 items-center text-center">
                 <img src="/logo.svg" alt="logo" className="w-[67px] h-[67px]" />
               </div>
-              {/* <p className="text-2xl absolute md:left-[62%] left-[75%] top-[9rem] text-white">
-                1/2
-              </p> */}
+             
               <div className="md:flex md:ml-14 mx-8 md:justify-around items-center">
                 <div className="flex justify-around items-center py-6">
                   <div className="space-y-2">
