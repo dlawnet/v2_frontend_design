@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 
 function Contact() {
   return (
-    <div className="">
+    <>
       <Navbar />
       {/* <div className="hidden bg-[url('/hero.svg')] bg-no-repeat bg-cover py-8 md:px-4 justify-around lg:px-32 md:flex items-center"> */}
       <div className="hidden bg-[#0f0905] bg-no-repeat bg-cover py-8 md:px-4 justify-around lg:px-32 md:flex items-center">
@@ -87,7 +87,7 @@ function Contact() {
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

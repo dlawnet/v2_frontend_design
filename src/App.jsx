@@ -12,11 +12,33 @@ import MootCourts from "./components/dashboard/MootCourts";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import NotFound from "./components/constant/NotFound";
+import Spinner from "./components/constant/Spinner";
+import { useEffect, useState } from "react";
 
 function App() {
   const location = useLocation();
-  console.log(location);
+  const [initialLoading, setInitialLoading] = useState(true);
 
+  useEffect(() => {
+    const hasVisited = localStorage.getItem("hasVisited");
+
+    if (!hasVisited) {
+      // User hasn't visited yet, show loader
+      const timer = setTimeout(() => {
+        setInitialLoading(false);
+        localStorage.setItem("hasVisited", "true"); // Set the flag
+      }, 6000); // 5 seconds for initial loading
+
+      return () => clearTimeout(timer);
+    } else {
+      // User has visited before, skip loader
+      setInitialLoading(false);
+    }
+  }, []);
+
+  if (initialLoading) {
+    return <Spinner />;
+  }
   return (
     <div>
       <Routes>
