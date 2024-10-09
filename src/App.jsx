@@ -19,19 +19,16 @@ function App() {
   const location = useLocation();
   const [initialLoading, setInitialLoading] = useState(true);
 
-  useEffect(() => {
-    const hasVisited = localStorage.getItem("hasVisited");
+  const hasVisited = sessionStorage.getItem("hasVisited");
 
+  useEffect(() => {
     if (!hasVisited) {
-      // User hasn't visited yet, show loader
       const timer = setTimeout(() => {
         setInitialLoading(false);
-        localStorage.setItem("hasVisited", "true"); // Set the flag
-      }, 6000); // 5 seconds for initial loading
-
+        sessionStorage.setItem("hasVisited", "true");
+      }, 5000);
       return () => clearTimeout(timer);
     } else {
-      // User has visited before, skip loader
       setInitialLoading(false);
     }
   }, []);
@@ -39,6 +36,24 @@ function App() {
   if (initialLoading) {
     return <Spinner />;
   }
+
+  // useEffect(() => {
+  //     const hasVisited = localStorage.getItem("hasVisited");
+
+  //     if (!hasVisited) {
+  //       const timer = setTimeout(() => {
+  //         setInitialLoading(false);
+  //         localStorage.setItem("hasVisited", "true");
+  //       }, 6000);
+  //       return () => clearTimeout(timer);
+  //     } else {
+  //       setInitialLoading(false);
+  //     }
+  //   }, []);
+
+  //   if (initialLoading) {
+  //     return <Spinner />;
+  //   }
   return (
     <div>
       <Routes>
