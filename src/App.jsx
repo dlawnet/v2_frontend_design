@@ -12,11 +12,48 @@ import MootCourts from "./components/dashboard/MootCourts";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import NotFound from "./components/constant/NotFound";
+import Spinner from "./components/constant/Spinner";
+import { useEffect, useState } from "react";
 
 function App() {
   const location = useLocation();
-  console.log(location);
+  const [initialLoading, setInitialLoading] = useState(true);
 
+  const hasVisited = sessionStorage.getItem("hasVisited");
+
+  useEffect(() => {
+    if (!hasVisited) {
+      const timer = setTimeout(() => {
+        setInitialLoading(false);
+        sessionStorage.setItem("hasVisited", "true");
+      }, 5000);
+      return () => clearTimeout(timer);
+    } else {
+      setInitialLoading(false);
+    }
+  }, []);
+
+  if (initialLoading) {
+    return <Spinner />;
+  }
+
+  // useEffect(() => {
+  //     const hasVisited = localStorage.getItem("hasVisited");
+
+  //     if (!hasVisited) {
+  //       const timer = setTimeout(() => {
+  //         setInitialLoading(false);
+  //         localStorage.setItem("hasVisited", "true");
+  //       }, 6000);
+  //       return () => clearTimeout(timer);
+  //     } else {
+  //       setInitialLoading(false);
+  //     }
+  //   }, []);
+
+  //   if (initialLoading) {
+  //     return <Spinner />;
+  //   }
   return (
     <div>
       <Routes>
