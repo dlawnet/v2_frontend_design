@@ -1,8 +1,15 @@
 // @ts-check
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  async rewrites() {
+    return [
+      {
+        source: "/video/:videoId",
+        destination: "/video/:videoId",
+      },
+    ];
+  },
+};
 
-   /** @type {import('next').NextConfig} */
-   const nextConfig = {
-    reactStrictMode: true,
-  }
-
-  export default nextConfig
+export default nextConfig;

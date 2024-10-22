@@ -1,8 +1,13 @@
+import Footer from "@app/components/footer/Footer";
+import Header from "@app/components/header/Header";
+import Hero from "@app/components/landing-page/Hero";
 
 export default function Home() {
   return (
-      <>      <h1>Hello</h1>
-          <h2>There</h2>
-      </>
+    <>
+      <Header />
+      <Hero />
+      <Footer />
+    </>
   );
 }
