@@ -12,18 +12,13 @@ import {
   DialogTrigger,
 } from "@app/components/ui/dialog";
 import { useDropzone } from "react-dropzone";
-
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import "./customCalendar.css";
 import SideScreen from "./SideScreen";
 
 interface PersonalEventDiaryProps {
   onShare: (inputValue: string) => void;
 }
 
-const PersonalEventDiary = () => {
+const LawSociety = () => {
   const [inputValue, setInputValue] = React.useState("");
   const [open, setOpen] = React.useState(false);
 
@@ -64,76 +59,43 @@ const PersonalEventDiary = () => {
     },
   });
 
-  const [date, setDate] = useState(new Date());
-
-  const tileContent = ({ date, view }: any) => {
-    if (view === "month") {
-      if (date.getDate() === 10 || date.getDate() === 20) {
-        return <div className="highlight-yellow"></div>;
-      }
-    }
-  };
-
-  const customNavigation = ({ date, nextMonth, prevMonth }: any) => (
-    <div className="custom-header flex justify-between items-center px-4 py-2">
-      <div className="text-sm">
-        {date.toLocaleDateString("en-US", { month: "long", year: "numeric" })}
-      </div>
-      <div className="flex">
-        <button onClick={prevMonth} className="nav-arrow">
-          <FiChevronLeft size={20} />
-        </button>
-        <button onClick={nextMonth} className="nav-arrow">
-          <FiChevronRight size={20} />
-        </button>
-      </div>
-    </div>
-  );
-
   return (
     <div className="flex px-3">
-      <div className="w-full min-[1200px]:w-[80%] mt-2 ">
-        <div className="flex justify-evenly border-b">
+      <div className="w-full min-[1200px]:w-[80%] ">
+        <div className="flex justify-evenly border-b pt-2">
           <div className="flex flex-col items-center">
             <p className="text-lg">Personal Event Diary</p>
-            <div className="w-[69px] h-1 bg-[#491217] rounded-t-[5px]"></div>
+            <div className="hidden w-[69px] h-1 bg-[#491217] rounded-t-[5px]"></div>
           </div>
           <div className="flex flex-col items-center">
             <p className="text-lg text-opacity-50">Law Society</p>
-            <div className="hidden w-[69px] h-1 bg-[#491217] rounded-t-[5px]"></div>
+            <div className="w-[69px] h-1 bg-[#491217] rounded-t-[5px]"></div>
           </div>
         </div>
         <div className="relative">
-          <img src="/images/Profile-icon.svg" className="absolute mt-4 ml-4" />
-          <textarea
-            placeholder="What is happening?"
-            // value={inputValue}
-            // onChange={handleInputChange}
-            className="w-full border-b h-[160px] border-gray-300 rounded-md p-2 pt-4 pl-12 outline-none"
-          >
-            {" "}
-          </textarea>
-          <div className="absolute top-28 ml-6">
-            <div className="flex gap-3">
-              <img
-                src="/images/photo.svg"
-                alt="photo"
-                className="cursor-pointer"
-              />
-              <img src="/images/gif.svg" alt="gif" className="cursor-pointer" />
-              <img
-                src="/images/uis_calender.svg"
-                alt="uis_calender"
-                className="cursor-pointer"
-              />
+          <div className=" h-[204px] bg-white">
+            <div className="flex justify-center">
+              <img src="/images/law-school.png" alt="arrow" className="" />
             </div>
           </div>
-          <Button
-            onClick={handleShare}
-            className="absolute right-0 top-[85px] mr-10 mt-4 bg-[#491217] bg-opacity-75 text-white text-opacity-75 rounded-[10px]"
-          >
-            Share
-          </Button>
+        </div>
+        <div className="text-white bg-[#491217] border-t border-b border-black border-opacity-20 ml-[-35px] pl-9 max-[1200px]:mr-[-15px]">
+          <p className="text-3xl pt-3">Abuja Law</p>
+          <div className="pt-3 flex gap-3">
+            <div className="flex">
+              <div className="w-[18px] h-[18px] border rounded-full bg-white"></div>
+              <div className="w-[18px] h-[18px] border rounded-full bg-white ml-[-5px]"></div>
+              <div className="w-[18px] h-[18px] border rounded-full bg-white ml-[-5px]"></div>
+            </div>
+            <p className="text-sm">30k Members</p>
+          </div>
+          <p className="max-w-[700px] py-3">
+            Welcome to our prestigious Law School, where we are committed to
+            cultivating the next generation of legal professionals. With a rich
+            tradition of academic excellence and a focus on innovative, hands-on
+            learning, our programs are designed to prepare students for the
+            complexities of modern law...Read More
+          </p>
         </div>
         {/* Mobile start */}
         <div className=" md:hidden">
@@ -266,8 +228,78 @@ const PersonalEventDiary = () => {
             </Dialog>
           </div>
         </div>
+
+        {/* Mobile ends */}
         {/* Post start */}
-        <div className="flex gap-3 mt-4">
+        <div className="mt-4">
+          <div className="flex items-center gap-1 ml-14">
+            <img src="/images/pin.svg" alt="pin" className="" />
+            <p className="text-[#491217]">Pinned</p>
+          </div>
+        </div>
+        {/* Post1 */}
+        <div className="flex gap-3 mt-4 border-b">
+          <img src="/images/logo.svg" alt="logo" className="w-12 h-12" />
+          <div>
+            <div className="flex items-center">
+              <div className="flex items-center gap-2">
+                <p className="text-[#10141A] font-bold">Ayodeji Awodele</p>
+                <img src="/images/verified.svg" alt="verified" />
+                <p className="text-xs text-white p-1 bg-[#491217] rounded">
+                  President
+                </p>
+                <p className="text-sm text-opacity-50">@DLawnetsociety · 1h</p>
+              </div>
+            </div>
+            <div className="max-w-[727px]">
+              <p className="mt-2">
+                Hello! My name is Ayodeji Awodele, the president of Abuja Law
+                society for the term 23/24. Welcome to our prestigious Law
+                School, where we are committed to cultivating the next
+                generation of legal professionals. With a rich tradition of
+                academic excellence and a focus on innovative, hands-on
+                learning, our programs are designed to prepare students for the
+                complexities of modern law. From constitutional law to
+                international human rights, we offer a diverse curriculum taught
+                by renowned faculty. Our vibrant community, strong alumni
+                network, and emphasis on ethics and social justice ensure that
+                our graduates are well-equipped to lead with integrity and make
+                a meaningful impact in the legal field.
+              </p>
+            </div>
+
+            <div className="flex items-center justify-between my-5 max-w-[622px]">
+              <img
+                src="/images/comment.svg"
+                alt="comment"
+                className="cursor-pointer "
+              />
+
+              <img
+                src="/images/repost.svg"
+                alt="repost"
+                className="cursor-pointer"
+              />
+              <img
+                src="/images/like-post.svg"
+                alt="like"
+                className="cursor-pointer"
+              />
+              <img
+                src="/images/saved.svg"
+                alt="saved"
+                className="cursor-pointer"
+              />
+              <img
+                src="/images/download.svg"
+                alt="download"
+                className="cursor-pointer"
+              />
+            </div>
+          </div>
+        </div>
+        {/* Post2 */}
+        <div className="flex gap-3 mt-4 border-b">
           <img src="/images/logo.svg" alt="logo" className="w-12 h-12" />
           <div>
             <div className="flex items-center">
@@ -279,46 +311,31 @@ const PersonalEventDiary = () => {
             </div>
             <div className="max-w-[727px]">
               <p className="mt-2">
-                Everyone loves networking and legal education, what if there was
-                a platform that you could get both Yes! you heard me right.
+                We are to announce the Upcoming Inter-chamber football match
+                between Uniabuja and OAU.
               </p>
-              <p className="mt-8">
-                Just Login and Activate your account to get started and do more
-                than you can imagine. Connect with lawyers that have experience
-                on the field.
+              <p className="mt-10">
+                Details of the match would be communicated soon.
               </p>
-              <p className="mt-8 text-[#2D9CE6]">DLawnet.com</p>
+              <p className="mt-2 text-[#491217]">#LAW#abujaslaw</p>
             </div>
             <div className="grid grid-cols-2 gap-3 mt-2">
               <div className="max-w-[303px]">
                 <img
-                  src="/images/Post-image.png"
+                  src="/images/match.png"
                   alt="post"
                   className="w-full aspect-square object-cover rounded-[10px]"
                 />
               </div>
               <div className="max-w-[303px]">
                 <img
-                  src="/images/Post-image2.png"
-                  alt="post"
-                  className="w-full aspect-square object-cover rounded-[10px]"
-                />
-              </div>
-              <div className="max-w-[303px]">
-                <img
-                  src="/images/Post-image3.png"
-                  alt="post"
-                  className="w-full aspect-square object-cover rounded-[10px]"
-                />
-              </div>
-              <div className="max-w-[303px]">
-                <img
-                  src="/images/Post-image4.png"
+                  src="/images/man-u.png"
                   alt="post"
                   className="w-full aspect-square object-cover rounded-[10px]"
                 />
               </div>
             </div>
+
             <div className="flex items-center justify-between my-5 max-w-[622px]">
               <img
                 src="/images/comment.svg"
@@ -350,15 +367,6 @@ const PersonalEventDiary = () => {
           </div>
         </div>
         {/* Post ends */}
-
-        <div className="relative">
-          <div className="absolute right-0 mr-40 mt-[-40px]">
-            <img src="/images/add-post.svg" alt="add-post" className="" />
-          </div>
-          <div className="h-[68px] border border-opacity-20 flex items-center justify-center my-2">
-            <p>Show 135 Posts</p>
-          </div>
-        </div>
       </div>
       {/* SIde start */}
       <SideScreen />
@@ -367,4 +375,4 @@ const PersonalEventDiary = () => {
   );
 };
 
-export default PersonalEventDiary;
+export default LawSociety;
