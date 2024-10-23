@@ -41,6 +41,7 @@ const Page = () => {
       ...prev,
       first_name,
       last_name: last_name || "",
+      username: first_name,
       email: data.email,
       phone: data.phone,
       password: data.password,
@@ -66,6 +67,7 @@ const Page = () => {
       institution_type: data.institution_type,
       duration_of_study: data.duration_of_study,
       years_in_school: data.years_in_school,
+      username: data.institution
     }));
 
     // Send the combined formData to the API

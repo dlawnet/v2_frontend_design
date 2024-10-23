@@ -10,7 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@app/components/ui/dialog";
+} from "@app/components/base/dialog";
 import { useDropzone } from "react-dropzone";
 
 import Calendar from "react-calendar";

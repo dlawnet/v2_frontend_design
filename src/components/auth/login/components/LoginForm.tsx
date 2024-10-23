@@ -1,14 +1,14 @@
+'use client'
 import {Button} from "@app/components/base/button";
 import {Checkbox} from "@app/components/base/checkbox";
 import {Input} from "@app/components/base/input";
 import React, {useState} from "react";
-import {useRouter} from 'next/router';
+import {useRouter} from 'next/navigation';
 
 const FormOne = () => {
   const [emailOrPhone, setEmailOrPhone] = useState('');
   const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
-  const router = useRouter(); 
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,7 +16,6 @@ const FormOne = () => {
     const payload = {
       emailOrUsername: emailOrPhone,
       password: password,
-      remember_me: rememberMe,
     };
 
     try {
@@ -75,10 +74,6 @@ const FormOne = () => {
                         <Checkbox
                             id="remember"
                             className="rounded"
-                            checked={rememberMe}
-                            onChange={(e) =>
-                                setRememberMe((e.target as HTMLInputElement).checked)
-                            }
                         />
                         <label
                             htmlFor="remember"

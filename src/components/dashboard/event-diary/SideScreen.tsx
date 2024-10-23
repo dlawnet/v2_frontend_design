@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@app/components/ui/dialog";
+
 import { useDropzone } from "react-dropzone";
 import { Button, Input } from "@nextui-org/react";
 import Calendar from "react-calendar";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import "react-calendar/dist/Calendar.css";
 import "./customCalendar.css";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger
+} from "@app/components/base/dialog";
 
 const SideScreen = () => {
   const [date, setDate] = useState(new Date());
