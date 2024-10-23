@@ -2,13 +2,7 @@
 import React, { useState } from "react";
 import { Input } from "@app/components/base/input";
 import { Textarea } from "@app/components/base/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@app/components/ui/select";
+
 import {
   Table,
   TableCell,
@@ -17,6 +11,7 @@ import {
   TableRow,
 } from "@app/components/base/table";
 import { useDropzone } from "react-dropzone";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@app/components/base/select";
 
 const PanelOfExperts = () => {
   const [uploadedFiles, setUploadedFiles] = useState<

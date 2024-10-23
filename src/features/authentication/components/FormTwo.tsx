@@ -59,9 +59,9 @@ const FormTwo: React.FC<FormTwoProps> = ({ onBack, onSubmit }) => {
                     onChange={(e) => setCountry(Number(e.target.value))}
                 >
                   <option value="0">Select Country</option>
-                  <option value="1">United Kingdom</option>
-                  <option value="2">India</option>
-                  <option value="3">France</option>
+                  <option value="1">Nigeria</option>
+                  <option value="2">United Kingdom</option>
+                  <option value="3">United State</option>
                 </select>
                 <select
                     className="w-[276px] sm:w-[400px] bg-[#491217] h-[49px] border border-white text-white pl-2 outline-none"
@@ -69,8 +69,8 @@ const FormTwo: React.FC<FormTwoProps> = ({ onBack, onSubmit }) => {
                     onChange={(e) => setState(Number(e.target.value))}
                 >
                   <option value="0">Select State</option>
-                  <option value="1">California</option>
-                  <option value="2">Texas</option>
+                  <option value="1">Ogun</option>
+                  <option value="2">Lagos</option>
                 </select>
                 <Input
                     type="text"

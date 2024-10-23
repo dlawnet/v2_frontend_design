@@ -1,18 +1,17 @@
 "use client";
 import React, { useState } from "react";
 import { Avatar, Button, Input } from "@nextui-org/react";
-import { FaImage, FaFile, FaRegFile } from "react-icons/fa";
+
+import { useDropzone } from "react-dropzone";
+import SideScreen from "./SideScreen";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
-} from "@app/components/ui/dialog";
-import { useDropzone } from "react-dropzone";
-import SideScreen from "./SideScreen";
+  DialogTrigger
+} from "@app/components/base/dialog";
 
 interface PersonalEventDiaryProps {
   onShare: (inputValue: string) => void;

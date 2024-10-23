@@ -1,16 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Avatar, Button, Input } from "@nextui-org/react";
-import { FaImage, FaFile, FaRegFile } from "react-icons/fa";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@app/components/ui/dialog";
+
 import { useDropzone } from "react-dropzone";
 
 import Calendar from "react-calendar";
