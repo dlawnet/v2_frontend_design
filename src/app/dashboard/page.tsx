@@ -7,6 +7,9 @@ import PanelOfExperts from "@app/components/dashboard/panelOfExperts/PanelOfExpe
 import MootCourtsPage1 from "@app/components/dashboard/moot-courts/MootCourtsPage1";
 import Videos from "@app/components/dashboard/moot-courts/Videos";
 import PersonalEventDiary from "@app/components/dashboard/event-diary/PersonalEventDiary";
+import UserProfile from "@app/components/dashboard/event-diary/UserProfile";
+import LawSociety from "@app/components/dashboard/event-diary/LawSociety";
+import Header2 from "@app/components/header/Header2";
 
 const Page = () => {
   const [selectedMenu, setSelectedMenu] = useState("Dashboard");
@@ -15,27 +18,11 @@ const Page = () => {
   return (
     <div className="w-full">
       {/* Header start */}
-      <nav className="flex items-center justify-between px-6 lg:px-[40px] h-[76px] bg-[#491217] text-white">
-        <div className="flex-grow lg:flex-grow-0 my-5">
-          <img src="/images/logo.svg" alt="Logo" />
-        </div>
-        <div className="block lg:hidden">
-          <img src="/images/menu.svg" alt="Menu" />
-        </div>
-        <div className="hidden lg:flex gap-8">
-          <div className="flex items-center gap-2">
-            <img src="/images/wallet.svg" alt="Menu" />
-            $0.00
-          </div>
-          <div>
-            <img src="/images/profile.svg" alt="Menu" />
-          </div>
-        </div>
-      </nav>
+      <Header2 />
       {/* Header ends */}
 
       {/* Main content start */}
-      <div className="flex gap-10">
+      <div className="flex gap-5">
         {/* Left Menu start */}
         <div className="hidden w-[247px] h-lvh bg-[#491217] lg:flex flex-col items-end pt-20">
           <div
@@ -135,7 +122,7 @@ const Page = () => {
           {selectedMenu === "PanelOfExperts" && <PanelOfExperts />}
           {selectedMenu === "MootCourts" && <Videos />}
           {/* {selectedMenu === "MootCourts" && <MootCourtsPage1 />} */}
-          {selectedMenu === "EventDiary" && <PersonalEventDiary />}
+          {selectedMenu === "EventDiary" && <UserProfile />}
         </div>
       </div>
       {/* Main content end */}
