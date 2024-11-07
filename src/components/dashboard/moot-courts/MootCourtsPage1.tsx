@@ -35,7 +35,7 @@ const MootCourtsPage1 = () => {
   ];
 
   return (
-    <div className="mt-3  lg:ml-0 ">
+    <div className="mt-3 lg:ml-0 ">
       <div className="flex flex-col items-center">
         <div className="relative">
           <img
@@ -51,7 +51,7 @@ const MootCourtsPage1 = () => {
         </div>
       </div>
       <div className="mt-5 flex flex-col items-center sm:items-start">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 sm:ml-5">
           <p className="bg-[#FDDF5A] text-sm w-[40px] h-[30px] rounded-[25px] text-[#491217] flex justify-center items-center cursor-pointer hover:scale-105">
             All
           </p>
@@ -66,7 +66,7 @@ const MootCourtsPage1 = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-wrap items-center justify-center sm:justify-between mt-5 sm:items-start ml-14">
+      <div className="flex flex-wrap items-center justify-center sm:justify-between mt-5 sm:items-start ml-12 sm:mr-5">
         {videos.map((video) => (
           <VideoCard
             key={video.id}

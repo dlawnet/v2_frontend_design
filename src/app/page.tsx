@@ -1,6 +1,7 @@
-import Footer from "@app/components/footer/Footer";
-import Header from "@app/components/header/Header";
-import Hero from "@app/components/landing-page/Hero";
+import Footer from "@app/features/landing-page/components/Footer";
+import Hero from "@app/features/landing-page/components/Hero";
+import Header from "@app/features/landing-page/components/Header";
+
 
 export default function Home() {
   return (

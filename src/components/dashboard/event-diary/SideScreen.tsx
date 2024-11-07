@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import {
   Dialog,
   DialogContent,
@@ -6,11 +6,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@app/components/ui/dialog";
-import { useDropzone } from "react-dropzone";
-import { Button, Input } from "@nextui-org/react";
+} from "@app/components/base/dialog";
+import {useDropzone} from "react-dropzone";
+import {Button, Input} from "@nextui-org/react";
 import Calendar from "react-calendar";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import {FiChevronLeft, FiChevronRight} from "react-icons/fi";
 import "react-calendar/dist/Calendar.css";
 import "./customCalendar.css";
 
@@ -65,8 +65,8 @@ const SideScreen = () => {
   );
 
   return (
-    <div className="border-l pt-4 hidden min-[1200px]:block w-[20%]">
-      <div className="">
+    <div className="border-l pt-4 hidden min-[1200px]:block w-[25%]">
+      <div className="flex flex-col items-center">
         <div className="relative pl-5">
           <img
             src="/images/search.svg"
@@ -76,12 +76,12 @@ const SideScreen = () => {
           <input
             type="search"
             placeholder="Search"
-            className="w-[100%] h-10 border border-[#491217] rounded-[15px] pl-9 outline-none"
+            className="w-[90%] h-10 border border-[#491217] rounded-[15px] pl-9 outline-none"
           />
         </div>
       </div>
       <p className="pl-5 pt-3">Event Calendar</p>
-      <div className="w-[220px] ml-5">
+      <div className="w-[90%] ml-5">
         <Calendar
           // onChange={setDate}
           value={date}
@@ -95,44 +95,46 @@ const SideScreen = () => {
       </div>
       <div>
         <p className="pl-5 pt-3">Upcoming Events </p>
-        <div className="pl-5 mt-5">
-          <div className="w-[210px] shadow-custom-shadow p-3 rounded-xl">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1">
-                <img src="/images/dot.svg" alt="dot" />
-                <p>10th October</p>
+        <div className="flex flex-col items-center">
+          <div className="pl-5 mt-5">
+            <div className="w-[217px] shadow-custom-shadow p-3 rounded-xl">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-1">
+                  <img src="/images/dot.svg" alt="dot" />
+                  <p>10th October</p>
+                </div>
+                <p className="text-[#491217]">Personal</p>
               </div>
-              <p className="text-[#491217]">Personal</p>
+              <p className="text-lg">Chamber meeting</p>
+              <p className="text-sm">Meeting with Inviticus Members</p>
             </div>
-            <p className="text-lg">Chamber meeting</p>
-            <p className="text-sm">Meeting with Inviticus Members</p>
           </div>
-        </div>
-        {/*  */}
-        <div className="pl-5 mt-5">
-          <div className="w-[210px] shadow-custom-shadow p-3 rounded-xl">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1">
-                <img src="/images/dot.svg" alt="dot" />
-                <p>10th October</p>
+          {/*  */}
+          <div className="pl-5 mt-5">
+            <div className="w-[217px] shadow-custom-shadow p-3 rounded-xl">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-1">
+                  <img src="/images/dot.svg" alt="dot" />
+                  <p>10th October</p>
+                </div>
+                <p className="text-[#491217]">Personal</p>
               </div>
-              <p className="text-[#491217]">Personal</p>
+              <p className="text-lg">Chamber meeting</p>
+              <p className="text-sm">Meeting with Inviticus Members</p>
             </div>
-            <p className="text-lg">Chamber meeting</p>
-            <p className="text-sm">Meeting with Inviticus Members</p>
           </div>
-        </div>
-        {/*  */}
-        <div className="pl-5 mt-5">
-          <div className="w-[210px] shadow-custom-shadow p-3 rounded-xl">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1">
-                <img src="/images/dot.svg" alt="dot" />
-                <p>10th October</p>
+          {/*  */}
+          <div className="pl-5 mt-5">
+            <div className="w-[217px] shadow-custom-shadow p-3 rounded-xl">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-1">
+                  <img src="/images/dot.svg" alt="dot" />
+                  <p>10th October</p>
+                </div>
+                <p className="text-[#491217]">Personal</p>
               </div>
-              <p className="text-[#491217]">Personal</p>
+              <p className="text-lg">Chamber meeting</p>
             </div>
-            <p className="text-lg">Chamber meeting</p>
           </div>
         </div>
         {/*  */}

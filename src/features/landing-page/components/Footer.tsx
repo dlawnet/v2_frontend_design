@@ -1,10 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "../base/collapsible";
+import React, {useEffect, useState} from "react";
+import {Collapsible, CollapsibleContent, CollapsibleTrigger,} from "../../../components/base/collapsible";
 import Image from "next/image";
 
 const Footer = () => {

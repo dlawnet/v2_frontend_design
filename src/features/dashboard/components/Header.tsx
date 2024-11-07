@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
+import {Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger} from "@app/components/base/menubar";
 
-const Header2 = () => {
+
+const Header = () => {
+  //const logout = useLogout()
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -21,7 +24,19 @@ const Header2 = () => {
           $0.00
         </div>
         <div>
-          <img src="/images/profile.svg" alt="Menu" />
+          <Menubar className="border-none">
+            <MenubarMenu>
+              <MenubarTrigger className="border-none cursor-pointer">
+                <img src="/images/profile.svg" alt="Menu" />
+              </MenubarTrigger>
+              <MenubarContent className="bg-[#491217] text-white">
+                <MenubarItem className="cursor-pointer hover:bg-slate-600">
+                  Log Out
+                  {/*<Button onClick={logout.mutate({})}>Log Out</Button>*/}
+                </MenubarItem>
+              </MenubarContent>
+            </MenubarMenu>
+          </Menubar>
         </div>
       </div>
       {/* Mobile Menu */}
@@ -75,4 +90,4 @@ const Header2 = () => {
   );
 };
 
-export default Header2;
+export default Header;

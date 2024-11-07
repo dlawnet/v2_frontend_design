@@ -20,8 +20,8 @@ const VideoCard: React.FC<ReusableCardProps> = ({
   duration,
 }) => {
   return (
-    <Card className=" text-[#491217] w-[370px] sm:w-[273px]  border-none shadow-none cursor-pointer hover:scale-105">
-      <div className="relative w-[276px] h-[143px] bg-black rounded-full mb-4">
+    <Card className=" text-[#491217] w-[330px] sm:w-[273px]  border-none shadow-none cursor-pointer hover:scale-105">
+      <div className="relative w-[270px] h-[143px] bg-black rounded-full mb-4">
         <img
           src={imageSrc}
           alt={title}

@@ -1,37 +1,40 @@
 "use client";
-import React, { useState } from "react";
-import Dashboard from "@app/components/dashboard/Dashboard";
+import React, {useState} from "react";
 import BanksPage1 from "@app/components/dashboard/banks/BanksPage1";
 import BanksPage2 from "@app/components/dashboard/banks/BanksPage2";
 import PanelOfExperts from "@app/components/dashboard/panelOfExperts/PanelOfExperts";
-import MootCourtsPage1 from "@app/components/dashboard/moot-courts/MootCourtsPage1";
 import Videos from "@app/components/dashboard/moot-courts/Videos";
 import PersonalEventDiary from "@app/components/dashboard/event-diary/PersonalEventDiary";
-import UserProfile from "@app/components/dashboard/event-diary/UserProfile";
-import LawSociety from "@app/components/dashboard/event-diary/LawSociety";
-import Header2 from "@app/components/header/Header2";
+import Header from "@app/features/dashboard/components/Header";
+import Dashboard from "@app/features/dashboard/components/Dashboard";
 
 const Page = () => {
   const [selectedMenu, setSelectedMenu] = useState("Dashboard");
   const [bankPage, setBankPage] = useState("BanksPage1");
 
   return (
-    <div className="w-full">
+    <div className="w-full h-screen flex flex-col">
       {/* Header start */}
-      <Header2 />
+      <div className="fixed top-0 left-0 w-full z-10">
+        <Header />
+      </div>
       {/* Header ends */}
 
       {/* Main content start */}
-      <div className="flex gap-5">
+      <div className="flex flex-1 pt-[70px]">
         {/* Left Menu start */}
-        <div className="hidden w-[247px] h-lvh bg-[#491217] lg:flex flex-col items-end pt-20">
+        <div className="hidden lg:flex lg:flex-col lg:items-end w-[247px] h-full bg-[#491217] pt-20 fixed">
           <div
             className={`flex items-center pl-5 gap-2 w-[200px] rounded-l-full h-[59px] cursor-pointer mb-5 ${
               selectedMenu === "Dashboard" ? "bg-[#FDDF5A]" : "bg-[#491217]"
             }`}
             onClick={() => setSelectedMenu("Dashboard")}
           >
-            <img src="/images/dashboard.svg" alt="Dashboard" />
+            {selectedMenu === "Dashboard" ? (
+              <img src="/images/dashboard.svg" alt="Dashboard" />
+            ) : (
+              <img src="/images/dashboard-w.svg" alt="Dashboard" />
+            )}
             <p
               className={`text-lg font-bold ${
                 selectedMenu === "Dashboard" ? "text-[#491217]" : "text-white"
@@ -46,7 +49,11 @@ const Page = () => {
             }`}
             onClick={() => setSelectedMenu("Banks")}
           >
-            <img src="/images/bank.svg" alt="Banks" />
+            {selectedMenu === "Banks" ? (
+              <img src="/images/bank-b.svg" alt="Banks" />
+            ) : (
+              <img src="/images/bank.svg" alt="Banks" />
+            )}
             <p
               className={`text-lg font-bold ${
                 selectedMenu === "Banks" ? "text-[#491217]" : "text-white"
@@ -63,7 +70,11 @@ const Page = () => {
             }`}
             onClick={() => setSelectedMenu("PanelOfExperts")}
           >
-            <img src="/images/graduation.svg" alt="Panel Of Experts" />
+            {selectedMenu === "PanelOfExperts" ? (
+              <img src="/images/graduation-b.svg" alt="Panel Of Experts" />
+            ) : (
+              <img src="/images/graduation.svg" alt="Panel Of Experts" />
+            )}
             <p
               className={`text-lg font-bold ${
                 selectedMenu === "PanelOfExperts"
@@ -81,7 +92,11 @@ const Page = () => {
             }`}
             onClick={() => setSelectedMenu("EventDiary")}
           >
-            <img src="/images/mdi_diary.svg" alt="Event Diary" />
+            {selectedMenu === "EventDiary" ? (
+              <img src="/images/mdi_diary-b.svg" alt="Event Diary" />
+            ) : (
+              <img src="/images/mdi_diary.svg" alt="Event Diary" />
+            )}
             <p
               className={`text-lg font-bold ${
                 selectedMenu === "EventDiary" ? "text-[#491217]" : "text-white"
@@ -98,7 +113,11 @@ const Page = () => {
             }`}
             onClick={() => setSelectedMenu("MootCourts")}
           >
-            <img src="/images/mdi_court-hammer.svg" alt="Moot Courts" />
+            {selectedMenu === "MootCourts" ? (
+              <img src="/images/mdi_court-hammer-b.svg" alt="Moot Courts" />
+            ) : (
+              <img src="/images/mdi_court-hammer.svg" alt="Moot Courts" />
+            )}
             <p
               className={`text-lg font-bold ${
                 selectedMenu === "MootCourts" ? "text-[#491217]" : "text-white"
@@ -109,9 +128,11 @@ const Page = () => {
           </div>
           {/* Moot court */}
         </div>
+
         {/* Left Menu ends */}
 
-        <div className="w-full lg:w-[75%]">
+        {/* Scrollable Content Area */}
+        <div className="flex-1 lg:ml-[247px] overflow-y-auto">
           {selectedMenu === "Dashboard" && <Dashboard />}
           {selectedMenu === "Banks" &&
             (bankPage === "BanksPage1" ? (
@@ -120,9 +141,11 @@ const Page = () => {
               <BanksPage2 />
             ))}
           {selectedMenu === "PanelOfExperts" && <PanelOfExperts />}
+          <div className="lg:ml-[0px]">
+            {selectedMenu === "EventDiary" && <PersonalEventDiary />}
+            {/* {selectedMenu === "EventDiary" && <UserProfile />} */}
+          </div>
           {selectedMenu === "MootCourts" && <Videos />}
-          {/* {selectedMenu === "MootCourts" && <MootCourtsPage1 />} */}
-          {selectedMenu === "EventDiary" && <UserProfile />}
         </div>
       </div>
       {/* Main content end */}

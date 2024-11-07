@@ -1,4 +1,5 @@
 "use client";
+import { Input } from "@app/components/base/input";
 import React from "react";
 import YouTube from "react-youtube";
 
@@ -7,7 +8,7 @@ const Videos = () => {
 
   const opts = {
     height: "390",
-    width: "470",
+    width: "670",
     playerVars: {
       autoplay: 1,
     },
@@ -29,9 +30,9 @@ const Videos = () => {
           />
         </div>
       </div>
-      <div className="flex justify-between gap-5 mt-5">
+      <div className="flex justify-between gap-5 w-full mt-10">
         <div>
-          <div className="">
+          <div className="w-[500px]">
             <YouTube
               videoId={videoId}
               opts={{
@@ -44,7 +45,7 @@ const Videos = () => {
             10 Things about Law School
           </p>
           <div className="flex justify-between mt-2 max-w-[712px]">
-            <p>2 Months ago</p>
+            <p className="text-black text-opacity-70">2 Months ago</p>
             <div className="flex items-center gap-5">
               <div className="flex items-center gap-1">
                 <img src="/images/like.svg" alt="Like" />
@@ -54,7 +55,11 @@ const Videos = () => {
                 <img src="/images/dislike.svg" alt="dislike" />
                 <p>DISLIKE</p>
               </div>
-              <p>...</p>
+              <img
+                src="/images/three-dot.svg"
+                alt="more"
+                className="cursor-pointer"
+              />
             </div>
           </div>
           <div className="flex items-center gap-3 mt-5">
@@ -74,8 +79,63 @@ const Videos = () => {
               <p>SORT BY</p>
             </div>
           </div>
+          <div className="flex mt-20">
+            <div className="w-10 h-10 rounded-full mt-1">
+              <img src="/images/profile-pic-vid.png" alt="profile" />
+            </div>
+            <div className="ml-2">
+              <Input
+                placeholder="Add a comment..."
+                className=" border-none outline-none w-[630px] max-w-[670px]"
+              />
+              <div className="w-full h-[1px] bg-black bg-opacity-50"></div>
+              <div className="flex items-center justify-between py-3">
+                <img src="/images/emoji.svg" alt="emoji" />
+                <div className="flex items-center gap-2">
+                  <p className="text-sm text-black text-opacity-50 cursor-pointer">
+                    CANCEL
+                  </p>
+                  <p className="text-sm bg-black bg-opacity-50 px-4 py-[8px] text-black text-opacity-55 cursor-pointer">
+                    COMMENT
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/*  */}
+          <div className="flex mt-10">
+            <div className="w-10 h-10 rounded-full mt-1">
+              <img src="/images/profile-pic-vid-2.png" alt="profile" />
+            </div>
+            <div className="ml-2">
+              <div className="flex items-center gap-2">
+                <p className="font-semibold">Jenny Wilson</p>
+                <p className="text-sm text-black text-opacity-50">
+                  3 days ago (edited)
+                </p>
+              </div>
+              <p className="text-sm mt-2">
+                Wow This is so nice!. i didn't know these things thank you
+              </p>
+              <div className="flex items-center gap-10">
+                <div className="flex items-center gap-1">
+                  <img src="/images/like.svg" alt="Like" className="w-4 h-4" />
+                  <p className="text-xs">242</p>
+                  <img
+                    src="/images/dislike.svg"
+                    alt="dislike"
+                    className="w-4 h-4"
+                  />
+                </div>
+                <div className="">
+                  <p className="text-xs">REPLY</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="mt-10">
+        {/* Side start */}
+        <div className="mt-0">
           <div className="flex items-center gap-2">
             <p className="bg-[#FDDF5A] text-sm w-[40px] h-[30px] rounded-[25px] text-[#491217] flex justify-center items-center cursor-pointer hover:scale-105">
               All

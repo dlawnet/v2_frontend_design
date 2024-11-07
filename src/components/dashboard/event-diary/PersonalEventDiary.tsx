@@ -1,21 +1,17 @@
 "use client";
-import React, { useState } from "react";
-import { Avatar, Button, Input } from "@nextui-org/react";
-import { FaImage, FaFile, FaRegFile } from "react-icons/fa";
+import React, {useState} from "react";
+import {Button, Input} from "@nextui-org/react";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@app/components/ui/dialog";
-import { useDropzone } from "react-dropzone";
-
-import Calendar from "react-calendar";
+} from "@app/components/base/dialog";
+import {useDropzone} from "react-dropzone";
 import "react-calendar/dist/Calendar.css";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import {FiChevronLeft, FiChevronRight} from "react-icons/fi";
 import "./customCalendar.css";
 import SideScreen from "./SideScreen";
 
@@ -92,7 +88,7 @@ const PersonalEventDiary = () => {
 
   return (
     <div className="flex px-3">
-      <div className="w-full min-[1200px]:w-[80%] mt-2 ">
+      <div className="w-full min-[1200px]:w-[75%] mt-2 ">
         <div className="flex justify-evenly border-b">
           <div className="flex flex-col items-center">
             <p className="text-lg">Personal Event Diary</p>

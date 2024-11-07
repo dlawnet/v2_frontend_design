@@ -1,21 +1,8 @@
 "use client";
-import React, { useState } from "react";
-import { Avatar, Button, Input } from "@nextui-org/react";
-import { FaImage, FaFile, FaRegFile } from "react-icons/fa";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@app/components/ui/dialog";
-import { useDropzone } from "react-dropzone";
-
-import Calendar from "react-calendar";
+import React, {useState} from "react";
+import {useDropzone} from "react-dropzone";
 import "react-calendar/dist/Calendar.css";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import {FiChevronLeft, FiChevronRight} from "react-icons/fi";
 import "./customCalendar.css";
 import SideScreen from "./SideScreen";
 
@@ -91,11 +78,11 @@ const UserProfile = () => {
   );
 
   return (
-    <div className="flex px-3">
-      <div className="w-full min-[1200px]:w-[80%] ">
+    <div className="flex ">
+      <div className="w-full min-[1200px]:w-[75%] ">
         <div className="relative">
-          <div className="ml-[-32px] max-[1200px]:mr-[-12px] h-[204px] bg-[#FDDF5A]">
-            <div>
+          <div className="ml-[0px] max-[1200px]:mr-[-12px] h-[204px] bg-[#FDDF5A]">
+            <div className="cursor-pointer">
               <img
                 src="/images/profile-arrow.svg"
                 alt="arrow"
@@ -105,7 +92,7 @@ const UserProfile = () => {
           </div>
         </div>
         {/* Profile start */}
-        <div className="relative">
+        <div className="relative px-3">
           <div className="mt-[-50px]">
             <div className="flex items-center justify-between px-5">
               <div className="w-[164px] h-[164px] rounded-full ">
@@ -121,7 +108,7 @@ const UserProfile = () => {
             </div>
           </div>
         </div>
-        <div className="mt-[-50px] sm:mt-0">
+        <div className="mt-[-50px] sm:mt-0 px-5">
           <div className="flex items-center">
             <div className="flex items-center gap-3 mt-2">
               <p className="text-[#10141A] text-2xl sm:text-3xl font-bold">
@@ -167,7 +154,7 @@ const UserProfile = () => {
         {/* Profile ends */}
 
         {/* Post start */}
-        <div className="flex gap-3 mt-4">
+        <div className="flex gap-3 mt-4 px-3">
           <img src="/images/logo.svg" alt="logo" className="w-12 h-12" />
           <div>
             <div className="flex items-center">
