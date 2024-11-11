@@ -1,32 +1,72 @@
 "use client"
-import React from "react";
+import React, { useState } from "react";
 import {Button} from "@app/components/base/button";
 import {useUser} from "@app/lib/auth";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@app/components/base/dialog";
+import { Mail, CheckCircle } from 'lucide-react';
+import EmailVerify from "./EmailVerify";
 
 const Dashboard = () => {
   const { data: user } = useUser();
+  const [step, setStep] = useState(1);
+  const [email, setEmail] = useState('');
+
+  const handleEmailSubmit = () => {
+    if (email) {
+      // Simulate email submission (add DLawNet API here)
+      setStep(2);
+    }
+  };
+
   return (
-    <div className="mt-5 px-7 pb-5 lg:pb-0 lg:px-0 lg:pl-10">
-      <div className="flex flex-col justify-center items-center ">
-        <h1 className="text-4xl lg:text-5xl text-center">Welcome</h1>
-        <h1 className="text-4xl lg:text-5xl">to</h1>
-        <div className="flex items-center">
-          <img src="/images/logo.svg" alt="Logo" />
-          <p className="text-[#FDDF5A] text-4xl lg:text-5xl">DLawNet</p>
+    <Dialog>
+      <div className="p-4 lg:p-10 flex flex-col gap-4 lg:gap-10 lora">
+        <div className="flex flex-col justify-center items-center ">
+          <h1 className="text-lg lg:text-2xl text-center">Welcome</h1>
+          <h1 className="text-lg lg:text-2xl">to</h1>
+          <div className="flex items-center">
+            <img src="/images/logo.svg" alt="Logo" className="w-[50px] h-auto"/>
+            <p className="text-[#FDDF5A] text-xl lg:text-3xl">DLawNet</p>
+          </div>
+        </div>
+
+        <div className="w-full flex flex-col gap-2 lg:gap-5 helvetica">
+          <p className="font-medium text-lg lg:text-2xl">
+            Hello {user?.data?.first_name} {user?.data?.last_name},
+          </p>
+
+          <p className="text-[.8em] lg:text-[.9em] lg:max-w-[60%] leading-5">
+            We're excited to have you with us and can't wait for you to discover
+            everything we have in store. Whether you're here to learn, grow, or
+            connect, you're in the right place. Ready to get started?
+          </p>
+
+          {user?.data?.status === 'registered'
+            ? (
+              <div>
+                <DialogTrigger>
+                  <Button className="bg-[#491217] text-white h-[50px] rounded hover:bg-[#491217] hover:scale-105">
+                    Activate your account and get started
+                  </Button>
+                </DialogTrigger>
+
+                <EmailVerify/>
+              </div>
+            ) : (
+              <div>
+                <Button className="bg-[#491217] text-white h-[50px] rounded hover:bg-[#491217] hover:scale-105">
+                  Get started
+                </Button>
+              </div>
+            )
+          }
         </div>
       </div>
-      <div className="mt-10">
-        <p className="font-medium text-2xl lg:text-3xl">Hello {user?.data?.first_name} {user?.data?.last_name},</p>
-        <p className="text-xl lg:text-2xl lg:max-w-[80%] mt-5">
-          We're excited to have you with us and can't wait for you to discover
-          everything we have in store. Whether you're here to learn, grow, or
-          connect, you're in the right place. Ready to get started?
-        </p>
-        <Button className="mt-5 bg-[#491217] text-white h-[50px] rounded hover:bg-[#491217] hover:scale-105">
-          Activate your account and get started
-        </Button>
-      </div>
-    </div>
+    </Dialog>
   );
 };
 
