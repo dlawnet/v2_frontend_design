@@ -1,119 +1,43 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Link from "next/link";
 
 const Sidenav = () => {
+    const links = [
+        { name: "Dashboard", link: "/dashboard", image1: "/images/dashboard-w.svg", image2: "/images/dashboard.svg", tag: "Dashboard" },
+        { name: "Banks", link: "/dashboard/banks", image1: "/images/bank.svg", image2: "/images/bank-b.svg", tag: "Banks" },
+        { name: "Panel Of Experts", link: "/dashboard/panel-of-expert", image1: "/images/graduation.svg", image2: "/images/graduation-b.svg", tag: "PanelOfExperts" },
+        { name: "Event Diary", link: "/dashboard/event-diary", image1: "/images/mdi_diary.svg", image2: "/images/mdi_diary-b.svg", tag: "EventDiary" },
+        { name: "Moot Courts", link: "/dashboard/moot-courts", image1: "/images/mdi_court-hammer.svg", image2: "/images/mdi_court-hammer-b.svg", tag: "MootCourts" },
+    ];
+
     const [selectedMenu, setSelectedMenu] = useState("Dashboard");
 
     return (
-        <div className="flex w-[300px]">
-        {/* Left Menu start */}
-        <div className="hidden lg:flex lg:flex-col lg:items-end w-full h-full bg-[#491217]">
-          <div
-            className={`flex items-center pl-5 gap-2 w-[200px] rounded-l-full h-[59px] cursor-pointer mb-5 ${
-              selectedMenu === "Dashboard" ? "bg-[#FDDF5A]" : "bg-[#491217]"
-            }`}
-            onClick={() => setSelectedMenu("Dashboard")}
-          >
-            {selectedMenu === "Dashboard" ? (
-              <img src="/images/dashboard.svg" alt="Dashboard" />
-            ) : (
-              <img src="/images/dashboard-w.svg" alt="Dashboard" />
-            )}
-            <p
-              className={`text-lg font-bold ${
-                selectedMenu === "Dashboard" ? "text-[#491217]" : "text-white"
-              }`}
-            >
-              Dashboard
-            </p>
-          </div>
-          <div
-            className={`flex items-center pl-5 gap-2 w-[200px] rounded-l-full h-[59px] cursor-pointer mb-5 ${
-              selectedMenu === "Banks" ? "bg-[#FDDF5A]" : "bg-[#491217]"
-            }`}
-            onClick={() => setSelectedMenu("Banks")}
-          >
-            {selectedMenu === "Banks" ? (
-              <img src="/images/bank-b.svg" alt="Banks" />
-            ) : (
-              <img src="/images/bank.svg" alt="Banks" />
-            )}
-            <p
-              className={`text-lg font-bold ${
-                selectedMenu === "Banks" ? "text-[#491217]" : "text-white"
-              }`}
-            >
-              Banks
-            </p>
-          </div>
-          <div
-            className={`flex items-center pl-5 gap-2 w-[200px] rounded-l-full h-[59px] cursor-pointer mb-5 ${
-              selectedMenu === "PanelOfExperts"
-                ? "bg-[#FDDF5A]"
-                : "bg-[#491217]"
-            }`}
-            onClick={() => setSelectedMenu("PanelOfExperts")}
-          >
-            {selectedMenu === "PanelOfExperts" ? (
-              <img src="/images/graduation-b.svg" alt="Panel Of Experts" />
-            ) : (
-              <img src="/images/graduation.svg" alt="Panel Of Experts" />
-            )}
-            <p
-              className={`text-lg font-bold ${
-                selectedMenu === "PanelOfExperts"
-                  ? "text-[#491217]"
-                  : "text-white"
-              }`}
-            >
-              Panel Of Experts
-            </p>
-          </div>
-          {/*  */}
-          <div
-            className={`flex items-center pl-5 gap-2 w-[200px] rounded-l-full h-[59px] cursor-pointer mb-5 ${
-              selectedMenu === "EventDiary" ? "bg-[#FDDF5A]" : "bg-[#491217]"
-            }`}
-            onClick={() => setSelectedMenu("EventDiary")}
-          >
-            {selectedMenu === "EventDiary" ? (
-              <img src="/images/mdi_diary-b.svg" alt="Event Diary" />
-            ) : (
-              <img src="/images/mdi_diary.svg" alt="Event Diary" />
-            )}
-            <p
-              className={`text-lg font-bold ${
-                selectedMenu === "EventDiary" ? "text-[#491217]" : "text-white"
-              }`}
-            >
-              Event Diary
-            </p>
-          </div>
-
-          {/* Moot court */}
-          <div
-            className={`flex items-center pl-5 gap-2 w-[200px] rounded-l-full h-[59px] cursor-pointer mb-5 ${
-              selectedMenu === "MootCourts" ? "bg-[#FDDF5A]" : "bg-[#491217]"
-            }`}
-            onClick={() => setSelectedMenu("MootCourts")}
-          >
-            {selectedMenu === "MootCourts" ? (
-              <img src="/images/mdi_court-hammer-b.svg" alt="Moot Courts" />
-            ) : (
-              <img src="/images/mdi_court-hammer.svg" alt="Moot Courts" />
-            )}
-            <p
-              className={`text-lg font-bold ${
-                selectedMenu === "MootCourts" ? "text-[#491217]" : "text-white"
-              }`}
-            >
-              Moot Courts
-            </p>
-          </div>
-          {/* Moot court */}
+        <div className="flex w-[300px] py-10 bg-[#491217] helvetica">
+            <div className="hidden lg:flex lg:flex-col gap-2 lg:items-center w-full h-full pl-4">
+                {links.map((item) => (
+                    <Link href={item.link} key={item.tag} className="w-full">
+                        <div
+                            className={`flex items-center pl-4 py-3 gap-2 w-full rounded-l-full cursor-pointer ${
+                                selectedMenu === item.tag ? "bg-[#FDDF5A]" : "bg-[#491217]"
+                            }`}
+                            onClick={() => setSelectedMenu(item.tag)}
+                        >
+                            <img src={selectedMenu === item.tag ? item.image2 : item.image1} alt={item.name} />
+                            <p
+                                className={`text-[.9em] font-semibold ${
+                                    selectedMenu === item.tag ? "text-[#491217]" : "text-white"
+                                }`}
+                            >
+                                {item.name}
+                            </p>
+                        </div>
+                    </Link>
+                ))}
+            </div>
         </div>
-        </div>
-    )
-}
+    );
+};
 
-export default Sidenav
+export default Sidenav;

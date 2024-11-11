@@ -11,7 +11,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between px-6 lg:px-[40px] h-[76px] bg-[#491217] text-white">
+    <nav className="flex items-center justify-between px-6 lg:px-[40px] h-[76px] bg-[#491217] text-white helvetica">
       <div className="flex-grow lg:flex-grow-0 my-5">
         <img src="/images/logo.svg" alt="Logo" />
       </div>
