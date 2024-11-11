@@ -1,8 +1,5 @@
 import * as React from "react"
-import {
-  CaretSortIcon,
-  DotsHorizontalIcon,
-} from "@radix-ui/react-icons"
+
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -16,14 +13,13 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import { ChevronDownIcon, Search } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
+import { Button } from "@app/components/base/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
   DropdownMenuCheckboxItem
-} from "@/components/ui/dropdown-menu"
+} from "@app/components/base/dropdown-menu"
 import {
   Table,
   TableBody,
@@ -31,8 +27,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-import { Input } from "@/components/ui/input"
+} from "@app/components/base/table"
+import { Input } from "@app/components/base/input"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -101,7 +97,7 @@ export function DataTable<TData, TValue>({
                     key={column.id}
                     className="capitalize"
                     checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
+                    onCheckedChange={(value:any) =>
                       column.toggleVisibility(!!value)
                     }
                   >
