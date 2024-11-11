@@ -1,8 +1,11 @@
 'use client'
-import React, { useState } from 'react';
+import React from 'react';
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
 
 const Sidenav = () => {
+    const pathname = usePathname();
+
     const links = [
         { name: "Dashboard", link: "/dashboard", image1: "/images/dashboard-w.svg", image2: "/images/dashboard.svg", tag: "Dashboard" },
         { name: "Banks", link: "/dashboard/banks", image1: "/images/bank.svg", image2: "/images/bank-b.svg", tag: "Banks" },
@@ -11,7 +14,7 @@ const Sidenav = () => {
         { name: "Moot Courts", link: "/dashboard/moot-courts", image1: "/images/mdi_court-hammer.svg", image2: "/images/mdi_court-hammer-b.svg", tag: "MootCourts" },
     ];
 
-    const [selectedMenu, setSelectedMenu] = useState("Dashboard");
+    const selectedMenu = links.find((item) => pathname === item.link)?.tag;
 
     return (
         <div className="flex w-[300px] py-10 bg-[#491217] helvetica">
@@ -22,7 +25,6 @@ const Sidenav = () => {
                             className={`flex items-center pl-4 py-3 gap-2 w-full rounded-l-full cursor-pointer ${
                                 selectedMenu === item.tag ? "bg-[#FDDF5A]" : "bg-[#491217]"
                             }`}
-                            onClick={() => setSelectedMenu(item.tag)}
                         >
                             <img src={selectedMenu === item.tag ? item.image2 : item.image1} alt={item.name} />
                             <p
