@@ -12,16 +12,6 @@ import EmailVerify from "./EmailVerify";
 
 const Dashboard = () => {
   const { data: user } = useUser();
-  const [step, setStep] = useState(1);
-  const [email, setEmail] = useState('');
-
-  const handleEmailSubmit = () => {
-    if (email) {
-      // Simulate email submission (add DLawNet API here)
-      setStep(2);
-    }
-  };
-
   return (
     <Dialog>
       <div className="p-4 lg:p-10 flex flex-col gap-4 lg:gap-10 lora">
@@ -54,7 +44,7 @@ const Dashboard = () => {
                   </Button>
                 </DialogTrigger>
 
-                <EmailVerify/>
+                <EmailVerify userEmail={user?.data?.email}/>
               </div>
             ) : (
               <div>
