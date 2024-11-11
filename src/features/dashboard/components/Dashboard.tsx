@@ -54,11 +54,7 @@ const Dashboard = () => {
                   </Button>
                 </DialogTrigger>
 
-                <EmailVerify
-                  email={email}
-                  setEmail={setEmail}
-                  onEmailSubmit={handleEmailSubmit}
-                />
+                <EmailVerify/>
               </div>
             ) : (
               <div>
