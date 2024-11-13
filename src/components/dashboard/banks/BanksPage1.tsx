@@ -6,6 +6,7 @@ import {
   DialogTrigger,
 } from "@app/components/base/dialog";
 import EmailVerify from "@app/features/dashboard/components/EmailVerify";
+import Invoice from "@app/features/dashboard/components/Invoice";
 
 interface BanksPage1Props {
   setBankPage: (page: string) => void;
@@ -30,7 +31,8 @@ const BanksPage1: React.FC<BanksPage1Props> = ({ setBankPage }) => {
             </Button>
           </DialogTrigger>
 
-          <EmailVerify/>
+          {/* <EmailVerify userEmail=""/> */}
+          <Invoice/>
         </div>
 
         <div className="mt-10">
