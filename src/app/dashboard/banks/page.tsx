@@ -14,7 +14,8 @@ const page = () => {
         ? (
           <BanksPage2 />
         ) : (
-          <BanksPage1 setBankPage={setBankPage} />
+          // <BanksPage1 setBankPage={setBankPage} />
+          <BanksPage2 />
         )
       }
     </div>

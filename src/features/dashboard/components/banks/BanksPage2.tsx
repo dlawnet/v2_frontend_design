@@ -15,9 +15,9 @@ const BanksPage2 = () => {
   };
 
   return (
-    <div className="mb-5">
-      <div className="mt-5 flex gap-10 md:gap-16 w-full px-10 items-center sm:justify-between flex-col lg:justify-start lg:px-0 md:flex-row">
-        <div className="w-[295px] h-[129px] border-2 rounded-xl shadow">
+    <div className="mb-5 p-2 md:p-6">
+      <div className="mt-5 flex gap-10 md:gap-8 w-full px-10 items-center sm:justify-between flex-col lg:justify-start lg:px-0 md:flex-row">
+        <div className="w-[295px] h-[129px] border rounded-xl hover:shadow">
           <div className="ml-10 mt-4">
             <p className="text-[#491217] text-3xl">Balance</p>
             <p className="text-[#000000] text-3xl">25,000 Credits</p>
@@ -26,9 +26,10 @@ const BanksPage2 = () => {
             =N10,000
           </p>
         </div>
+        
         {/* Top-Up Wallet start */}
         <div
-          className="w-[295px] h-[129px] border-2 rounded-xl shadow flex items-center justify-center gap-5 cursor-pointer"
+          className="w-[295px] h-[129px] border rounded-xl hover:shadow flex items-center justify-center gap-5 cursor-pointer"
           onClick={toggleCredit}
         >
           <div>
