@@ -1,5 +1,5 @@
 import React from 'react';
-import Videos from "@app/components/dashboard/moot-courts/Videos";
+import Videos from "@app/features/dashboard/components/moot-courts/Videos";
 
 const page = () => {
   return (

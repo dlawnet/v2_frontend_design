@@ -120,7 +120,7 @@ const Footer = () => {
           <p className="mt-5">+234-805-177-7120</p>
         </div>
 
-        <div className="flex flex-col items-center mt-10">
+        <div className="flex flex-col items-center mt-5">
           <p className="text-center">© 2023 - 2024 All Rights Reserved</p>
           <p>Powered By</p>
           <img src="/images/buckingham-law.png" alt="" />
