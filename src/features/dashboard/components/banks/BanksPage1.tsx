@@ -2,26 +2,24 @@
 import React, { useState } from "react";
 import { Button } from "@app/components/base/button";
 import {
-  Dialog,
+  Dialog, DialogTitle,
   DialogTrigger,
 } from "@app/components/base/dialog";
 import EmailVerify from "@app/features/dashboard/components/EmailVerify";
 import Invoice from "@app/features/dashboard/components/Invoice";
 
-interface BanksPage1Props {
-  setBankPage: (page: string) => void;
-}
 
-const BanksPage1: React.FC<BanksPage1Props> = ({ setBankPage }) => {
-  
+const BanksPage1  = () => {
+
   return (
     <Dialog>
       <div className="mt-5 px-7 pb-5 lg:pb-0 lg:px-0 lg:pl-10">
         <div>
+          <DialogTitle>Welcome Aboard! Activate Your Account to Get Started</DialogTitle>
           <DialogTrigger>
             <Button
               className="mt-5 w-[255px] flex flex-col items-start bg-[#491217] text-white h-[109px] rounded hover:bg-[#491217]"
-              onClick={() => setBankPage("BanksPage2")}
+
             >
               <div className="flex items-center gap-2">
                 <img src="/images/coins.svg" alt="Logo" />
@@ -30,8 +28,6 @@ const BanksPage1: React.FC<BanksPage1Props> = ({ setBankPage }) => {
               Click Here to Activate Your Account
             </Button>
           </DialogTrigger>
-
-          {/* <EmailVerify userEmail=""/> */}
           <Invoice/>
         </div>
 

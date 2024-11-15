@@ -48,17 +48,14 @@ interface FileUpload {
 }
 
 type Step = 1 | 2 | 3 | 4 | 5;
-
+/*const getActivationFee = useGetActivationFee()
+console.table(getActivationFee);*/
 const subscriptionTypes: SubscriptionType[] = [
-    { type: "Basic Plan", price: "$99", billingCycle: "Monthly" },
-    { type: "Pro Plan", price: "$199", billingCycle: "Monthly" },
-    { type: "Enterprise Plan", price: "$499", billingCycle: "Monthly" },
-    { type: "Basic Plan Annual", price: "$999", billingCycle: "Annual" },
-    { type: "Pro Plan Annual", price: "$1999", billingCycle: "Annual" },
-    { type: "Enterprise Plan Annual", price: "$4999", billingCycle: "Annual" },
+    { type: "University", price: "₦6,000", billingCycle: "One time fee" },
+    { type: "Law School", price: "₦12,000", billingCycle: "One time fee" },
 ];
 
-const InvoiceContent: React.FC = () => {; 
+const InvoiceContent: React.FC = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [selectedSubscription, setSelectedSubscription] = useState<SubscriptionType | null>(null);
@@ -137,8 +134,8 @@ const InvoiceContent: React.FC = () => {;
         setUploadedFiles(prev => [...prev, newFileUpload]);
 
         const simulateProgress = (fileIndex: number): void => {
-            setUploadedFiles(prevFiles => 
-                prevFiles.map((f, idx) => 
+            setUploadedFiles(prevFiles =>
+                prevFiles.map((f, idx) =>
                     idx === fileIndex
                         ? { ...f, progress: Math.min(f.progress + 20, 100) }
                         : f
@@ -150,7 +147,7 @@ const InvoiceContent: React.FC = () => {;
         const interval = setInterval(() => {
             progressCount++;
             simulateProgress(uploadedFiles.length);
-            
+
             if (progressCount >= 6) {
                 clearInterval(interval);
                 setCurrentStep(5);
@@ -188,7 +185,7 @@ const InvoiceContent: React.FC = () => {;
         const day = date.getDate();
         const month = date.toLocaleString('default', { month: 'long' });
         const year = date.getFullYear();
-    
+
         return `${day} ${month}, ${year}`;
     };
 
@@ -203,7 +200,7 @@ const InvoiceContent: React.FC = () => {;
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
                                     Subscription Type
                                 </label>
-                                <Select 
+                                <Select
                                     onValueChange={handleSubscriptionSelect}
                                     value={selectedSubscription?.type || ''}
                                 >
@@ -254,12 +251,12 @@ const InvoiceContent: React.FC = () => {;
             case 2:
                 return (
                     <div className="bg-transparent flex flex-col w-full h-full">
-                        <div 
-                        ref={invoiceRef} 
+                        <div
+                        ref={invoiceRef}
                         className='border border-primary rounded-lg shadow-sm w-full p-2 flex flex-col gap-4'
                         >
                             <div className='w-full flex items-center justify-center gap-4'>
-                                <div    
+                                <div
                                 className='h-14 flex items-center justify-start overflow-hidden'
                                 >
                                     <Image
@@ -284,11 +281,11 @@ const InvoiceContent: React.FC = () => {;
                                 <div className='w-full flex flex-col md:flex-row justify-between items-start gap-2'>
                                     <div className='w-full flex flex-col gap-1 text-gray-700'>
                                         <span className='text-xs'>Payer Name: Administrator</span>
-                                        <span className='text-xs'>Email: email@communitylawyer.net</span>
+                                        <span className='text-xs'>Email: email@dlaw.net</span>
                                         <span className='text-xs'>Phone Number: +234812345678</span>
                                         <span className='text-xs'>Address: 1, Address str, Claw</span>
                                     </div>
-                                
+
                                     <div className='ml-auto w-full flex flex-col gap-1 text-gray-700'>
                                         <span className='text-xs'>Name: DLAWNET</span>
                                         <span className='text-xs'>Bank Name: LAW BANK</span>
@@ -312,10 +309,7 @@ const InvoiceContent: React.FC = () => {;
                                         <TableRow>
                                             <TableCell className="text-[.9em] text-gray-500">{invoiceData.type} - {invoiceData.billingCycle}</TableCell>
                                             <TableCell className='text-[.9em] text-gray-500'>
-                                                {selectedSubscription?.billingCycle === 'Monthly'
-                                                    ? ('30 days')
-                                                    : ('365 days')
-                                                }
+                                                One Time Fee
                                             </TableCell>
                                             <TableCell className='text-[.9em] text-gray-500'>{selectedSubscription?.price}</TableCell>
                                             <TableCell className="text-right">{selectedSubscription?.price}</TableCell>
@@ -397,7 +391,7 @@ const InvoiceContent: React.FC = () => {;
                             <div className='w-full md:py-12 flex flex-col gap-2 items-center justify-center'>
                                 <DndIcon/>
                                 <p className="text-gray-600 text-center w-full">
-                                    Drag and drop file here or 
+                                    Drag and drop file here or
                                     <span className='hover:text-primary underline'> Choose file</span>
                                 </p>
                             </div>
