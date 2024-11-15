@@ -1,8 +1,8 @@
 'use client'
 import React, { useState } from 'react';
 import { useUser } from "@app/lib/auth";
-import BanksPage1 from "@app/components/dashboard/banks/BanksPage1";
-import BanksPage2 from "@app/components/dashboard/banks/BanksPage2";
+import BanksPage1 from "@app/features/dashboard/components/banks/BanksPage1";
+import BanksPage2 from "@app/features/dashboard/components/banks/BanksPage2";
 
 const page = () => {
   const { data: user } = useUser();
@@ -10,10 +10,11 @@ const page = () => {
 
   return (
     <div>
-      {user?.data?.status === 'registered' 
+      {user?.data?.status === 'activated' 
         ? (
-          <BanksPage1 setBankPage={setBankPage} />
+          <BanksPage2 />
         ) : (
+          // <BanksPage1 setBankPage={setBankPage} />
           <BanksPage2 />
         )
       }

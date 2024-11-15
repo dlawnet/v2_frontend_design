@@ -67,8 +67,8 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="w-full">
-      <div className="flex items-center py-4">
-        {searchKey && (
+      <div className="flex items-center">
+        {/* {searchKey && (
           <div className="bg-white flex items-center px-2 rounded-md md:w-[400px]">
             <Search className="w-6 h-6 text-gray-600" />
             <Input
@@ -80,8 +80,9 @@ export function DataTable<TData, TValue>({
               className="w-full border-none outline-none text-[.8em]"
             />
           </div>
-        )}
-        <DropdownMenu>
+        )} */}
+
+        {/* <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto bg-white">
               Filter <ChevronDownIcon className="ml-2 h-4 w-4" />
@@ -106,22 +107,24 @@ export function DataTable<TData, TValue>({
                 )
               })}
           </DropdownMenuContent>
-        </DropdownMenu>
+        </DropdownMenu> */}
       </div>
-      <div className="rounded-md border bg-white p-2">
+
+      <div className="rounded-md border-none bg-white p-2">
         <Table>
           <TableHeader className="text-[.9em] text-gray-800 font-semibold">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead key={header.id} className="border-none text-[#491217]">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
                             header.column.columnDef.header,
                             header.getContext()
-                          )}
+                          )
+                      }
                     </TableHead>
                   )
                 })}
@@ -134,10 +137,10 @@ export function DataTable<TData, TValue>({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
-                  className={` hover:bg-yellow hover:bg-opacity-20 rounded-[50px] overflow-hidden`}
+                  className={` hover:bg-yellow-400 hover:bg-opacity-40 border-b-yellow-300 rounded-[50px] overflow-hidden`}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="p-0">
+                    <TableCell key={cell.id} className="py-1">
                       <div className="w-full rounded-lg overflow-hidden px-2 py-1">
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </div>

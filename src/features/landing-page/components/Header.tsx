@@ -9,8 +9,8 @@ const Header = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between px-6 sm:px-[15px] h-[76px] bg-[#491217] text-white pb-5">
-      <div className="flex-grow sm:flex-grow-0 mt-3">
+    <nav className="flex items-center justify-between px-6 sm:px-[15px] h-[76px] bg-[#491217] text-white ">
+      <div className="flex-grow sm:flex-grow-0">
         <img src="/images/logo.svg" alt="Logo" />
       </div>
       <div className="block sm:hidden">
@@ -21,7 +21,7 @@ const Header = () => {
           className="cursor-pointer"
         />
       </div>
-      <ul className="hidden sm:flex gap-10 text-lg font-bold ml-14">
+      <ul className="hidden sm:flex justify-center items-center h-full gap-10 text-lg font-semibold ml-14">
         <li className="hover:scale-105 transition-transform">
           <a href="/">Home</a>
         </li>
@@ -32,16 +32,16 @@ const Header = () => {
           <a href="/register">Contact</a>
         </li>
       </ul>
-      <div className="hidden sm:flex gap-4">
+      <div className="hidden sm:flex h-full gap-4 justify-center items-center">
         <a
           href="/auth/login"
-          className="bg-white px-3 py-1 rounded text-black font-medium hover:scale-105 transition-transform"
+          className="bg-white px-6 py-2 rounded text-black font-medium hover:scale-105 transition-transform"
         >
           Login
         </a>
         <a
           href="/auth/register"
-          className="bg-[#491217] px-3 py-1 rounded text-[#FDDF5A] font-medium border border-[#FDDF5A] hover:scale-105 transition-transform"
+          className="bg-[#491217] px-6 py-2 rounded text-[#FDDF5A] font-medium border border-[#FDDF5A] hover:scale-105 transition-transform"
         >
           Register
         </a>

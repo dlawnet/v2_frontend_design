@@ -1,5 +1,5 @@
 import React from 'react';
-import PanelOfExperts from "@app/components/dashboard/panelOfExperts/PanelOfExperts";
+import PanelOfExperts from "@app/features/dashboard/components/panelOfExperts/PanelOfExperts";
 
 const page = () => {
   return (

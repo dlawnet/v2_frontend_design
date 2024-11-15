@@ -17,18 +17,18 @@ const Sidenav = () => {
     const selectedMenu = links.find((item) => pathname === item.link)?.tag;
 
     return (
-        <div className="flex w-[300px] py-10 bg-[#491217] helvetica">
-            <div className="hidden lg:flex lg:flex-col gap-2 lg:items-center w-full h-full pl-4">
+        <div className="flex w-[300px] py-20 bg-[#491217] helvetica">
+            <div className="hidden lg:flex lg:flex-col gap-4 lg:items-center w-full h-full pl-4">
                 {links.map((item) => (
                     <Link href={item.link} key={item.tag} className="w-full">
                         <div
-                            className={`flex items-center pl-4 py-3 gap-2 w-full rounded-l-full cursor-pointer ${
+                            className={`flex items-center pl-4 py-3 gap-4 w-full rounded-l-full cursor-pointer ${
                                 selectedMenu === item.tag ? "bg-[#FDDF5A]" : "bg-[#491217]"
                             }`}
                         >
                             <img src={selectedMenu === item.tag ? item.image2 : item.image1} alt={item.name} />
                             <p
-                                className={`text-[.9em] font-semibold ${
+                                className={`text-[.9em] font-medium lora ${
                                     selectedMenu === item.tag ? "text-[#491217]" : "text-white"
                                 }`}
                             >

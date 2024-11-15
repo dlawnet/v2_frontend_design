@@ -1,5 +1,5 @@
 import React from 'react';
-import PersonalEventDiary from "@app/components/dashboard/event-diary/PersonalEventDiary";
+import PersonalEventDiary from "@app/features/dashboard/components/event-diary/PersonalEventDiary";
 
 const page = () => {
   return (

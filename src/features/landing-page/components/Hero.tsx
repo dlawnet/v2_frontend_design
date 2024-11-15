@@ -4,7 +4,7 @@ import ReusableCard from "./ReusableCard";
 
 const Hero = () => {
   return (
-    <div className="relative pt-14 flex flex-col justify-center sm:items-center bg-black px-5 sm:bg-none bg-[url('/images/bg-img.png')] bg-cover bg-center py-5">
+    <div className="lora relative pt-14 flex flex-col justify-center sm:items-center bg-black px-5 sm:bg-none bg-[url('/images/bg-img.png')] bg-cover bg-center py-5">
       <div className="absolute inset-0 bg-black opacity-50 sm:hidden"></div>{" "}
       {/* Dark overlay */}
       <div className="relative flex flex-col sm:items-center">
@@ -18,7 +18,8 @@ const Hero = () => {
           Get Started
         </Button>
       </div>
-      <div className="relative w-full flex md:justify-center gap-4 mt-10 overflow-x-scroll md:overflow-auto md:flex-wrap">
+
+      <div className="relative w-full flex md:justify-center gap-4 py-10 overflow-hidden md:flex-wrap">
         <div className="flex-shrink-0">
           <ReusableCard
             imageSrc="/images/graduation.png"
