@@ -24,9 +24,12 @@ export default function RootLayout({
             <Sidenav />
           </div>
 
-          <div className={`relative w-full h-full lg:h-[100vh] overflow-y-scroll transition-all duration-300`} >
-            <Header/>
-            <div>
+          <div className={`relative w-full h-full lg:h-[100vh]`} >
+            <div className="h-[3rem]">
+              <Header/>
+            </div>
+
+            <div className="h-[calc(100ch-3rem)] overflow-y-scroll overflow-x-hidden">
               {children}
             </div>
           </div>
