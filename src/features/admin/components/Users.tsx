@@ -6,6 +6,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuCheckboxItem,
 } from "@app/components/base/dropdown-menu"
+import { Search } from 'lucide-react'
 
 interface UserData {
   status: string
@@ -19,7 +20,7 @@ interface UserData {
 
 const data: UserData[] = [
   { status: "Verified", username: "MTH1", firstName: "Peter", lastName: "Johnson", email: "PeterJohn@gmail.com", phone: "+2348124412241", createdAt: "12:30 PM" },
-  // Add more data here
+  
 ]
 
 const PAGE_SIZE = 10;
@@ -29,7 +30,6 @@ const Users = () => {
   const [searchTerm, setSearchTerm] = useState("")
   const [filteredData, setFilteredData] = useState(data)
 
-  // Filter data based on the search term
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const term = e.target.value.toLowerCase()
     setSearchTerm(term)
@@ -40,7 +40,7 @@ const Users = () => {
         user.email.toLowerCase().includes(term)
       )
     )
-    setCurrentPage(1) // Reset to the first page after filtering
+    setCurrentPage(1) 
   }
 
   const paginatedData = filteredData.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
@@ -62,41 +62,45 @@ const Users = () => {
             </div>
         </div>
 
-        <div className="w-full p-4">
-          <div className="flex items-center justify-between mb-4">
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={handleSearch}
-              placeholder="Search by Name or Email"
-              className="px-3 py-2 border border-gray-300 rounded-md w-1/2"
-            />
+        <div className="w-full p-4 flex flex-col gap-6">
+          <div className="flex items-center justify-center mb-4">
             <button
               onClick={() => {
                 setSearchTerm("")
                 setFilteredData(data)
               }}
-              className="ml-2 px-4 py-2 bg-yellow-300 text-[#491217] font-semibold rounded-md"
+              className="ml-2 px-4 py-3 text-yellow-300 bg-[#491217] text-[.9em] font-semibold rounded-l-[8px]"
             >
-              Reset Filter
+              Add Filter
             </button>
+
+            <div className='px-2 py-1 w-1/2 flex items-center gap-2 overflow-hidden rounded-r-[8px] bg-yellow-300'>
+              <Search className='text-[#491217] w-6 h-6'/>
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={handleSearch}
+                placeholder="Search for a student by name or email"
+                className="w-full px-3 py-2 border-none outline-none bg-transparent text-[#491217] placeholder:text-[#491217] rounded-md text-[.9em]"
+              />
+            </div>  
           </div>
 
-          <div className='w-[950px] overflow-x-scroll lg:w-full mx-auto'>
+          <div className='w-[950px] overflow-x-scroll lg:overflow-hidden lg:w-full mx-auto'>
           
-            <div className="bg-yellow-300 text-[.8em] text-[#491217] font-semibold py-2 grid grid-cols-9 gap-2">
+            <div className="bg-yellow-300 px-2 text-[.7em] text-[#491217] font-semibold py-2 grid grid-cols-9 gap-2">
               <div>Status</div>
               <div>Username</div>
               <div>First Name</div>
               <div>Last Name</div>
               <div className='col-span-2'>Email address</div>
-              <div>Phone No</div>
+              <div>Phone Number</div>
               <div>Created At</div>
               <div>Actions</div>
             </div>
 
             {paginatedData.map((user, index) => (
-              <div key={index} className="grid grid-cols-9 gap-2 py-2 border-b text-[.8em]">
+              <div key={index} className="grid grid-cols-9 gap-2 px-2 py-2 border-b text-[.8em]">
                 <div className="text-[#491217] font-medium">{user.status}</div>
                 <div>{user.username}</div>
                 <div>{user.firstName}</div>
