@@ -13,23 +13,14 @@ interface PaymentData {
 }
 
 const data: PaymentData[] = [
-    { 
-        username: "PeterJohn",
-        email: "pj@mail.com",
-        amount: 6000,
-        currency: "NGN",
-        paymentType: "Bank Transfer",
-        paymentReceipt: "Payment.pdf",
-        status: "Successful"
-    },
-    { 
-      username: "PeterJohn",
-      email: "pj@mail.com",
-      amount: 6000,
-      currency: "NGN",
-      paymentType: "Bank Transfer",
-      paymentReceipt: "Payment.pdf",
-      status: "Successful"
+  { 
+    username: "PeterJohn",
+    email: "pj@mail.com",
+    amount: 6000,
+    currency: "NGN",
+    paymentType: "Bank Transfer",
+    paymentReceipt: "Payment.pdf",
+    status: "Successful"
   },
   { 
     username: "PeterJohn",
@@ -39,79 +30,88 @@ const data: PaymentData[] = [
     paymentType: "Bank Transfer",
     paymentReceipt: "Payment.pdf",
     status: "Successful"
-},
-{ 
-  username: "PeterJohn",
-  email: "pj@mail.com",
-  amount: 6000,
-  currency: "NGN",
-  paymentType: "Bank Transfer",
-  paymentReceipt: "Payment.pdf",
-  status: "Successful"
-},
-{ 
-  username: "PeterJohn",
-  email: "pj@mail.com",
-  amount: 6000,
-  currency: "NGN",
-  paymentType: "Bank Transfer",
-  paymentReceipt: "Payment.pdf",
-  status: "Successful"
-},
-{ 
-  username: "PeterJohn",
-  email: "pj@mail.com",
-  amount: 6000,
-  currency: "NGN",
-  paymentType: "Bank Transfer",
-  paymentReceipt: "Payment.pdf",
-  status: "Successful"
-},
-{ 
-  username: "PeterJohn",
-  email: "pj@mail.com",
-  amount: 6000,
-  currency: "NGN",
-  paymentType: "Bank Transfer",
-  paymentReceipt: "Payment.pdf",
-  status: "Successful"
-},
-{ 
-  username: "PeterJohn",
-  email: "pj@mail.com",
-  amount: 6000,
-  currency: "NGN",
-  paymentType: "Bank Transfer",
-  paymentReceipt: "Payment.pdf",
-  status: "Successful"
-},
-{ 
-  username: "PeterJohn",
-  email: "pj@mail.com",
-  amount: 6000,
-  currency: "NGN",
-  paymentType: "Bank Transfer",
-  paymentReceipt: "Payment.pdf",
-  status: "Successful"
-},
-{ 
-  username: "PeterJohn",
-  email: "pj@mail.com",
-  amount: 6000,
-  currency: "NGN",
-  paymentType: "Bank Transfer",
-  paymentReceipt: "Payment.pdf",
-  status: "Successful"
-},
-{ 
-  username: "PeterJohn",
-  email: "pj@mail.com",
-  amount: 6000,
-  currency: "NGN",
-  paymentType: "Bank Transfer",
-  paymentReceipt: "Payment.pdf",
-  status: "Successful"
-},
+  },
+  { 
+    username: "PeterJohn",
+    email: "pj@mail.com",
+    amount: 6000,
+    currency: "NGN",
+    paymentType: "Bank Transfer",
+    paymentReceipt: "Payment.pdf",
+    status: "Successful"
+  },
+  { 
+    username: "PeterJohn",
+    email: "pj@mail.com",
+    amount: 6000,
+    currency: "NGN",
+    paymentType: "Bank Transfer",
+    paymentReceipt: "Payment.pdf",
+    status: "Successful"
+  },
+  { 
+    username: "PeterJohn",
+    email: "pj@mail.com",
+    amount: 6000,
+    currency: "NGN",
+    paymentType: "Bank Transfer",
+    paymentReceipt: "Payment.pdf",
+    status: "Successful"
+  },
+  { 
+    username: "PeterJohn",
+    email: "pj@mail.com",
+    amount: 6000,
+    currency: "NGN",
+    paymentType: "Bank Transfer",
+    paymentReceipt: "Payment.pdf",
+    status: "Successful"
+  },
+  { 
+    username: "PeterJohn",
+    email: "pj@mail.com",
+    amount: 6000,
+    currency: "NGN",
+    paymentType: "Bank Transfer",
+    paymentReceipt: "Payment.pdf",
+    status: "Successful"
+  },
+  { 
+    username: "PeterJohn",
+    email: "pj@mail.com",
+    amount: 6000,
+    currency: "NGN",
+    paymentType: "Bank Transfer",
+    paymentReceipt: "Payment.pdf",
+    status: "Successful"
+  },
+  { 
+    username: "PeterJohn",
+    email: "pj@mail.com",
+    amount: 6000,
+    currency: "NGN",
+    paymentType: "Bank Transfer",
+    paymentReceipt: "Payment.pdf",
+    status: "Successful"
+  },
+  { 
+    username: "PeterJohn",
+    email: "pj@mail.com",
+    amount: 6000,
+    currency: "NGN",
+    paymentType: "Bank Transfer",
+    paymentReceipt: "Payment.pdf",
+    status: "Successful"
+  },
+  { 
+    username: "PeterJohn",
+    email: "pj@mail.com",
+    amount: 6000,
+    currency: "NGN",
+    paymentType: "Bank Transfer",
+    paymentReceipt: "Payment.pdf",
+    status: "Successful"
+  },
 ]
 
 
