@@ -1,8 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Sidenav from "@app/features/admin/components/Sidenav";
-import BottomNav from "@app/features/admin/components/BottomNav";
-import { Bell } from "lucide-react";
 import Header from "@app/features/admin/components/Header";
 
 export default function RootLayout({
@@ -10,11 +8,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
-
-  const toggleNotificationPanel = () => {
-    setIsNotificationOpen(!isNotificationOpen);
-  };
 
   return (
     <html lang="en">
@@ -29,17 +22,11 @@ export default function RootLayout({
               <Header/>
             </div>
 
-            <div className="h-[calc(100vh-3rem)] overflow-y-scroll overflow-x-hidden">
+            <div className="py-2 md:py-4 h-[calc(100vh-3rem)] overflow-y-scroll overflow-x-hidden">
               {children}
             </div>
           </div>
         </div>
-
-        
-        {/* <div className="lg:hidden relative z-[99] h-[4rem] border-t border-gray-300 overflow-hidden bg-white">
-          <BottomNav/>
-        </div> */}
-
       </body>
     </html>
   );
