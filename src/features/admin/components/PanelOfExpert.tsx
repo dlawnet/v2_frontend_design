@@ -31,8 +31,7 @@ const data: ExpertData[] = [
     price: "12,00 credits", 
     status: "Pending",
     duration: "<5days" 
-},
-  
+  },
 ]
 
 const PAGE_SIZE = 10;

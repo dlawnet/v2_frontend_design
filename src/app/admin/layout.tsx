@@ -29,7 +29,7 @@ export default function RootLayout({
               <Header/>
             </div>
 
-            <div className="h-[calc(100ch-3rem)] overflow-y-scroll overflow-x-hidden">
+            <div className="h-[calc(100vh-3rem)] overflow-y-scroll overflow-x-hidden">
               {children}
             </div>
           </div>
