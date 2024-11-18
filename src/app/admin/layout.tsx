@@ -12,7 +12,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="w-full h-screen overflow-hidden poppins">
-        <div className="w-full h-[calc(100vh-4rem)] lg:h-full flex items-center justify-center overflow-hidden relative">
+        <div className="w-full h-screen lg:h-full flex items-center justify-center overflow-hidden relative">
           <div className="w-[270px] h-full hidden lg:flex overflow-hidden">
             <Sidenav />
           </div>

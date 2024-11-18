@@ -32,7 +32,7 @@ const Dashboard = () => {
 
   return (
     <div className='w-full h-full p-2 sm:px-4 lg:px-6 lg:py-2 flex flex-col gap-4 lg:gap-6'>
-      <div className='w-full flex justify-between items-center'>
+      <div className='w-full flex flex-col md:flex-row gap-2 justify-between md:items-center'>
         <h2 className='text-[1.6em] font-bold text-[#491217]'>Dashboard</h2>
         <div className='px-4 lg:px-6 py-2 flex items-center gap-2 border overflow-hidden rounded-full bg-[#FDDF5A]'>
           <Search className='w-7 h-7 text-[#491217]'/>
@@ -44,9 +44,9 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className='w-full bg-[#FDDF5A] p-4 md:p-10 rounded-2xl flex justify-between items-center'>
+      <div className='w-full bg-[#FDDF5A] p-4 md:p-10 rounded-2xl grid grid-cols-2 gap-4 md:gap-2 md:grid-cols-4'>
         {dash.map((link, index) => (
-          <div key={index} className='flex justify-center items-center gap-2 md:gap-4'>
+          <div key={index} className='flex md:justify-center md:items-center gap-2 md:gap-4'>
             <div className='w-16 h-16 flex justify-center items-center rounded-full bg-[#491217]'>
               {link.icon}
             </div>
