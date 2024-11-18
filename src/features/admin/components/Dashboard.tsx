@@ -81,8 +81,10 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div>
-            <LineBar/>
+          <div className='w-full overflow-x-scroll pb-4 md:pb-0'>
+            <div className='min-w-[500px]'>
+              <LineBar/>
+            </div>
           </div>
       </div>
 
@@ -95,8 +97,10 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div>
-            <NewStudentsTable/>
+          <div className='w-full overflow-x-scroll pb-4 md:pb-0'>
+            <div className='min-w-[550px]'>
+              <NewStudentsTable/>
+            </div>
           </div>
       </div>
       
