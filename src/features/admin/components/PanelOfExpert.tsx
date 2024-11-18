@@ -46,17 +46,17 @@ const PanelOfExpert = () => {
   return (
     <div className='w-full h-full p-2 sm:px-4 lg:px-6 lg:py-3 flex flex-col gap-4 lg:gap-6'>
         <div className='w-full flex justify-between items-center'>
-            <h2 className='text-[1.6em] font-bold text-[#491217]'>Panel Of Experts</h2>
+            <h2 className='text-[1.2em] md:text-[1.6em] font-bold text-[#491217]'>Panel Of Experts</h2>
             
             <div className='flex items-center justify-center gap-4'>
-              <button className='px-5 py-3 hover:underline text-[#491217] rounded-[5px] text-[1em]'>
+              <button className='px-3 md:px-5 py-1 md:py-3 hover:underline text-[#491217] rounded-[5px] text-[.7em] md:text-[1em]'>
                 Create Experts
               </button>
             </div>
         </div>
 
-        <div className="w-full p-4">
-          <div className='w-[950px] overflow-x-scroll lg:overflow-hidden lg:w-full mx-auto'>
+        <div className="w-full md:p-4 overflow-x-scroll">
+          <div className='min-w-[550px] w-[950px] overflow-x-scroll lg:overflow-hidden lg:w-full mx-auto'>
           
             <div className="bg-yellow-300 px-2 text-[.7em] text-[#491217] font-medium items-center py-2 grid grid-cols-10 gap-2">
               <div>ID</div>
@@ -97,32 +97,33 @@ const PanelOfExpert = () => {
               </div>
             ))}
 
-            <div className="flex justify-center items-center mt-4 space-x-2">
-              <button
-                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                disabled={currentPage === 1}
-                className="text-[#491217] text-[.8em]"
-              >
-                Previous
-              </button>
-              {[...Array(totalPages)].map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentPage(i + 1)}
-                  className={`px-2 py-1 rounded-[6px] text-[.8em] ${currentPage === i + 1 ? 'bg-[#491217] text-white' : 'bg-yellow-300 text-[#491217]'}`}
-                >
-                  {i + 1}
-                </button>
-              ))}
-              <button
-                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                disabled={currentPage === totalPages}
-                className="text-[#491217] text-[.8em]"
-              >
-                Next
-              </button>
-            </div>
           </div>   
+        </div>
+
+        <div className="flex justify-center items-center space-x-2">
+          <button
+            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            className="text-[#491217] text-[.8em]"
+          >
+            Previous
+          </button>
+          {[...Array(totalPages)].map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentPage(i + 1)}
+              className={`px-2 py-1 rounded-[6px] text-[.8em] ${currentPage === i + 1 ? 'bg-[#491217] text-white' : 'bg-yellow-300 text-[#491217]'}`}
+            >
+              {i + 1}
+            </button>
+          ))}
+          <button
+            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+            className="text-[#491217] text-[.8em]"
+          >
+            Next
+          </button>
         </div>
     </div>
   )
