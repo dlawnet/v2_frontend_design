@@ -81,20 +81,20 @@ const EventDiary = () => {
     
   return (
     <div className='w-full h-full p-2 sm:px-4 lg:px-6 lg:py-2 flex flex-col gap-4 lg:gap-10'>
-        <div className='w-full flex justify-between items-center'>
-            <h2 className='text-[1.6em] font-bold text-[#491217]'>Event Diary</h2>
+        <div className='w-full flex flex-col md:flex-row gap-2 justify-between md:items-center'>
+            <h2 className='text-[1.4em] md:text-[1.6em] font-bold text-[#491217]'>Event Diary</h2>
             <div className='px-4 lg:px-6 py-2 flex items-center gap-2 border overflow-hidden rounded-full bg-[#FDDF5A]'>
                 <Search className='w-7 h-7 text-[#491217]'/>
                 <Input
                 type='text'
                 placeholder='Search here...'
-                className='border-none min-w-[200px] px-2 py-2 outline-none shadow-none text-[#491217] text-sm'
+                className='border-none min-w-[200px] px-2 py-1 md:py-2 outline-none shadow-none text-[#491217] text-sm'
                 />
             </div>
         </div>
 
-        <div className='relative w-full bg-[#FDDF5A] p-4 md:p-14 rounded-t-2xl flex justify-between items-center'>
-            <div className='absolute left-10 top-5'>
+        <div className='relative w-full bg-[#FDDF5A] p-14 rounded-t-2xl flex justify-between items-center'>
+            <div className='absolute left-5 md:left-10 top-5'>
                 <div className='bg-[#491217] border-8 border-white rounded-full w-40 h-40'></div>
             </div>
             <div className='absolute right-10 -bottom-10 cursor-pointer'>
@@ -103,12 +103,12 @@ const EventDiary = () => {
         </div>
 
         <div className='mt-14 px-2 md:px-4 flex flex-col gap-8 w-full'>
-            <div className='flex flex-col gap-2'>
+            <div className='flex flex-col gap-1 md:gap-2'>
                 <span className='text-[1.5em] text-[#491217] font-semibold'>Abuja Law School</span>
                 <span className='text-[1em] text-[#491217]'>School</span>
             </div>
 
-            <div className='w-full flex gap-4 md:gap-10 lg:gap-20 items-center'>
+            <div className='w-full flex flex-col md:flex-row gap-4 md:gap-10 lg:gap-20 md:items-center'>
                 {details.map((detail, index) => (
                     <div
                     key={index}
@@ -124,7 +124,7 @@ const EventDiary = () => {
             </div>
         </div>
         
-        <div className='w-full flex flex-col gap-4'>
+        <div className='w-full flex flex-col gap-2 md:gap-4'>
             <div className='w-full flex justify-between items-center'>
                 <h2 className='text-[1.3em] font-bold text-[#491217]'>Executives</h2>
                 
@@ -134,112 +134,118 @@ const EventDiary = () => {
                     </button>
                 </div>
             </div>
+            
+            <div className='w-full overflow-x-scroll'>
+                <div className="min-w-[550px] w-[950px] overflow-x-scroll lg:overflow-hidden lg:w-full mx-auto">
+                    <div className="bg-yellow-300 px-2 text-[.7em] text-[#491217] font-semibold items-center py-2 grid grid-cols-8 gap-2">
+                        <div className="col-span-1">Position</div>
+                        <div className="col-span-1">Name</div>
+                        <div className="col-span-2">Description</div>
+                        <div className="col-span-1">Tenure Start</div>
+                        <div className="col-span-1">Tenure End</div>
+                        <div className="col-span-1">Tenure Session</div>
+                        <div className="col-span-1">Actions</div>
+                    </div>
 
-            <div className="w-[950px] overflow-x-scroll lg:overflow-hidden lg:w-full mx-auto">
-                <div className="bg-yellow-300 px-2 text-[.7em] text-[#491217] font-semibold items-center py-2 grid grid-cols-8 gap-2">
-                    <div className="col-span-1">Position</div>
-                    <div className="col-span-1">Name</div>
-                    <div className="col-span-2">Description</div>
-                    <div className="col-span-1">Tenure Start</div>
-                    <div className="col-span-1">Tenure End</div>
-                    <div className="col-span-1">Tenure Session</div>
-                    <div className="col-span-1">Actions</div>
-                </div>
-
-                {mdata.slice(0, visibleCount).map((member, index) => (
-                    <div key={index} className="grid grid-cols-8 gap-2 px-2 py-2 border-b text-[.8em]">
-                        <div className="col-span-1 font-bold">{member.position}</div>
-                        <div className="col-span-1">{member.name}</div>
-                        <div className="col-span-2">{member.description}</div>
-                        <div className="col-span-1">{member.tenureStart}</div>
-                        <div className="col-span-1">{member.tenureEnd}</div>
-                        <div className="col-span-1">{member.tenureSession}</div>
-                        <div className="col-span-1 flex">
-                            <button className="text-[#491217]">
-                                <Trash2/>
-                            </button>
+                    {mdata.slice(0, visibleCount).map((member, index) => (
+                        <div key={index} className="grid grid-cols-8 gap-2 px-2 py-2 border-b text-[.8em]">
+                            <div className="col-span-1 font-bold">{member.position}</div>
+                            <div className="col-span-1">{member.name}</div>
+                            <div className="col-span-2">{member.description}</div>
+                            <div className="col-span-1">{member.tenureStart}</div>
+                            <div className="col-span-1">{member.tenureEnd}</div>
+                            <div className="col-span-1">{member.tenureSession}</div>
+                            <div className="col-span-1 flex">
+                                <button className="text-[#491217]">
+                                    <Trash2/>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
 
-                {visibleCount < mdata.length && (
-                    <div className="flex justify-center mt-4">
-                        <button
-                        onClick={handleSeeMore}
-                        className="px-4 py-2 text-[#491217] font-semibold rounded-md"
-                        >
-                            See More
-                        </button>
-                    </div>
-                )}
+                </div>
             </div>
+
+            {visibleCount < mdata.length && (
+                <div className="flex justify-center mt-4">
+                    <button
+                    onClick={handleSeeMore}
+                    className="px-4 py-2 text-[#491217] font-semibold rounded-md"
+                    >
+                        See More
+                    </button>
+                </div>
+            )}
         </div>
 
-        <div className="w-full flex flex-col gap-4">
+        <div className="w-full flex flex-col gap-2 md:gap-4">
             <div className='w-full flex justify-between items-center'>
-                <h2 className='text-[1.3em] font-bold text-[#491217]'>Posts & Events Created</h2>
+                <h2 className=' text-[1em] md:text-[1.3em] font-bold text-[#491217]'>Posts & Events Created</h2>
                 
                 <div className='flex items-center justify-center gap-4'>
-                    <button className='px-5 py-3 hover:underline text-[#491217] font-semibold rounded-[5px] text-[1em]'>
+                    <button className='px-3 md:px-5 py-1 md:py-3 hover:underline text-[#491217] font-semibold rounded-[5px] text-[1em]'>
                         Create Post
                     </button>
                 </div>
             </div>
-
-            <div className="w-[950px] overflow-x-scroll lg:overflow-hidden lg:w-full mx-auto">
-                <div className="bg-yellow-300 px-2 text-[.7em] text-[#491217] font-semibold items-center py-2 grid grid-cols-7 gap-2">
-                    <div className="col-span-1">Post Icon</div>
-                    <div className="col-span-1">Title</div>
-                    <div className="col-span-1">Description</div>
-                    <div className="col-span-1">Date Posted</div>
-                    <div className="col-span-1">Relevant Event</div>
-                    <div className="col-span-1">Date of Event</div>
-                    <div className="col-span-1">Actions</div>
-                </div>
-
-                {paginatedData.map((user, index) => (
-                    <div key={index} className="grid grid-cols-7 gap-2 px-2 py-2 border-b text-[.8em]">
-                        <div className="text-[#491217] font-medium w-8 h-8 overflow-hidden">
-                            <img src={user.postIcon} alt='icon' className='w-full h-full object-cover'/>
-                        </div>
-                        <div>{user.title}</div>
-                        <div>{user.description}</div>
-                        <div>{user.datePosted}</div>
-                        <div>{user.relevantEvent}</div>
-                        <div>{user.dateOfEvent}</div>
-                        <div className=''>
-                            <button className="text-[#491217]">
-                                <Trash2/>
-                            </button>
-                        </div>
+            
+            <div className='w-full overflow-x-scroll'>
+                <div className="min-w-[550px] w-[950px] overflow-x-scroll lg:overflow-hidden lg:w-full mx-auto">
+                    <div className="bg-yellow-300 px-2 text-[.7em] text-[#491217] font-semibold items-center py-2 grid grid-cols-7 gap-2">
+                        <div className="col-span-1">Post Icon</div>
+                        <div className="col-span-1">Title</div>
+                        <div className="col-span-1">Description</div>
+                        <div className="col-span-1">Date Posted</div>
+                        <div className="col-span-1">Relevant Event</div>
+                        <div className="col-span-1">Date of Event</div>
+                        <div className="col-span-1">Actions</div>
                     </div>
-                ))}
 
-                <div className="flex justify-center items-center mt-4 space-x-2">
-                    <button
-                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                        disabled={currentPage === 1}
-                        className="text-[#491217] text-[.8em]"
-                    >
-                        Previous
-                    </button>
-                    {[...Array(totalPages)].map((_, i) => (
-                        <button
-                        key={i}
-                        onClick={() => setCurrentPage(i + 1)}
-                        className={`px-2 py-1 rounded-[6px] text-[.8em] ${currentPage === i + 1 ? 'bg-[#491217] text-white' : 'bg-yellow-300 text-[#491217]'}`}
-                        >
-                        {i + 1}
-                        </button>
+                    {paginatedData.map((user, index) => (
+                        <div key={index} className="grid grid-cols-7 gap-2 px-2 py-2 border-b text-[.8em]">
+                            <div className="text-[#491217] font-medium w-8 h-8 overflow-hidden">
+                                <img src={user.postIcon} alt='icon' className='w-full h-full object-cover'/>
+                            </div>
+                            <div>{user.title}</div>
+                            <div>{user.description}</div>
+                            <div>{user.datePosted}</div>
+                            <div>{user.relevantEvent}</div>
+                            <div>{user.dateOfEvent}</div>
+                            <div className=''>
+                                <button className="text-[#491217]">
+                                    <Trash2/>
+                                </button>
+                            </div>
+                        </div>
                     ))}
-                    <button
-                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                        disabled={currentPage === totalPages}
-                        className="text-[#491217] text-[.8em]"
-                    >
-                        Next
-                    </button>
+
                 </div>
+            </div>
+
+            <div className="flex justify-center items-center mt-4 space-x-2">
+                <button
+                    onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                    disabled={currentPage === 1}
+                    className="text-[#491217] text-[.8em]"
+                >
+                    Previous
+                </button>
+                {[...Array(totalPages)].map((_, i) => (
+                    <button
+                    key={i}
+                    onClick={() => setCurrentPage(i + 1)}
+                    className={`px-2 py-1 rounded-[6px] text-[.8em] ${currentPage === i + 1 ? 'bg-[#491217] text-white' : 'bg-yellow-300 text-[#491217]'}`}
+                    >
+                    {i + 1}
+                    </button>
+                ))}
+                <button
+                    onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                    disabled={currentPage === totalPages}
+                    className="text-[#491217] text-[.8em]"
+                >
+                    Next
+                </button>
             </div>
         </div>
     </div>

@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import { Search, MessageCirclePlus, EllipsisVertical, ArrowUp, Menu, Video } from 'lucide-react';
+import { Search, SendHorizontal, EllipsisVertical, Menu, Video, Paperclip } from 'lucide-react';
 import { BigMessageIcon } from '@app/icons';
 import { motion } from 'framer-motion';
 import { ScrollArea } from '@app/components/base/scrollArea';
@@ -86,13 +86,13 @@ const Customer: React.FC = () => {
   return (
     <div className='w-full flex flex-col'>
       <div className='w-full flex justify-between items-center px-2 md:px-4'>
-        <h2 className='text-[1.6em] font-bold text-[#491217]'>Customer Service</h2>      
-        <div className='px-4 lg:px-6 py-2 flex items-center gap-2 border overflow-hidden rounded-full bg-[#FDDF5A]'>
+        <h2 className='text-[1em] md:text-[1.6em] font-bold text-[#491217]'>Customer Service</h2>      
+        <div className='px-2 md:px-4 lg:px-6 py-2 flex items-center gap-2 border overflow-hidden rounded-full bg-[#FDDF5A]'>
           <Search className='w-7 h-7 text-[#491217]'/>
           <Input
             type='text'
             placeholder='Search here...'
-            className='border-none min-w-[200px] px-2 py-1 outline-none shadow-none text-[#491217] text-sm'
+            className='border-none  md:min-w-[200px] px-2 md:py-1 outline-none shadow-none text-[#491217] text-sm'
           />
         </div>
       </div>
@@ -224,7 +224,7 @@ const Customer: React.FC = () => {
               </ScrollArea>
 
               <div className='w-full border-t pt-4 border-[#491217]'>
-                <div className="mx-auto mb-4 w-[90%] border rounded-full border-[#FDDF5A] bg-background p-2 flex items-center">
+                <div className="mx-auto mb-4 w-[90%] border rounded-full border-[#FDDF5A] bg-background p-2 flex items-center gap-1">
                   <input 
                     type="text" 
                     placeholder="Write your message" 
@@ -232,11 +232,15 @@ const Customer: React.FC = () => {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                   />
+
+                  <Paperclip className='w-6 h-6 text-[#FDDF5A] cursor-pointer'/>
+
                   <button 
                     onClick={sendMessage} 
-                    className=" p-3 bg-[#E0CEB2] text-white rounded-full"
+                    className=" p-3 bg-[#491217] flex items-center gap-1 text-white rounded-full"
                   >
-                    <ArrowUp className="w-5 h-5 text-[#3F3A37]"/>
+                    <span className='text-[.8em]'>Send</span>
+                    <SendHorizontal className="w-5 h-5 text-white"/>
                   </button>
                 </div>
               </div>
