@@ -21,7 +21,7 @@ const Header = () => {
                 <Menu className="text-[#491217] w-6 h-6"/>
             </div>
 
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center gap-2">
                 <button
                 onClick={toggleNotificationPanel}
                 className="p-1"

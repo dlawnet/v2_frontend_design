@@ -59,7 +59,7 @@ const BanksPage2 = () => {
                             />
                         </div>
                     </div>
-                    <div className="flex flex-wrap gap-5 px-5 justify-center md:justify-start">
+                    <div className="flex flex-wrap gap-5 px-4 py-2 justify-center md:justify-start">
                         {getTopupItems?.data.map((item: any) => (
                             <TopUpItem
                                 key={item.id}
