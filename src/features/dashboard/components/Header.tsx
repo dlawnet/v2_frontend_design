@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger} from "@app/components/base/menubar";
+import {useGetAccountBalance} from "@app/features/dashboard";
 
 
 const Header = () => {
@@ -9,7 +10,7 @@ const Header = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
+  const {data:getBalance} = useGetAccountBalance()
   return (
     <nav className="flex items-center justify-between px-6 lg:px-[40px] h-[76px] bg-[#491217] text-white helvetica">
       <div className="flex-grow lg:flex-grow-0 my-5">
@@ -21,7 +22,7 @@ const Header = () => {
       <div className="hidden lg:flex gap-8">
         <div className="flex items-center gap-2">
           <img src="/images/wallet.svg" alt="Menu" />
-          $0.00
+          N{getBalance}
         </div>
         <div>
           <Menubar className="border-none">

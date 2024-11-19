@@ -6,16 +6,13 @@ import BanksPage2 from "@app/features/dashboard/components/banks/BanksPage2";
 
 const page = () => {
   const { data: user } = useUser();
-  const [bankPage, setBankPage] = useState("BanksPage1");
-
   return (
     <div>
-      {user?.data?.status === 'activated' 
+      {user?.data?.is_activated	 === true
         ? (
           <BanksPage2 />
         ) : (
-          // <BanksPage1 setBankPage={setBankPage} />
-          <BanksPage2 />
+          <BanksPage1 />
         )
       }
     </div>
