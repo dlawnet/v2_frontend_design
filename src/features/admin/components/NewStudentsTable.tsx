@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { DataTable } from '@app/components/custom/DataTable'
+import { DataTable } from '@app/components/DataTable'
 import { ColumnDef } from "@tanstack/react-table"
 
 interface Order {

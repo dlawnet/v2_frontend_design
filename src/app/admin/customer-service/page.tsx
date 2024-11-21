@@ -1,8 +1,11 @@
 import React from 'react'
+import Customer from '@app/features/admin/components/Customer'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div>
+      <Customer/>
+    </div>
   )
 }
 

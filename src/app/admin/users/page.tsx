@@ -1,8 +1,9 @@
 import React from 'react'
+import Users from '@app/features/admin/components/Users'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div><Users/></div>
   )
 }
 

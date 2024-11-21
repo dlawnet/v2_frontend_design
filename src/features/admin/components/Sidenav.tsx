@@ -43,11 +43,11 @@ const Sidenav = () => {
                 <img src="/images/logo.svg" alt="Logo" />
             </div>
 
-            <div className="hidden lg:flex lg:flex-col gap-4 lg:items-center w-full h-full pl-4  py-10">
+            <div className="flex flex-col gap-4 items-center w-full h-full pl-4  py-10">
                 {links.map((item) => (
                     <Link href={item.link} key={item.tag} className="w-full">
                         <div
-                            className={`flex items-center pl-4 py-3 gap-4 w-full rounded-l-full cursor-pointer ${
+                            className={`flex items-center pl-4 py-3 gap-2 md:gap-4 w-full rounded-l-full cursor-pointer ${
                                 selectedMenu === item.tag ? "bg-[#FDDF5A]" : "bg-[#491217]"
                             }`}
                         >
