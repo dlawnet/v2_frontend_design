@@ -10,7 +10,7 @@ const Dashboard = () => {
   const [isDialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
-    if (user?.data?.user?.status === "registered") {
+    if (user?.data?.status === "registered") {
       setDialogOpen(true);
     }
   }, [user]);
@@ -28,7 +28,7 @@ const Dashboard = () => {
 
             <div className="w-full flex flex-col gap-2 lg:gap-5 helvetica">
               <p className="font-medium text-lg lg:text-2xl">
-                Hello {user?.data?.user?.first_name} {user?.data?.user?.last_name},
+                Hello {user?.data?.first_name} {user?.data?.last_name},
               </p>
               <p className="text-[.8em] lg:text-[.9em] lg:max-w-[60%] leading-5">
                 We're excited to have you with us and can't wait for you to discover

@@ -15,7 +15,7 @@ const FormOne = () => {
     const handleLoginSuccess = async () => {
 
            const authUser = await getAuthUser();
-      const isAdmin = authUser.data.user.roles[0].name === "admin";
+      const isAdmin = authUser.data.user_roles[0] === "admin";
         console.log("isAdmin",isAdmin)
       if (isAdmin) {
         // User is admin, proceed with navigation
