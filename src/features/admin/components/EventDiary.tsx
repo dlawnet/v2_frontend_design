@@ -58,8 +58,8 @@ const EventDiary = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [filteredData, setFilteredData] = useState(data)
 
-    const paginatedData = filteredData.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
-    const totalPages = Math.ceil(filteredData.length / PAGE_SIZE)
+    const paginatedData = filteredData?.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
+    const totalPages = Math.ceil(filteredData?.length / PAGE_SIZE)
 
     const details =[
         {
