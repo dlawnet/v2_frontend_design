@@ -58,8 +58,8 @@ const EventDiary = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [filteredData, setFilteredData] = useState(data)
 
-    const paginatedData = filteredData.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
-    const totalPages = Math.ceil(filteredData.length / PAGE_SIZE)
+    const paginatedData = filteredData?.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE)
+    const totalPages = Math.ceil(filteredData?.length / PAGE_SIZE)
 
     const details =[
         {
@@ -149,12 +149,12 @@ const EventDiary = () => {
 
                     {mdata.slice(0, visibleCount).map((member, index) => (
                         <div key={index} className="grid grid-cols-8 gap-2 px-2 py-2 border-b text-[.8em]">
-                            <div className="col-span-1 font-bold">{member.position}</div>
-                            <div className="col-span-1">{member.name}</div>
-                            <div className="col-span-2">{member.description}</div>
-                            <div className="col-span-1">{member.tenureStart}</div>
-                            <div className="col-span-1">{member.tenureEnd}</div>
-                            <div className="col-span-1">{member.tenureSession}</div>
+                            <div className="col-span-1 font-bold">{member?.position}</div>
+                            <div className="col-span-1">{member?.name}</div>
+                            <div className="col-span-2">{member?.description}</div>
+                            <div className="col-span-1">{member?.tenureStart}</div>
+                            <div className="col-span-1">{member?.tenureEnd}</div>
+                            <div className="col-span-1">{member?.tenureSession}</div>
                             <div className="col-span-1 flex">
                                 <button className="text-[#491217]">
                                     <Trash2/>
@@ -206,11 +206,11 @@ const EventDiary = () => {
                             <div className="text-[#491217] font-medium w-8 h-8 overflow-hidden">
                                 <img src={user.postIcon} alt='icon' className='w-full h-full object-cover'/>
                             </div>
-                            <div>{user.title}</div>
-                            <div>{user.description}</div>
-                            <div>{user.datePosted}</div>
-                            <div>{user.relevantEvent}</div>
-                            <div>{user.dateOfEvent}</div>
+                            <div>{user?.title}</div>
+                            <div>{user?.description}</div>
+                            <div>{user?.datePosted}</div>
+                            <div>{user?.relevantEvent}</div>
+                            <div>{user?.dateOfEvent}</div>
                             <div className=''>
                                 <button className="text-[#491217]">
                                     <Trash2/>
