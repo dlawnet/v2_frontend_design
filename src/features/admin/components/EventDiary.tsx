@@ -114,10 +114,10 @@ const EventDiary = () => {
                     key={index}
                     className='flex flex-col gap-1'
                     >
-                        <span className='text-[1em] text-[#491217] font-semibold'>{detail.title}:</span>
+                        <span className='text-[1em] text-[#491217] font-semibold'>{detail?.title}:</span>
                         <div className='flex items-center gap-2'>
                             <div className='bg-yellow-300 w-8 h-8 rounded-full flex justify-center items-center'>{detail.icon}</div>
-                            <span className='text-[1em] text-[#491217] font-semibold'>{detail.info}</span>
+                            <span className='text-[1em] text-[#491217] font-semibold'>{detail?.info}</span>
                         </div>
                     </div>
                 ))}
