@@ -4,7 +4,7 @@ import {Checkbox} from "@app/components/base/checkbox";
 import {Input} from "@app/components/base/input";
 import React, {useEffect} from "react";
 import {DForm} from "@app/components/DForm";
-import {LoginDto, loginSchema} from "@app/features/authentication";
+import {getAuthUser, LoginDto, loginSchema} from "@app/features/authentication";
 import {useLogin} from "@app/lib/auth";
 import {useRouter} from "next/navigation";
 
@@ -13,19 +13,16 @@ const FormOne = () => {
   const loginMutation = useLogin();
   useEffect(() => {
     const handleLoginSuccess = async () => {
-      /*
-      TODO: To handle redirection based on user type
 
            const authUser = await getAuthUser();
-      const isAdmin = authUser.data.roles[0].name === "admin";
-console.log("isAdmin",isAdmin)
+      const isAdmin = authUser.data.user.roles[0].name === "admin";
+        console.log("isAdmin",isAdmin)
       if (isAdmin) {
         // User is admin, proceed with navigation
         router.push("/admin");
       } else {
         router.push("/dashboard");
-      }*/
-        router.push("/dashboard");
+      }
     };
 
     if (loginMutation.isSuccess) {

@@ -7,7 +7,7 @@ const AuthMiddlewareProvider = ({ children }: { children: React.ReactNode }) => 
 
     useEffect(() => {
         const token = localStorage.getItem('dlawnet_token');
-        const restrictedPaths = ['/dashboard'];
+        const restrictedPaths = ['/dashboard','/admin'];
 
         const currentPath = window.location.pathname;
 
