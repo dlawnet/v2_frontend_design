@@ -16,98 +16,28 @@ import {
   } from "@app/components/base/table";
 import { DndIcon } from '@app/icons';
 import { DialogContent } from "@app/components/base/dialog";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from "@app/components/base/select";
+import {useGetActivationInvoice, usePostUploadProofPayment} from "@app/features/dashboard";
 
-interface InvoiceData {
-    currentDate: string
-    invoiceId: string
-    type: string;
-    price: string;
-    billingCycle: string;
-    name: string;
-    bankName: string;
-    accountNumber: string;
-    referenceNumber: string;
-}
 
-interface SubscriptionType {
-    type: string;
-    price: string;
-    billingCycle: string;
-}
 
 interface FileUpload {
     file: File;
     progress: number;
 }
 
-type Step = 1 | 2 | 3 | 4 | 5;
-/*const getActivationFee = useGetActivationFee()
-console.table(getActivationFee);*/
-const subscriptionTypes: SubscriptionType[] = [
-    { type: "University", price: "₦6,000", billingCycle: "One time fee" },
-    { type: "Law School", price: "₦12,000", billingCycle: "One time fee" },
-];
+type Step =  1 | 2 | 3 | 4;
 
 const InvoiceContent: React.FC = () => {
+    const {data:getActivationInvoice} = useGetActivationInvoice()
+    console.table(getActivationInvoice);
     const router = useRouter();
-    const searchParams = useSearchParams();
-    const [selectedSubscription, setSelectedSubscription] = useState<SubscriptionType | null>(null);
-    const [invoiceData, setInvoiceData] = useState<InvoiceData>({
-        currentDate: '',
-        invoiceId: '',
-        type: '',
-        price: '',
-        billingCycle: '',
-        name: '',
-        bankName: '',
-        accountNumber: '',
-        referenceNumber: ''
-    });
     const [currentStep, setCurrentStep] = useState<Step>(1);
     const [uploadedFiles, setUploadedFiles] = useState<FileUpload[]>([]);
 
     const invoiceRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        const data: InvoiceData = {
-            currentDate: searchParams.get('currentDate') || '',
-            invoiceId: searchParams.get('invoiceId') || '',
-            type: searchParams.get('type') || '',
-            price: searchParams.get('price') || '',
-            billingCycle: searchParams.get('billingCycle') || '',
-            name: searchParams.get('name') || '',
-            bankName: searchParams.get('bankName') || '',
-            accountNumber: searchParams.get('accountNumber') || '',
-            referenceNumber: searchParams.get('referenceNumber') || ''
-        };
-        setInvoiceData(data);
-    }, [searchParams]);
 
-    const handleSubscriptionSelect = (subscriptionType: string) => {
-        const selected = subscriptionTypes.find(sub => sub.type === subscriptionType);
-        if (selected) {
-            setSelectedSubscription(selected);
-            setInvoiceData(prev => ({
-                ...prev,
-                type: selected.type,
-                price: selected.price,
-                billingCycle: selected.billingCycle
-            }));
-        }
-    };
 
-    const handleContinue = () => {
-        if (selectedSubscription) {
-            setCurrentStep(2);
-        }
-    };
 
     const handleDownloadPDF = async (): Promise<void> => {
         if (!invoiceRef.current) return;
@@ -122,15 +52,15 @@ const InvoiceContent: React.FC = () => {
         });
 
         pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
-        pdf.save(`Invoice-${invoiceData.invoiceId}.pdf`);
+        pdf.save(`Invoice-${getActivationInvoice?.data?.transaction?.reference_number}.pdf`);
     };
 
     const handleFileUpload = (file: File): void => {
+        const { mutate } = usePostUploadProofPayment(getActivationInvoice?.data?.transaction?.reference_number);
         const newFileUpload: FileUpload = {
             file,
             progress: 0
         };
-
         setUploadedFiles(prev => [...prev, newFileUpload]);
 
         const simulateProgress = (fileIndex: number): void => {
@@ -148,9 +78,9 @@ const InvoiceContent: React.FC = () => {
             progressCount++;
             simulateProgress(uploadedFiles.length);
 
-            if (progressCount >= 6) {
+            if (progressCount >= 5) {
                 clearInterval(interval);
-                setCurrentStep(5);
+                setCurrentStep(4);
             }
         }, 500);
     };
@@ -166,19 +96,6 @@ const InvoiceContent: React.FC = () => {
         if (file) handleFileUpload(file);
     };
 
-    //THIS CREATES A UNIQUE ID FOR THE PAYMENT ---- YOU MIGHT NEED
-    const invoiceIds = new Set<string>(); // Simulating a database for existing IDs
-
-    const generateInvoiceId = (): string => {
-        let id: string;
-        do {
-            id = `#${Math.floor(Math.random() * 1e10).toString().padStart(10, '0')}`;
-        } while (invoiceIds.has(id)); // This one na to check if ID already exists in "database"
-
-        invoiceIds.add(id); // Simulate saving ID to "database", backend bros.
-        return id;
-    };
-
     // GET CURRENT DATE - IN A FORMATTED FORMAT
     const getFormattedDate = (): string => {
         const date = new Date();
@@ -192,63 +109,6 @@ const InvoiceContent: React.FC = () => {
     const renderStepContent = (): JSX.Element | null => {
         switch (currentStep) {
             case 1:
-                return (
-                    <div className="bg-white p-6 rounded-lg shadow-sm">
-                        <h2 className="text-2xl font-semibold mb-6">Select Subscription Plan</h2>
-                        <div className="space-y-4">
-                            <div className="w-full">
-                                <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Subscription Type
-                                </label>
-                                <Select
-                                    onValueChange={handleSubscriptionSelect}
-                                    value={selectedSubscription?.type || ''}
-                                >
-                                    <SelectTrigger className="w-full bg-white">
-                                        <SelectValue placeholder="Select a subscription plan" />
-                                    </SelectTrigger>
-                                    <SelectContent className="w-full bg-white">
-                                        {subscriptionTypes.map((sub) => (
-                                            <SelectItem key={sub.type} value={sub.type}>
-                                                {sub.type} - {sub.price} ({sub.billingCycle})
-                                            </SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                            </div>
-
-                            {selectedSubscription && (
-                                <div className="mt-6 p-4 bg-gray-50 rounded-md">
-                                    <h3 className="text-lg font-medium mb-2">Selected Plan Details</h3>
-                                    <div className="space-y-2">
-                                        <p className="text-sm text-gray-600">
-                                            Plan: {selectedSubscription.type}
-                                        </p>
-                                        <p className="text-sm text-gray-600">
-                                            Price: {selectedSubscription.price}
-                                        </p>
-                                        <p className="text-sm text-gray-600">
-                                            Billing Cycle: {selectedSubscription.billingCycle}
-                                        </p>
-                                    </div>
-                                </div>
-                            )}
-
-                            <button
-                                onClick={handleContinue}
-                                disabled={!selectedSubscription}
-                                className={`w-full mt-6 py-3 px-4 rounded-md text-white font-medium
-                                    ${selectedSubscription 
-                                        ? 'bg-black hover:bg-black/90' 
-                                        : 'bg-gray-300 cursor-not-allowed'
-                                    }`}
-                            >
-                                Continue
-                            </button>
-                        </div>
-                    </div>
-                );
-            case 2:
                 return (
                     <div className="bg-transparent flex flex-col w-full h-full">
                         <div
@@ -272,9 +132,9 @@ const InvoiceContent: React.FC = () => {
 
                             <div className="bg-background p-2 rounded-md flex flex-col gap-4 md:gap-8">
                                 <div className='w-full flex flex-col gap-1 text-gray-700 '>
-                                    <h2 className='text-base font-semibold'>Invoice {generateInvoiceId()}</h2>
-                                    <span className='text-xs'>Status: Pending</span>
-                                    <span className='text-xs'>Subscription name: {selectedSubscription?.type}</span>
+                                    <h2 className='text-base font-semibold'>Invoice {getActivationInvoice?.data?.transaction?.reference_number}</h2>
+                                    <span className='text-xs'>Status: {getActivationInvoice?.data?.transaction?.status}</span>
+                                    <span className='text-xs'>Subscription name: Activation Fee</span>
                                     <span className='text-xs'>Payment type: Bank Transfer</span>
                                 </div>
 
@@ -287,9 +147,9 @@ const InvoiceContent: React.FC = () => {
                                     </div>
 
                                     <div className='ml-auto w-full flex flex-col gap-1 text-gray-700'>
-                                        <span className='text-xs'>Name: DLAWNET</span>
-                                        <span className='text-xs'>Bank Name: LAW BANK</span>
-                                        <span className='text-xs'>Account Number: 1234567890</span>
+                                        <span className='text-xs'>Name: {getActivationInvoice?.data?.bank?.account_name}</span>
+                                        <span className='text-xs'>Bank Name: {getActivationInvoice?.data?.bank?.bank_name}</span>
+                                        <span className='text-xs'>Account Number: {getActivationInvoice?.data?.bank?.account_number}</span>
                                         <span className='text-xs'>Date: {getFormattedDate()}</span>
                                     </div>
                                 </div>
@@ -307,12 +167,12 @@ const InvoiceContent: React.FC = () => {
                                     </TableHeader>
                                     <TableBody>
                                         <TableRow>
-                                            <TableCell className="text-[.9em] text-gray-500">{invoiceData.type} - {invoiceData.billingCycle}</TableCell>
+                                            <TableCell className="text-[.9em] text-gray-500">Account Activation - One time Fee</TableCell>
                                             <TableCell className='text-[.9em] text-gray-500'>
                                                 One Time Fee
                                             </TableCell>
-                                            <TableCell className='text-[.9em] text-gray-500'>{selectedSubscription?.price}</TableCell>
-                                            <TableCell className="text-right">{selectedSubscription?.price}</TableCell>
+                                            <TableCell className='text-[.9em] text-gray-500'>{getActivationInvoice?.data?.transaction?.amount}</TableCell>
+                                            <TableCell className="text-right">{getActivationInvoice?.data?.transaction?.amount}</TableCell>
                                         </TableRow>
                                     </TableBody>
                                 </Table>
@@ -321,7 +181,7 @@ const InvoiceContent: React.FC = () => {
                             <div className='w-full'>
                                 <div className='bg-background flex justify-between items-center w-full md:w-[50%] ml-auto rounded-md px-4 py-2'>
                                     <span className='text-[.7em] text-gray-600'>Total</span>
-                                    <span className='text-[.9em] text-gray-800'>{selectedSubscription?.price}</span>
+                                    <span className='text-[.9em] text-gray-800'>{getActivationInvoice?.data?.transaction?.amount}</span>
                                 </div>
                             </div>
                         </div>
@@ -344,7 +204,7 @@ const InvoiceContent: React.FC = () => {
                         </div>
                     </div>
                 );
-            case 3:
+            case 2:
                 return (
                     <div className="bg-background rounded-xl text-center p-4 md:p-12 flex flex-col items-center justify-center gap-2 md:gap-4">
                         <p className="text-2xl font-semibold">Thanks for completing your payment!</p>
@@ -369,7 +229,7 @@ const InvoiceContent: React.FC = () => {
                         </div>
                     </div>
                 );
-            case 4:
+            case 3:
                 return (
                     <div className="p-2 flex flex-col gap-2 md:gap-4">
                         <h2 className="text-2xl font-semibold mb-4">Upload file</h2>
@@ -426,7 +286,7 @@ const InvoiceContent: React.FC = () => {
                                 Cancel
                             </button>
                             <button
-                                onClick={() => setCurrentStep(5)}
+                                onClick={() => setCurrentStep(4)}
                                 className="mt-6 text-[.8em] bg-black text-white px-6 py-3 rounded-md font-medium transition-colors"
                                 type="button"
                             >
@@ -435,7 +295,7 @@ const InvoiceContent: React.FC = () => {
                         </div>
                     </div>
                 );
-            case 5:
+            case 4:
                 return (
                     <div className="p-4 rounded-xl flex flex-col gap-2 md:gap-4 bg-background">
                         <h2 className="text-2xl text-center font-semibold mb-4">Upload Successful</h2>

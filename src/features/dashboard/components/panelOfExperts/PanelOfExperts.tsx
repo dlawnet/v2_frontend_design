@@ -5,6 +5,8 @@ import {Textarea} from "@app/components/base/textarea";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue,} from "@app/components/base/select";
 import {Table, TableCell, TableHead, TableHeader, TableRow,} from "@app/components/base/table";
 import {useDropzone} from "react-dropzone";
+import {useGetServiceTypes} from "@app/features/dashboard";
+import TopUpItem from "@app/features/dashboard/components/TopUpItem";
 
 const PanelOfExperts = () => {
   const [uploadedFiles, setUploadedFiles] = useState<
@@ -31,6 +33,8 @@ const PanelOfExperts = () => {
     },
   });
 
+  const {data:getServiceTypes} = useGetServiceTypes();
+
   return (
     <div className="w-full  flex flex-col gap-2 md:gap-6 p-6">
       <div className="max-w-full w-full lg:max-w-[893px]">
@@ -50,24 +54,16 @@ const PanelOfExperts = () => {
                     <SelectValue placeholder="Service Type" />
                   </SelectTrigger>
                   <SelectContent className="bg-[#491217] text-white">
-                    <SelectItem
-                      value="ServiceTypeOne"
-                      className="hover:bg-slate-400 cursor-pointer"
-                    >
-                      Service Type One
-                    </SelectItem>
-                    <SelectItem
-                      value="ServiceTypeTwo"
-                      className="hover:bg-slate-400 cursor-pointer"
-                    >
-                      Service Type Two
-                    </SelectItem>
-                    <SelectItem
-                      value="ServiceTypeThree"
-                      className="hover:bg-slate-400 cursor-pointer"
-                    >
-                      Service Type Three
-                    </SelectItem>
+
+                    {getServiceTypes?.data.map((item: any) => (
+                        <SelectItem
+                            value={item.name}
+                            className="hover:bg-slate-400 cursor-pointer"
+                        >
+                          {item.display_name}
+                        </SelectItem>
+                    ))}
+
                   </SelectContent>
                 </Select>
                 <Input
