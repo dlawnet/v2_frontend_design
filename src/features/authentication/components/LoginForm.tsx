@@ -7,6 +7,7 @@ import {DForm} from "@app/components/DForm";
 import {getAuthUser, LoginDto, loginSchema} from "@app/features/authentication";
 import {useLogin} from "@app/lib/auth";
 import {useRouter} from "next/navigation";
+import Loader from "@app/components/Loader";
 
 const FormOne = () => {
   const router = useRouter();
@@ -86,7 +87,7 @@ const FormOne = () => {
                             disabled={loginMutation.isLoading}
                             className="bg-white text-black w-[139px] sm:w-[400px] h-[43px] border border-white hover:bg-[#491217] hover:text-white rounded-xl text-xl mt-3"
                         >
-                          {loginMutation.isLoading ? "Logging in..." : "Log In"}
+                          {loginMutation.isLoading ? `${<Loader/>}` : "Log In"}        
                         </Button>
                       </div>
                     </>
