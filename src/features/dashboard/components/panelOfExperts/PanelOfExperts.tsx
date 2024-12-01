@@ -17,7 +17,8 @@ import {
   TableRow,
 } from "@app/components/base/table";
 import { useDropzone } from "react-dropzone";
-import { useGetServiceTypes } from "@app/features/dashboard";
+import { useGetServiceTypes } from "@app/features/dashboard"; 
+import { axios } from "@app/lib/axios";
 
 interface SubmittedQuestion {
   id: number;
@@ -59,31 +60,74 @@ const PanelOfExperts = () => {
 
   const { data: getServiceTypes } = useGetServiceTypes();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+
+  //   if (!serviceType || !subject || !question) {
+  //     alert("All fields are required!");
+  //     return;
+  //   }
+
+  //   const newQuestion: SubmittedQuestion = {
+  //     id: questions.length + 1,
+  //     subject,
+  //     question,
+  //     charges: "20,000 credits", // You can dynamically calculate this
+  //     date: new Date().toLocaleDateString(),
+  //     status: "Pending", // Default status
+  //   };
+
+  //   setQuestions((prev) => [...prev, newQuestion]);
+
+  //   // Clear inputs
+  //   setSubject("");
+  //   setQuestion("");
+  //   setUploadedFiles([]);
+  //   setServiceType(null);
+  // };
+
+  
+
+const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!serviceType || !subject || !question) {
-      alert("All fields are required!");
-      return;
+        alert("All fields are required!");
+        return;
     }
 
-    const newQuestion: SubmittedQuestion = {
-      id: questions.length + 1,
-      subject,
-      question,
-      charges: "20,000 credits", // You can dynamically calculate this
-      date: new Date().toLocaleDateString(),
-      status: "Pending", // Default status
-    };
+    try {
+        const response = await axios.post('/service-request', {
+            service_type: serviceType,
+            // subject,
+            question,
+            files: uploadedFiles.map((file) => file.name), 
+        });
 
-    setQuestions((prev) => [...prev, newQuestion]);
+        console.log("Service request created:", response.data);
 
-    // Clear inputs
-    setSubject("");
-    setQuestion("");
-    setUploadedFiles([]);
-    setServiceType(null);
-  };
+        const newQuestion: SubmittedQuestion = {
+            id: questions.length + 1,
+            subject,
+            question,
+            charges: "20,000 credits",
+            date: new Date().toLocaleDateString(),
+            status: "Pending",
+        };
+        setQuestions((prev) => [...prev, newQuestion]);
+
+        setServiceType(null);
+        setSubject("");
+        setQuestion("");
+        setUploadedFiles([]);
+
+        alert("Service request submitted successfully!");
+    } catch (error) {
+        console.error("Failed to submit service request:", error);
+        alert("An error occurred while submitting the service request. Please try again.");
+    }
+};
+
 
   return (
       <div className="w-full flex flex-col gap-2 md:gap-6 p-6">
@@ -106,7 +150,7 @@ const PanelOfExperts = () => {
                     {getServiceTypes?.data.map((item: any) => (
                         <SelectItem
                             key={item.id}
-                            value={item.name}
+                            value={item.id}
                             className="hover:bg-slate-400 cursor-pointer"
                         >
                           {item.display_name}
