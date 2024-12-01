@@ -17,7 +17,7 @@ import {
   TableRow,
 } from "@app/components/base/table";
 import { useDropzone } from "react-dropzone";
-import { useGetServiceTypes } from "@app/features/dashboard"; 
+import { useGetServiceTypes } from "@app/features/dashboard";
 import { axios } from "@app/lib/axios";
 
 interface SubmittedQuestion {
@@ -60,34 +60,6 @@ const PanelOfExperts = () => {
 
   const { data: getServiceTypes } = useGetServiceTypes();
 
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-
-  //   if (!serviceType || !subject || !question) {
-  //     alert("All fields are required!");
-  //     return;
-  //   }
-
-  //   const newQuestion: SubmittedQuestion = {
-  //     id: questions.length + 1,
-  //     subject,
-  //     question,
-  //     charges: "20,000 credits", // You can dynamically calculate this
-  //     date: new Date().toLocaleDateString(),
-  //     status: "Pending", // Default status
-  //   };
-
-  //   setQuestions((prev) => [...prev, newQuestion]);
-
-  //   // Clear inputs
-  //   setSubject("");
-  //   setQuestion("");
-  //   setUploadedFiles([]);
-  //   setServiceType(null);
-  // };
-
-  
-
 const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -101,7 +73,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             service_type: serviceType,
             // subject,
             question,
-            files: uploadedFiles.map((file) => file.name), 
+            files: uploadedFiles.map((file) => file.name),
         });
 
         console.log("Service request created:", response.data);
