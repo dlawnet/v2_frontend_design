@@ -17,10 +17,10 @@ const Alert: React.FC<AlertProps> = ({ message, type, onClose, duration = 3000 }
     }, [onClose, duration]);
 
     const alertClasses: Record<string, string> = {
-        success: 'bg-green-400 text-white',
+        success: 'bg-yellow-500 text-black',
         error: 'bg-red-400 text-white',
-        warning: 'bg-yellow-400 text-black',
-        info: 'bg-blue-400 text-white',
+        warning: 'bg-white text-black',
+        info: 'bg-gray-500 text-white',
     };
 
     return (

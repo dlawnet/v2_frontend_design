@@ -8,28 +8,44 @@ import {getAuthUser, LoginDto, loginSchema} from "@app/features/authentication";
 import {useLogin} from "@app/lib/auth";
 import {useRouter} from "next/navigation";
 import Loader from "@app/components/Loader";
+import { useAlert } from '@app/providers/AlertContext';
 
 const FormOne = () => {
   const router = useRouter();
+  const { showAlert } = useAlert();
   const loginMutation = useLogin();
+
   useEffect(() => {
     const handleLoginSuccess = async () => {
+        try {
+            const authUser = await getAuthUser();
+            const isAdmin = authUser.data.user_roles[0] === "admin";
+            console.log("isAdmin", isAdmin);
 
-           const authUser = await getAuthUser();
-      const isAdmin = authUser.data.user_roles[0] === "admin";
-        console.log("isAdmin",isAdmin)
-      if (isAdmin) {
-        // User is admin, proceed with navigation
-        router.push("/admin");
-      } else {
-        router.push("/dashboard");
+            showAlert("Login successful! Redirecting...", "success");
+
+            if (isAdmin) {
+                router.push("/admin");
+            } else {
+                router.push("/dashboard");
+            }
+        } catch (error) {
+            console.error("Error fetching user roles:", error);
+            showAlert("An error occurred while logging in. Please try again.", "error");
+        }
+      };
+
+      if (loginMutation.isSuccess) {
+          handleLoginSuccess();
       }
-    };
 
-    if (loginMutation.isSuccess) {
-      handleLoginSuccess();
-    }
-  }, [loginMutation.isSuccess, router]);
+      if (loginMutation.isError) {
+          const errorMessage = loginMutation.error?.message || "Login failed. Please check your credentials.";
+          showAlert(errorMessage, "error");
+      }
+    }, [loginMutation.isSuccess, loginMutation.isError]); 
+
+
   return (
     <div className="flex justify-center mt-10 text-white mb-10 px-8">
       <div className="bg-[#491217] w-full max-w-[523px] rounded-xl pb-10 px-4 sm:px-0">
@@ -82,12 +98,16 @@ const FormOne = () => {
                       </div>
                       <div className="mb-4 flex flex-col items-center">
                         <Button
-                            variant="default"
-                            size="default"
-                            disabled={loginMutation.isLoading}
-                            className="bg-white text-black w-[139px] sm:w-[400px] h-[43px] border border-white hover:bg-[#491217] hover:text-white rounded-xl text-xl mt-3"
+                          variant="default"
+                          size="default"
+                          disabled={loginMutation.isLoading}
+                          className="bg-white text-black w-[139px] sm:w-[400px] h-[43px] border border-white hover:bg-[#491217] hover:text-white rounded-xl text-xl mt-3"
                         >
-                          {loginMutation.isLoading ? `${<Loader/>}` : "Log In"}        
+                            {loginMutation.isLoading ? (
+                                <Loader/> 
+                            ) : (
+                                "Log In"
+                            )}
                         </Button>
                       </div>
                     </>

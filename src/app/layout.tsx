@@ -2,6 +2,7 @@ import React from "react";
 import type {Metadata} from "next";
 import "./globals.css";
 import {Providers} from "@app/providers";
+import { AlertProvider } from '@app/providers/AlertContext';
 import Header from "@app/features/landing-page/components/Header";
 
 export const metadata: Metadata = {
@@ -20,7 +21,9 @@ export default function RootLayout({
 className={""}
       >
       <Providers>
+        <AlertProvider>
           {children}
+        </AlertProvider>
       </Providers>
       </body>
     </html>

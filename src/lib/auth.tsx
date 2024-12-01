@@ -64,3 +64,4 @@ export const {
     LoginDto,
     RegisterDto
 >(authConfig);
+
